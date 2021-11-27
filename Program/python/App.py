@@ -32,8 +32,6 @@ class App:
         self.btn_onoff=tk.Button(window, text="Snapshot", width=25, command=self.snapshot_face)
         self.btn_onoff.pack()
 
-        self.btn_snapshot=tk.Button(window, text="Snapshot", width=25, command=self.snapshot_face)
-        self.btn_snapshot.pack()
         # self.btn_snapshot.pack(anchor=tk.CENTER)
 
 
@@ -75,5 +73,4 @@ haar_face_cascade = cv2.CascadeClassifier('mdls/haarcascade_frontalface_default.
 
 # Create a window and pass it to the Application object
 program_window = tk.Tk()
-program_window.geometry(880, 660)
 App(program_window, "Face-Detector", face_cascade=haar_face_cascade)
