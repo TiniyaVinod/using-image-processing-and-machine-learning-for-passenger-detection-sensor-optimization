@@ -36,6 +36,21 @@ def stop():
         button_play['state'] = 'normal'
         button_stop['state'] = 'disabled'
 
+# Toggle background subtraction
+def bgSubtraction():
+
+    '''
+    apply background subtraction
+    '''
+
+    global bgSubFlag
+
+    if not bgSubFlag:
+        bgSubFlag = True
+    else:
+        bgSubFlag = False
+        
+
 def update_frame():
 
     ret, frame = cap.read()
@@ -46,14 +61,21 @@ def update_frame():
     # mirror horizontally
     frame = np.fliplr(frame)
     img = Image.fromarray(frame)
+
+    if bgSubFlag == True:
+        fgMask = backSub.apply(frame)
+        img = Image.fromarray(fgMask)
+
     photo_img.paste(img)
 
     window_app.after(10, update_frame)
 
-
 # --- main ---
 
 run_camera = False
+bgSubFlag = False
+
+backSub = cv2.createBackgroundSubtractorKNN()
 
 # Video Source Object
 cap = cv2.VideoCapture(1)
@@ -77,7 +99,7 @@ haar_face_cascade = cv2.CascadeClassifier('mdls/haarcascade_frontalface_default.
 # Create a canvas that can fit the above video source size
 canvas = tk.Canvas(
     window_app,
-    width = 840,
+    width = 880,
     height = 640
     ) # 640x840
 canvas.pack(fill='both', expand=True)
@@ -93,6 +115,9 @@ button_play.pack(side='left')
 
 button_stop = tk.Button(buttons, text="Stop", command=stop, state='disabled')
 button_stop.pack(side='left')
+
+button_filter = tk.Button(buttons, text="Apply BG subtraction", command=bgSubtraction)
+button_filter.pack(side='left')
 
 # -- /end buttons
 
