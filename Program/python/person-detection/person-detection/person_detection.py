@@ -49,7 +49,14 @@ def bgSubtraction():
         bgSubFlag = True
     else:
         bgSubFlag = False
-        
+
+def drawROI():
+
+
+    # !TODO : create another popup window and select ROI from there
+    # then return coordinate and make a filter out of it
+    roi = cv2.selectROI(canvas)
+
 
 def update_frame():
 
@@ -116,7 +123,10 @@ button_play.pack(side='left')
 button_stop = tk.Button(buttons, text="Stop", command=stop, state='disabled')
 button_stop.pack(side='left')
 
-button_filter = tk.Button(buttons, text="Apply BG subtraction", command=bgSubtraction)
+button_filter = tk.Button(buttons, text="BG subtraction", command=bgSubtraction)
+button_filter.pack(side='left')
+
+button_filter = tk.Button(buttons, text="Select ROI", command=drawROI)
 button_filter.pack(side='left')
 
 # -- /end buttons

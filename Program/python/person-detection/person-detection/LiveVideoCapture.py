@@ -3,14 +3,14 @@ import cv2
 class LiveVideoCapture:
     def __init__(self, window, video_source=0):
         # Open the video src
-            self.vid = cv2.VideoCapture(video_source)
+        self.vid = cv2.VideoCapture(video_source)
             
-             # Get video src width and height
-            self.width  = self.vid.get(cv2.CAP_PROP_FRAME_WIDTH)
-            self.height = self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT)
+        # Get video src width and height
+        self.width  = self.vid.get(cv2.CAP_PROP_FRAME_WIDTH)
+        self.height = self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT)
 
-            # Get window
-            self.window = window
+        # Get window
+        self.window = window
             
         #if not self.vid.isOpened():
         #   raise ValueError("Unable to open video source", video_source)
