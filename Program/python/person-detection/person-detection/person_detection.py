@@ -1,12 +1,9 @@
-
 #!/usr/bin/env python3
 
 import tkinter as tk
 import cv2
 import numpy as np
 from PIL import Image, ImageTk
-from LiveVideoCapture import LiveVideoCapture
-from detect_main import FaceDetection
 
 def play():
     '''
@@ -20,6 +17,8 @@ def play():
         
         button_play['state'] = 'disabled'
         button_stop['state'] = 'normal'
+        button_bgSub['state'] = 'normal'
+        button_ROI['state'] = 'disabled'
         
         update_frame()
 
@@ -35,6 +34,9 @@ def stop():
 
         button_play['state'] = 'normal'
         button_stop['state'] = 'disabled'
+        button_bgSub['state'] = 'disabled'
+        button_ROI['state'] = 'normal'
+        
 
 # Toggle background subtraction
 def bgSubtraction():
@@ -47,73 +49,127 @@ def bgSubtraction():
 
     if not bgSubFlag:
         bgSubFlag = True
+        button_bgSub['state'] = 'disabled'
     else:
         bgSubFlag = False
+        button_bgSub['state'] = 'normal'
 
-def drawROI():
+def createROI(frame):
 
+    '''
+    draw ROI into frame and filter out non-ROI area with black
+    '''
+    
+    global ROI_Flag
 
-    # !TODO : create another popup window and select ROI from there
-    # then return coordinate and make a filter out of it
-    roi = cv2.selectROI(canvas)
+    if not ROI_Flag:
+        ROI_Flag = True
+        button_ROI['state'] = 'disabled'
 
+        roi = cv2.selectROI(frame)
+
+        pos_x = int(roi[1])
+        len_x = int(roi[1] + roi[3])
+
+        pos_y = int(roi[0])
+        len_y = int(roi[0] + roi[2])
+        frame[pos_x:len_x, pos_y:len_y, :] = 0
+        return frame
+
+    else:
+        ROI_Flag = False
+        button_ROI['state'] = 'normal'
+        
+        return frame
 
 def update_frame():
 
+    #global frame
+
     ret, frame = cap.read()
     
+    # If can't read frame
+    if ret is None:
+        print("Can't read from camera")
+        cap.release()
+        exit(1)
+
+    # Resize frame
+    dim = (canvas_w, canvas_h)
+    frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
+
     # correct the color
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     # mirror horizontally
     frame = np.fliplr(frame)
-    img = Image.fromarray(frame)
-
+    
+    # background subtraction
     if bgSubFlag == True:
-        fgMask = backSub.apply(frame)
-        img = Image.fromarray(fgMask)
+        frame = backSub.apply(frame)
 
+    # ROI Selection
+    if ROI_Flag == True:
+        frame = createROI(frame)
+
+    img = Image.fromarray(frame)
     photo_img.paste(img)
 
-    window_app.after(10, update_frame)
+    if run_camera:
+        window_app.after(10, update_frame)
 
 # --- main ---
 
 run_camera = False
 bgSubFlag = False
+ROI_Flag = False
 
 backSub = cv2.createBackgroundSubtractorKNN()
 
 # Video Source Object
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture("videos/person_stand.mp4")
+#cap = cv2.VideoCapture(0)
 
-# first frame
-ret, frame = cap.read()
-frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-frame = np.fliplr(frame)
+# Check if source is accessible
+if not cap.isOpened():
+    print("Can't open camera")
+    cap.release()
+    exit(1)
+
+# first frame with clear white image
+canvas_w = 640
+canvas_h = 480
+
+white_img = np.zeros([canvas_h, canvas_w, 3], dtype=np.uint8)
+white_img.fill(255) 
 
 # create app window
 window_app = tk.Tk()
-window_app.geometry = ("880x800")
+#window_app.geometry = ("880x800")
 window_app.resizable(width=True, height=True)
 
-image = Image.fromarray(frame)
+image = Image.fromarray(white_img)
 photo_img = ImageTk.PhotoImage(image)
 
-# declare face cascade model
-haar_face_cascade = cv2.CascadeClassifier('mdls/haarcascade_frontalface_default.xml')
+# --- GUI ---
 
 # Create a canvas that can fit the above video source size
 canvas = tk.Canvas(
     window_app,
-    width = 880,
-    height = 640
-    ) # 640x840
+    width = canvas_w,
+    height = canvas_h
+    ) # 640x480
 canvas.pack(fill='both', expand=True)
 
 canvas.create_image((0,0), image=photo_img, anchor='nw')
 
-# -- buttons
+textwidget = tk.Text(window_app, height = 10, width = 80)
+
+canvas.size()
+textwidget.pack()
+
+
+# ---- buttons ----
 buttons = tk.Frame(window_app)
 buttons.pack(fill='x')
 
@@ -123,13 +179,13 @@ button_play.pack(side='left')
 button_stop = tk.Button(buttons, text="Stop", command=stop, state='disabled')
 button_stop.pack(side='left')
 
-button_filter = tk.Button(buttons, text="BG subtraction", command=bgSubtraction)
-button_filter.pack(side='left')
+button_bgSub = tk.Button(buttons, text="BG subtraction", command=bgSubtraction, state='disabled')
+button_bgSub.pack(side='left')
 
-button_filter = tk.Button(buttons, text="Select ROI", command=drawROI)
-button_filter.pack(side='left')
+button_ROI = tk.Button(buttons, text="Select ROI", command=createROI, state='disabled')
+button_ROI.pack(side='left')
 
-# -- /end buttons
+# ---- /end buttons ----
 
 window_app.mainloop()
 
