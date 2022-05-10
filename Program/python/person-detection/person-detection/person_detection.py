@@ -19,8 +19,12 @@ def play():
         button_stop['state'] = 'normal'
         button_bgSub['state'] = 'normal'
         button_ROI['state'] = 'disabled'
-        
+        radio_btn_camera['state'] = 'disabled'
+        radio_btn_video['state'] = 'disabled'
+
         update_frame()
+      
+
 
 def stop():
     '''
@@ -36,6 +40,8 @@ def stop():
         button_stop['state'] = 'disabled'
         button_bgSub['state'] = 'disabled'
         button_ROI['state'] = 'normal'
+        radio_btn_camera['state'] = 'normal'
+        radio_btn_video['state'] = 'normal'
         
 
 # Toggle background subtraction
@@ -82,15 +88,19 @@ def createROI(frame):
         
         return frame
 
+# Display text on text widget
+def display_text(txt):
+    textwidget_left.config(state=tk.NORMAL)
+    textwidget_left.insert(tk.END, '\n'+txt)
+    textwidget_left.config(state=tk.DISABLED)
+
 def update_frame():
 
-    #global frame
-
     ret, frame = cap.read()
-    
-    # If can't read frame
-    if ret is None:
-        print("Can't read from camera")
+
+     # If can't read frame
+    if (ret is None) | (ret == False):
+        display_text("Can't read from camera.")
         cap.release()
         exit(1)
 
@@ -106,7 +116,10 @@ def update_frame():
     
     # background subtraction
     if bgSubFlag == True:
-        frame = backSub.apply(frame)
+        bgSubFrame = backSub.apply(frame)
+        img2 = Image.fromarray(bgSubFrame)
+        photo_img2.paste(img2)
+        
 
     # ROI Selection
     if ROI_Flag == True:
@@ -114,6 +127,7 @@ def update_frame():
 
     img = Image.fromarray(frame)
     photo_img.paste(img)
+    
 
     if run_camera:
         window_app.after(10, update_frame)
@@ -124,54 +138,98 @@ run_camera = False
 bgSubFlag = False
 ROI_Flag = False
 
-backSub = cv2.createBackgroundSubtractorKNN()
-
-# Video Source Object
-cap = cv2.VideoCapture("videos/person_stand.mp4")
+cap = cv2.VideoCapture("videos/Person_stand.mp4")
 #cap = cv2.VideoCapture(0)
-
 # Check if source is accessible
-if not cap.isOpened():
-    print("Can't open camera")
+if not cap.isOpened():  
+    display_text("Can't turn on camera")
     cap.release()
     exit(1)
 
+backSub = cv2.createBackgroundSubtractorKNN()
+
 # first frame with clear white image
 canvas_w = 640
-canvas_h = 480
+canvas_h = 640
 
-white_img = np.zeros([canvas_h, canvas_w, 3], dtype=np.uint8)
+white_img = np.zeros([canvas_w, canvas_h, 3], dtype=np.uint8)
 white_img.fill(255) 
 
 # create app window
 window_app = tk.Tk()
-#window_app.geometry = ("880x800")
-window_app.resizable(width=True, height=True)
+window_app.geometry = ("1080x400")
+#window_app.resizable(width=True, height=True)
 
 image = Image.fromarray(white_img)
 photo_img = ImageTk.PhotoImage(image)
+photo_img2 = ImageTk.PhotoImage(image)
 
 # --- GUI ---
-
-# Create a canvas that can fit the above video source size
+# Create a canvas that can fit the video size
 canvas = tk.Canvas(
     window_app,
+    width = 2*canvas_w,
+    height = canvas_h
+    )
+canvas.pack(side="top")
+
+canvas_left = tk.Canvas(
+    canvas,
     width = canvas_w,
     height = canvas_h
-    ) # 640x480
-canvas.pack(fill='both', expand=True)
+    )
+canvas_left.pack(side='left')
+canvas_left.create_image((0,0), image=photo_img, anchor='nw')
 
-canvas.create_image((0,0), image=photo_img, anchor='nw')
+canvas_right = tk.Canvas(
+    canvas,
+    width = canvas_w,
+    height = canvas_h
+    )
+canvas_right.pack(side='left')
+canvas_right.create_image((0,0), image=photo_img2, anchor='nw')
 
-textwidget = tk.Text(window_app, height = 10, width = 80)
 
-canvas.size()
+textwidget = tk.Text(
+    window_app, 
+    width = (int)(0.25*canvas_w),
+    height = 10
+    )
 textwidget.pack()
+
+textwidget_left = tk.Text(
+    textwidget, 
+    width = (int)(0.125*canvas_w),
+    height = 10
+    )
+textwidget_left.pack(side='left')
+
+textwidget_right = tk.Text(
+    textwidget, 
+    width = (int)(0.125*canvas_w),
+    height = 10
+    )
+textwidget_right.pack(side='right')
+
+
+# --- main ---
+
+source_sel =tk.IntVar()
+
+# ---- Radio buttons ----
+radio_buttons = tk.Frame(window_app)
+radio_buttons.pack()
+
+radio_btn_camera = tk.Radiobutton(radio_buttons, text="Camera", var = source_sel, value=0)
+radio_btn_camera.pack(side='left')
+
+radio_btn_video = tk.Radiobutton(radio_buttons, text="Video", var = source_sel, value=1)
+radio_btn_video.pack(side='left')
 
 
 # ---- buttons ----
 buttons = tk.Frame(window_app)
-buttons.pack(fill='x')
+buttons.pack(side='bottom', fill='x')
 
 button_play = tk.Button(buttons, text="Play", command=play)
 button_play.pack(side='left')
