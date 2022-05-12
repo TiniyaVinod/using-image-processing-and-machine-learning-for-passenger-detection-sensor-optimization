@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 
+from msilib.schema import RadioButton
 import tkinter as tk
+import tkinter.scrolledtext as st
 import cv2
 import numpy as np
 from PIL import Image, ImageTk
+from datetime import datetime
 
 def play():
     '''
@@ -17,7 +20,7 @@ def play():
         
         button_play['state'] = 'disabled'
         button_stop['state'] = 'normal'
-        button_bgSub['state'] = 'normal'
+        #button_bgSub['state'] = 'normal'
         button_ROI['state'] = 'disabled'
         radio_btn_camera['state'] = 'disabled'
         radio_btn_video['state'] = 'disabled'
@@ -38,29 +41,12 @@ def stop():
 
         button_play['state'] = 'normal'
         button_stop['state'] = 'disabled'
-        button_bgSub['state'] = 'disabled'
+        #button_bgSub['state'] = 'disabled'
         button_ROI['state'] = 'normal'
         radio_btn_camera['state'] = 'normal'
         radio_btn_video['state'] = 'normal'
-        
 
-# Toggle background subtraction
-def bgSubtraction():
-
-    '''
-    apply background subtraction
-    '''
-
-    global bgSubFlag
-
-    if not bgSubFlag:
-        bgSubFlag = True
-        button_bgSub['state'] = 'disabled'
-    else:
-        bgSubFlag = False
-        button_bgSub['state'] = 'normal'
-
-def createROI(frame):
+def createROI():
 
     '''
     draw ROI into frame and filter out non-ROI area with black
@@ -71,16 +57,8 @@ def createROI(frame):
     if not ROI_Flag:
         ROI_Flag = True
         button_ROI['state'] = 'disabled'
-
-        roi = cv2.selectROI(frame)
-
-        pos_x = int(roi[1])
-        len_x = int(roi[1] + roi[3])
-
-        pos_y = int(roi[0])
-        len_y = int(roi[0] + roi[2])
-        frame[pos_x:len_x, pos_y:len_y, :] = 0
-        return frame
+        
+        cv2.setMouseCallback(canvas_left, click_event)
 
     else:
         ROI_Flag = False
@@ -88,21 +66,47 @@ def createROI(frame):
         
         return frame
 
+def click_event(event, x, y):
+ 
+    # checking for left mouse clicks
+    if event == cv2.EVENT_LBUTTONDOWN:
+        display_text("select position (x,y) :", x,", ", y)
+    
+        
 # Display text on text widget
 def display_text(txt):
-    textwidget_left.config(state=tk.NORMAL)
-    textwidget_left.insert(tk.END, '\n'+txt)
-    textwidget_left.config(state=tk.DISABLED)
+    scroll_txt_left.config(state=tk.NORMAL)
+    scroll_txt_left.insert(tk.END, '\n'+txt)
+    scroll_txt_left.see(tk.END)
+    scroll_txt_left.config(state=tk.DISABLED)
+
+def init_blob_detector():
+    params = cv2.SimpleBlobDetector_Params()
+    params.minThreshold = 1
+    params.maxThreshold = 255
+    params.filterByArea = True
+    params.minArea = 5000
+    params.maxArea = 30000
+    params.filterByCircularity = False
+    params.minCircularity = 0.5
+    params.filterByInertia = False
+    params.filterByConvexity = False
+    params.minConvexity = 0.95
+    params.maxConvexity = 1e37
+    params.filterByColor = True
+    params.blobColor = 255
+    detector = cv2.SimpleBlobDetector_create(params)
+    return detector 
 
 def update_frame():
+
+    global frame
 
     ret, frame = cap.read()
 
      # If can't read frame
     if (ret is None) | (ret == False):
-        display_text("Can't read from camera.")
         cap.release()
-        exit(1)
 
     # Resize frame
     dim = (canvas_w, canvas_h)
@@ -114,19 +118,32 @@ def update_frame():
     # mirror horizontally
     frame = np.fliplr(frame)
     
-    # background subtraction
-    if bgSubFlag == True:
-        bgSubFrame = backSub.apply(frame)
-        img2 = Image.fromarray(bgSubFrame)
-        photo_img2.paste(img2)
-        
-
-    # ROI Selection
-    if ROI_Flag == True:
-        frame = createROI(frame)
-
     img = Image.fromarray(frame)
     photo_img.paste(img)
+
+    # background subtraction
+    bgSubFrame = backSub.apply(frame)
+    #denoise_img = cv2.fastNlMeansDenoising(bgSubFrame,3,7,21) # cost a lot of delay
+
+    # blob detection
+    blob_keypoints = blob_detector.detect(bgSubFrame)
+    if len(blob_keypoints) == 0:
+        img2 = Image.fromarray(bgSubFrame)
+        text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Empty Scene'
+        display_text(text)
+    else:
+        img_with_keypoints = cv2.drawKeypoints(
+            bgSubFrame,
+            blob_keypoints,
+            np.array([]),
+            (0,0,255),
+            cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+        img2 = Image.fromarray(img_with_keypoints)
+        text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+' Human'
+        display_text(text)
+    
+    #img2 = Image.fromarray(bgSubFrame)
+    photo_img2.paste(img2)
     
 
     if run_camera:
@@ -138,19 +155,15 @@ run_camera = False
 bgSubFlag = False
 ROI_Flag = False
 
-cap = cv2.VideoCapture("videos/Person_stand.mp4")
-#cap = cv2.VideoCapture(0)
-# Check if source is accessible
-if not cap.isOpened():  
-    display_text("Can't turn on camera")
-    cap.release()
-    exit(1)
-
 backSub = cv2.createBackgroundSubtractorKNN()
 
+blob_detector = init_blob_detector()
+
+dateTimeObj = datetime.now()
+
 # first frame with clear white image
-canvas_w = 640
-canvas_h = 640
+canvas_w = 320
+canvas_h = 320
 
 white_img = np.zeros([canvas_w, canvas_h, 3], dtype=np.uint8)
 white_img.fill(255) 
@@ -190,31 +203,42 @@ canvas_right.pack(side='left')
 canvas_right.create_image((0,0), image=photo_img2, anchor='nw')
 
 
-textwidget = tk.Text(
+scroll_txt = st.ScrolledText(
     window_app, 
     width = (int)(0.25*canvas_w),
     height = 10
     )
-textwidget.pack()
+scroll_txt.pack()
 
-textwidget_left = tk.Text(
-    textwidget, 
+scroll_txt_left = st.ScrolledText(
+    scroll_txt, 
     width = (int)(0.125*canvas_w),
     height = 10
     )
-textwidget_left.pack(side='left')
+scroll_txt_left.pack(side='left')
 
-textwidget_right = tk.Text(
-    textwidget, 
+scroll_txt_right = st.ScrolledText(
+    scroll_txt, 
     width = (int)(0.125*canvas_w),
     height = 10
     )
-textwidget_right.pack(side='right')
+scroll_txt_right.pack(side='right')
 
 
 # --- main ---
 
-source_sel =tk.IntVar()
+source_sel = tk.IntVar()
+
+#cap = cv2.VideoCapture("videos/Person_stand.mp4")
+#cap = cv2.VideoCapture("videos/Empty_scene+chair_2.mp4")
+cap = cv2.VideoCapture("videos/Person_sitandmove.mp4")
+#cap = cv2.VideoCapture(0)
+# Check if source is accessible
+if not cap.isOpened():  
+    display_text("Source is invalid")
+    cap.release()
+    stop()
+    exit(1)
 
 # ---- Radio buttons ----
 radio_buttons = tk.Frame(window_app)
@@ -237,8 +261,8 @@ button_play.pack(side='left')
 button_stop = tk.Button(buttons, text="Stop", command=stop, state='disabled')
 button_stop.pack(side='left')
 
-button_bgSub = tk.Button(buttons, text="BG subtraction", command=bgSubtraction, state='disabled')
-button_bgSub.pack(side='left')
+#button_bgSub = tk.Button(buttons, text="BG subtraction", command=bgSubtraction, state='disabled')
+#button_bgSub.pack(side='left')
 
 button_ROI = tk.Button(buttons, text="Select ROI", command=createROI, state='disabled')
 button_ROI.pack(side='left')
