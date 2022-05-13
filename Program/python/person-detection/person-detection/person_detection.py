@@ -3,6 +3,7 @@
 from msilib.schema import RadioButton
 import tkinter as tk
 import tkinter.scrolledtext as st
+from tkinter import ttk
 import cv2
 import numpy as np
 from PIL import Image, ImageTk
@@ -22,9 +23,6 @@ def play():
         button_stop['state'] = 'normal'
         #button_bgSub['state'] = 'normal'
         button_ROI['state'] = 'disabled'
-        radio_btn_camera['state'] = 'disabled'
-        radio_btn_video['state'] = 'disabled'
-
         update_frame()
       
 
@@ -43,8 +41,6 @@ def stop():
         button_stop['state'] = 'disabled'
         #button_bgSub['state'] = 'disabled'
         button_ROI['state'] = 'normal'
-        radio_btn_camera['state'] = 'normal'
-        radio_btn_video['state'] = 'normal'
 
 def createROI():
 
@@ -170,6 +166,7 @@ white_img.fill(255)
 
 # create app window
 window_app = tk.Tk()
+window_app.title("Person Detection")
 window_app.geometry = ("1080x400")
 #window_app.resizable(width=True, height=True)
 
@@ -202,27 +199,33 @@ canvas_right = tk.Canvas(
 canvas_right.pack(side='left')
 canvas_right.create_image((0,0), image=photo_img2, anchor='nw')
 
-
-scroll_txt = st.ScrolledText(
+lower_widget = tk.Text(
     window_app, 
     width = (int)(0.25*canvas_w),
     height = 10
     )
-scroll_txt.pack()
+lower_widget.pack()
 
 scroll_txt_left = st.ScrolledText(
-    scroll_txt, 
+    lower_widget, 
     width = (int)(0.125*canvas_w),
-    height = 10
+    height = 20
     )
 scroll_txt_left.pack(side='left')
 
-scroll_txt_right = st.ScrolledText(
-    scroll_txt, 
-    width = (int)(0.125*canvas_w),
-    height = 10
+tabControl = ttk.Notebook(
+    lower_widget, 
+    width = canvas_w,
+    height = canvas_h
     )
-scroll_txt_right.pack(side='right')
+tabControl.pack(side='right')
+
+tab_camera = ttk.Frame(tabControl)
+tab_video  = ttk.Frame(tabControl)
+
+tabControl.add(tab_camera, text = 'Camera')
+tabControl.add(tab_video, text = 'Video')
+
 
 
 # --- main ---
@@ -239,16 +242,6 @@ if not cap.isOpened():
     cap.release()
     stop()
     exit(1)
-
-# ---- Radio buttons ----
-radio_buttons = tk.Frame(window_app)
-radio_buttons.pack()
-
-radio_btn_camera = tk.Radiobutton(radio_buttons, text="Camera", var = source_sel, value=0)
-radio_btn_camera.pack(side='left')
-
-radio_btn_video = tk.Radiobutton(radio_buttons, text="Video", var = source_sel, value=1)
-radio_btn_video.pack(side='left')
 
 
 # ---- buttons ----
