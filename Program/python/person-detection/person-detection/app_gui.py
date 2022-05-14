@@ -1,7 +1,7 @@
 import numpy as np
 import tkinter as tk
 import tkinter.scrolledtext as st
-from tkinter import ttk
+from tkinter import Variable, ttk
 from PIL import Image, ImageTk
 
 # --- GUI ---
@@ -15,6 +15,7 @@ class app_gui:
         self.canvas_h = height
         self.canvas_l_img = img1
         self.canvas_r_img = img2
+        self.video_path = tk.StringVar()
 
         # Gui Components
         # ------------------------------------
@@ -28,7 +29,6 @@ class app_gui:
         # |                |                 |
         # | scroll_txt_left| tab_control     |
         # ------------------------------------
-        
         
         # Create a canvas that can fit the video size
         self.gui_upper_part = tk.Canvas(
@@ -86,15 +86,36 @@ class app_gui:
         self.tabControl = ttk.Notebook(
             self.gui_lower_part,
             width = self.canvas_w,
-            height = self.canvas_h
+            height = self.canvas_h,
+            name="tab_master"
             )
         self.tabControl.pack(side='right')
 
-        self.tab_camera = ttk.Frame(self.tabControl)
-        self.tab_video  = ttk.Frame(self.tabControl)
+        self.tab_camera = ttk.Frame(self.tabControl, name="camera")
+        self.tab_video  = ttk.Frame(self.tabControl, name="video")
 
-        self.tabControl.add(self.tab_camera, text = 'Camera')
-        self.tabControl.add(self.tab_video, text = 'Video')
+  
+        self.tabControl.add(self.tab_video, text = 'video')
+        self.tabControl.tab(0, text='video')
+        self.tabControl.add(self.tab_camera, text = 'camera')
+        self.tabControl.tab(1, text='camera')
+        
+        self.video_label = ttk.Label(
+            self.tab_video, 
+            text ="Video Path: "
+            ).grid(
+                row = 0,
+                column = 0               
+                )
+                
+        self.video_entrybox = tk.Entry(
+            self.tab_video,
+            width=(int)(0.2*self.canvas_w),
+            textvariable=self.video_path
+            ).grid(
+                row = 0,
+                column = 1
+                )
 
   # Display text on scroll text widget
     def display_scrolltext(self, txt):
@@ -104,3 +125,9 @@ class app_gui:
         self.scroll_txt_left.yview_pickplace("end")
         self.scroll_txt_left.config(state=tk.DISABLED)
         
+    def getVideoPath(self):
+        return self.video_path.get()
+
+    def getSelectedTab(self):
+        select_tab = self.tabControl.tab(self.tabControl.select(), "text") 
+        return select_tab

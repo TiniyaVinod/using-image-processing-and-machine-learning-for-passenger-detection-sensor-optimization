@@ -5,13 +5,37 @@ import cv2
 import numpy as np
 from PIL import Image, ImageTk
 from datetime import datetime
+from os.path import exists
 
 def play():
     '''
     start stream (run_camera and update_image) 
     and change state of buttons
     '''
-    global run_camera
+    global cap, run_camera
+
+    video_path = gui.getVideoPath()
+
+    # Check current selected tab
+    select_tab = gui.getSelectedTab()
+
+    if (select_tab == "video"):
+        if not exists(video_path):
+            txt = "path [ "+video_path+" ] does not exist!"
+            gui.display_scrolltext(txt)
+            exit(0) 
+        else:
+            cap = cv2.VideoCapture(video_path)   
+    else:
+        cap = cv2.VideoCapture(0)
+        #cap = cv2.VideoCapture("videos/Person_sitandmove.mp4")
+        #cap = cv2.VideoCapture(0)
+
+        # Check if source is accessible
+        if not cap.isOpened():  
+            cap.release()
+            stop()
+
 
     if not run_camera:
         run_camera = True
@@ -25,10 +49,11 @@ def stop():
     stop stream (run_camera) 
     and change state of buttons
     '''
-    global run_camera
 
     if run_camera:
         run_camera = False
+
+        cap.release()
 
         button_play['state'] = 'normal'
         button_stop['state'] = 'disabled'
@@ -121,13 +146,6 @@ dateTimeObj = datetime.now()
 
 #cap = cv2.VideoCapture("videos/Person_stand.mp4")
 #cap = cv2.VideoCapture("videos/Empty_scene+chair_2.mp4")
-cap = cv2.VideoCapture("videos/Person_sitandmove.mp4")
-#cap = cv2.VideoCapture(0)
-
-# Check if source is accessible
-if not cap.isOpened():  
-    cap.release()
-    stop()
 
 # create window application
 window_app = tk.Tk()
@@ -157,6 +175,7 @@ if not window_app_run:
         )
     
     #gui.init_gui()
+
 
 # ---- buttons ----
 buttons = tk.Frame(window_app)
