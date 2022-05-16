@@ -7,19 +7,56 @@ from PIL import Image, ImageTk
 from datetime import datetime
 from os.path import exists
 
+# --- main ---
+
+run_camera = False
+bg_sub_Flag = False
+sad_Flag =   True #TODO swap back to false
+window_app_run = False
+
+backSub = cv2.createBackgroundSubtractorKNN()
+
+# create window application
+window_app = tk.Tk()
+window_app.title("Person Detection")
+window_app.geometry = ("1080x400")
+
+canvas_w = 320
+canvas_h = 320
+
+# first frame with clear white image
+white_img = np.zeros([canvas_w, canvas_h, 3], dtype=np.uint8)
+white_img.fill(255) 
+default_img = Image.fromarray(white_img)
+default_img = ImageTk.PhotoImage(default_img) 
+
+default_img2 = Image.fromarray(white_img)
+default_img2 = ImageTk.PhotoImage(default_img2) 
+
+if not window_app_run:
+    window_app_run = True
+    gui = app_gui(
+        window_app, 
+        default_img, 
+        default_img2, 
+        canvas_w, 
+        canvas_h
+        )
+
 def play():
     '''
     start stream (run_camera and update_image) 
     and change state of buttons
     '''
     global cap, run_camera
-
-    video_path = gui.getVideoPath()
-
+    
     # Check current selected tab
-    select_tab = gui.getSelectedTab()
+    select_tab = gui.gui_lower_part.getSelectedTab()
 
     if (select_tab == "video"):
+
+        video_path = gui.gui_lower_part.tab_video.get_VideoPath()
+
         if not exists(video_path):
             txt = "path [ "+video_path+" ] does not exist!"
             gui.display_scrolltext(txt)
@@ -29,8 +66,6 @@ def play():
             cap = cv2.VideoCapture(video_path)   
     else:
         cap = cv2.VideoCapture(0)
-        #cap = cv2.VideoCapture("videos/Person_sitandmove.mp4")
-        #cap = cv2.VideoCapture(0)
 
         # Check if source is accessible
         if not cap.isOpened():  
@@ -156,13 +191,13 @@ def update_frame():
     frame_flip = preprocess_frame(frame)
 
     img = Image.fromarray(frame_flip)
-    gui.canvas_l_img.paste(img)
+    gui.gui_upper_part.canvas_l_img.paste(img)
 
     frame_bg_sub = backSub.apply(frame_flip)
     # Select Method for Foreground detection
     if bg_sub_Flag == True:
-        # Background Subtraction
-        #frame_bg_sub = backSub.apply(frame_flip)
+        # Background Subtraction 
+        #frame_bg_sub = backSub.apply(frame_flip) # TODO uncomment this line
 
         # Filter only bg Sub part
         frame_filter = frame_flip
@@ -171,7 +206,7 @@ def update_frame():
     elif sad_Flag == True:
 
         # Check if image path exist
-        if not exists(gui.getBGImagePath()):
+        if not exists(gui.gui_lower_part.tab_video.get_BGImagePath()):
             txt = "Background image path does not exist!"
             gui.display_scrolltext(txt)
             stop()
@@ -179,7 +214,7 @@ def update_frame():
 
         # TODO: Need to read only once, just a temporary solution 
         dim = (gui.canvas_w, gui.canvas_h)
-        bg_img = cv2.imread(gui.getBGImagePath(), cv2.IMREAD_COLOR)
+        bg_img = cv2.imread(gui.gui_lower_part.tab_video.get_BGImagePath(), cv2.IMREAD_COLOR)
         bg_img = cv2.resize(bg_img, dim, interpolation = cv2.INTER_AREA)
         bg_img = np.fliplr(bg_img)
 
@@ -189,12 +224,12 @@ def update_frame():
         frame_filter[frame_sad<=40] = 0
 
     # Blob detection
-    blob_keypoints = blob_detector.detect(frame_bg_sub)
+    blob_keypoints = blob_detector.detect(frame_filter)
     if len(blob_keypoints) == 0:
         img2 = Image.fromarray(frame_filter)
         dateTimeObj = datetime.now()
         text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Empty Scene'
-        gui.display_scrolltext(text)
+        gui.gui_lower_part.display_scrolltext(text)
     
     else:
         img_with_keypoints = cv2.drawKeypoints(
@@ -206,55 +241,12 @@ def update_frame():
         img2 = Image.fromarray(img_with_keypoints)
         dateTimeObj = datetime.now()
         text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Human'
-        gui.display_scrolltext(text)
+        gui.gui_lower_part.display_scrolltext(text)
     
-    gui.canvas_r_img.paste(img2)
+    gui.gui_upper_part.canvas_r_img.paste(img2)
     
     if run_camera:
         window_app.after(10, update_frame)
-
-# --- main ---
-
-run_camera = False
-bg_sub_Flag = False
-sad_Flag =   False
-window_app_run = False
-
-backSub = cv2.createBackgroundSubtractorKNN()
-blob_detector = init_blob_detector()
-
-# --- main ---
-
-#cap = cv2.VideoCapture("videos/Person_stand.mp4")
-#cap = cv2.VideoCapture("videos/Empty_scene+chair_2.mp4")
-
-# create window application
-window_app = tk.Tk()
-window_app.title("Person Detection")
-window_app.geometry = ("1080x400")
-
-canvas_w = 320
-canvas_h = 320
-
-# first frame with clear white image
-white_img = np.zeros([canvas_w, canvas_h, 3], dtype=np.uint8)
-white_img.fill(255) 
-default_img = Image.fromarray(white_img)
-default_img = ImageTk.PhotoImage(default_img) 
-
-default_img2 = Image.fromarray(white_img)
-default_img2 = ImageTk.PhotoImage(default_img2) 
-
-if not window_app_run:
-    window_app_run = True
-    gui = app_gui(
-        window_app, 
-        default_img, 
-        default_img2, 
-        canvas_w, 
-        canvas_h
-        )
-
 
 # ---- buttons ----
 buttons = tk.Frame(window_app)
@@ -272,9 +264,12 @@ button_pause.pack(side='left')
 button_resume = tk.Button(buttons, text="Resume", command=resume_frame, state='disabled')
 button_resume.pack(side='left')
 
-button_bg_sub = tk.Button(gui.tab_video, text="BG Subtraction", command=select_bg_sub, state='normal').grid(row = 1, column=0)
-button_sad = tk.Button(gui.tab_video, text="Sum of Abs Difference", command=select_SAD, state='normal').grid(row = 1, column=1, sticky='nw')
+button_bg_sub = tk.Button(gui.gui_lower_part.tab_video.tab_video , text="BG Subtraction", command=select_bg_sub, state='normal').grid(row = 1, column=0)
+#button_bg_sub = tk.Button(gui.tab_video, text="BG Subtraction", command=select_bg_sub, state='normal').grid(row = 1, column=0)
+button_sad = tk.Button(gui.gui_lower_part.tab_video.tab_video, text="Sum of Absolute Difference", command=select_SAD, state='normal').grid(row = 1, column=1, sticky='nw')
 # ---- /end buttons ----
+
+blob_detector = init_blob_detector()
 
 window_app.mainloop()
 
