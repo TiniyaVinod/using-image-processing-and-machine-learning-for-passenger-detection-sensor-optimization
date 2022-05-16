@@ -23,7 +23,8 @@ def play():
         if not exists(video_path):
             txt = "path [ "+video_path+" ] does not exist!"
             gui.display_scrolltext(txt)
-            exit(0) 
+            stop()
+            return 0
         else:
             cap = cv2.VideoCapture(video_path)   
     else:
@@ -35,6 +36,7 @@ def play():
         if not cap.isOpened():  
             cap.release()
             stop()
+            return 0
 
 
     if not run_camera:
@@ -42,6 +44,8 @@ def play():
         
         button_play['state'] = 'disabled'
         button_stop['state'] = 'normal'
+        button_pause['state'] = 'normal'
+        button_resume['state'] = 'disabled'
         update_frame()
       
 def stop():
@@ -49,17 +53,38 @@ def stop():
     stop stream (run_camera) 
     and change state of buttons
     '''
+    global run_camera
 
     if run_camera:
         run_camera = False
 
         cap.release()
 
-        button_play['state'] = 'normal'
-        button_stop['state'] = 'disabled'
+    button_play['state'] = 'normal'
+    button_stop['state'] = 'disabled'
+    button_pause['state'] = 'disabled'
+    button_resume['state'] = 'disabled'
+
+def pause_frame():
+    '''
+    pause the stream
+    and change state of buttons
+    '''
+    button_stop['state'] = 'normal'
+    button_pause['state'] = 'disabled'
+    button_resume['state'] = 'normal'
+
+def resume_frame():
+    '''
+    resume the stream after pause
+    and change state of buttons
+    '''
+    button_stop['state'] = 'normal'
+    button_pause['state'] = 'normal'
+    button_resume['state'] = 'diabled'
 
 def click_event(event, x, y):
- 
+    
     # checking for left mouse clicks
     if event == cv2.EVENT_LBUTTONDOWN:
         gui.display_scrolltext("select position (x,y) :", x,", ", y)
@@ -88,7 +113,8 @@ def update_frame():
 
      # If can't read frame
     if (ret is None) | (ret == False):
-        cap.release()
+        stop()
+        return 0
 
     # Resize frame
     dim = (gui.canvas_w, gui.canvas_h)
@@ -104,23 +130,32 @@ def update_frame():
     gui.canvas_l_img.paste(img)
 
     # Background subtraction
-    bgSubFrame = backSub.apply(frame_flip)
+    frame_bg_sub = backSub.apply(frame_flip)
+
+    # Filter only bg sub part
+    frame_filter = frame_flip
+    frame_filter[frame_bg_sub==0] = 0 
+    
 
     # Blob detection
-    blob_keypoints = blob_detector.detect(bgSubFrame)
+    blob_keypoints = blob_detector.detect(frame_bg_sub)
     if len(blob_keypoints) == 0:
-        img2 = Image.fromarray(bgSubFrame)
+        #img2 = Image.fromarray(frame_bg_sub)
+        img2 = Image.fromarray(frame_filter)
+        dateTimeObj = datetime.now()
         text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Empty Scene'
         gui.display_scrolltext(text)
     
     else:
         img_with_keypoints = cv2.drawKeypoints(
-            bgSubFrame,
+            frame_filter,
+            #frame_bg_sub,
             blob_keypoints,
             np.array([]),
             (0,0,255),
             cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
         img2 = Image.fromarray(img_with_keypoints)
+        dateTimeObj = datetime.now()
         text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Human'
         gui.display_scrolltext(text)
     
@@ -140,7 +175,7 @@ backSub = cv2.createBackgroundSubtractorKNN()
 
 blob_detector = init_blob_detector()
 
-dateTimeObj = datetime.now()
+
 
 # --- main ---
 
@@ -186,6 +221,12 @@ button_play.pack(side='left')
 
 button_stop = tk.Button(buttons, text="Stop", command=stop, state='disabled')
 button_stop.pack(side='left')
+
+button_pause = tk.Button(buttons, text="Pause", command=pause_frame, state='disabled')
+button_pause.pack(side='left')
+
+button_resume = tk.Button(buttons, text="Resume", command=resume_frame, state='disabled')
+button_resume.pack(side='left')
 
 # ---- /end buttons ----
 
