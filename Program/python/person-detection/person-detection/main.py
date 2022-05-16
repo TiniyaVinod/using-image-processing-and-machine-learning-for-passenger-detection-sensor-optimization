@@ -83,6 +83,29 @@ def resume_frame():
     button_pause['state'] = 'normal'
     button_resume['state'] = 'diabled'
 
+def select_bg_sub():
+
+    global bg_sub_Flag, sad_Flag
+
+    if not bg_sub_Flag:
+        bg_sub_Flag = True
+        sad_Flag = False
+
+    #button_bg_sub['state'] = 'disabled'
+    #button_sad['state'] = 'normal'
+
+def select_SAD():
+
+    global bg_sub_Flag, sad_Flag
+    
+    if not sad_Flag:
+        bg_sub_Flag = False
+        sad_Flag = True
+
+    #button_bg_sub['state'] = 'normal'
+    #button_sad['state'] = 'disabled'
+
+  
 def click_event(event, x, y):
     
     # checking for left mouse clicks
@@ -107,14 +130,7 @@ def init_blob_detector():
     detector = cv2.SimpleBlobDetector_create(params)
     return detector 
 
-def update_frame():
-
-    ret, frame = cap.read()
-
-     # If can't read frame
-    if (ret is None) | (ret == False):
-        stop()
-        return 0
+def preprocess_frame(frame):
 
     # Resize frame
     dim = (gui.canvas_w, gui.canvas_h)
@@ -125,22 +141,56 @@ def update_frame():
 
     # Mirror horizontally
     frame_flip = np.fliplr(frame_corr_color)
-    
+
+    return frame_flip
+
+def update_frame():
+
+    ret, frame = cap.read()
+
+     # If can't read frame
+    if (ret is None) | (ret == False):
+        stop()
+        return 0
+
+    frame_flip = preprocess_frame(frame)
+
     img = Image.fromarray(frame_flip)
     gui.canvas_l_img.paste(img)
 
-    # Background subtraction
     frame_bg_sub = backSub.apply(frame_flip)
+    # Select Method for Foreground detection
+    if bg_sub_Flag == True:
+        # Background Subtraction
+        #frame_bg_sub = backSub.apply(frame_flip)
 
-    # Filter only bg sub part
-    frame_filter = frame_flip
-    frame_filter[frame_bg_sub==0] = 0 
-    
+        # Filter only bg Sub part
+        frame_filter = frame_flip
+        frame_filter[frame_bg_sub==0] = 0
+
+    elif sad_Flag == True:
+
+        # Check if image path exist
+        if not exists(gui.getBGImagePath()):
+            txt = "Background image path does not exist!"
+            gui.display_scrolltext(txt)
+            stop()
+            return 0
+
+        # TODO: Need to read only once, just a temporary solution 
+        dim = (gui.canvas_w, gui.canvas_h)
+        bg_img = cv2.imread(gui.getBGImagePath(), cv2.IMREAD_COLOR)
+        bg_img = cv2.resize(bg_img, dim, interpolation = cv2.INTER_AREA)
+        bg_img = np.fliplr(bg_img)
+
+        # Absolute Diff
+        frame_filter = cv2.cvtColor(frame_flip, cv2.COLOR_BGR2RGB)
+        frame_sad = cv2.absdiff(frame_filter, bg_img)
+        frame_filter[frame_sad<=40] = 0
 
     # Blob detection
     blob_keypoints = blob_detector.detect(frame_bg_sub)
     if len(blob_keypoints) == 0:
-        #img2 = Image.fromarray(frame_bg_sub)
         img2 = Image.fromarray(frame_filter)
         dateTimeObj = datetime.now()
         text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Empty Scene'
@@ -149,7 +199,6 @@ def update_frame():
     else:
         img_with_keypoints = cv2.drawKeypoints(
             frame_filter,
-            #frame_bg_sub,
             blob_keypoints,
             np.array([]),
             (0,0,255),
@@ -167,15 +216,12 @@ def update_frame():
 # --- main ---
 
 run_camera = False
-bgSubFlag = False
-ROI_Flag = False
+bg_sub_Flag = False
+sad_Flag =   False
 window_app_run = False
 
 backSub = cv2.createBackgroundSubtractorKNN()
-
 blob_detector = init_blob_detector()
-
-
 
 # --- main ---
 
@@ -208,8 +254,6 @@ if not window_app_run:
         canvas_w, 
         canvas_h
         )
-    
-    #gui.init_gui()
 
 
 # ---- buttons ----
@@ -228,8 +272,10 @@ button_pause.pack(side='left')
 button_resume = tk.Button(buttons, text="Resume", command=resume_frame, state='disabled')
 button_resume.pack(side='left')
 
+button_bg_sub = tk.Button(gui.tab_video, text="BG Subtraction", command=select_bg_sub, state='normal').grid(row = 1, column=0)
+button_sad = tk.Button(gui.tab_video, text="Sum of Abs Difference", command=select_SAD, state='normal').grid(row = 1, column=1, sticky='nw')
 # ---- /end buttons ----
 
 window_app.mainloop()
 
-cap.release()
+#cap.release()
