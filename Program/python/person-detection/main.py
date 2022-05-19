@@ -6,12 +6,11 @@ import numpy as np
 from PIL import Image, ImageTk
 from datetime import datetime
 from os.path import exists
+from blob_detector import *
 
 # --- main ---
 
 run_camera = False
-bg_sub_Flag = False
-sad_Flag =   True #TODO swap back to false
 window_app_run = False
 
 backSub = cv2.createBackgroundSubtractorKNN()
@@ -51,27 +50,34 @@ def play():
     global cap, run_camera
     
     # Check current selected tab
-    select_tab = gui.gui_lower_part.getSelectedTab()
+    select_mode = gui.gui_down.get_select_mode()
 
-    if (select_tab == "video"):
+    if (select_mode == 0): # CAMERA
 
-        video_path = gui.gui_lower_part.tab_video.get_VideoPath()
-
-        if not exists(video_path):
-            txt = "path [ "+video_path+" ] does not exist!"
-            gui.display_scrolltext(txt)
-            stop()
-            return 0
-        else:
-            cap = cv2.VideoCapture(video_path)   
-    else:
-        cap = cv2.VideoCapture(0)
+        cam_no = gui.gui_down.get_camera_number()
+        cap = cv2.VideoCapture(cam_no) # webcam : 0, other: 1
 
         # Check if source is accessible
         if not cap.isOpened():  
             cap.release()
             stop()
             return 0
+
+    elif (select_mode == 1): # VIDEO
+        video_path = gui.gui_down.get_video_path()
+
+        if not exists(video_path):
+            txt = "path [ "+video_path+" ] does not exist!"
+            gui.gui_down.display_scrolltext(txt)
+            stop()
+            return 0
+        else:
+            cap = cv2.VideoCapture(video_path)   
+
+    elif (select_mode == 2): # Record mode
+        return 0
+    else:   # Auto Mode
+        return 0
 
 
     if not run_camera:
@@ -118,53 +124,6 @@ def resume_frame():
     button_pause['state'] = 'normal'
     button_resume['state'] = 'diabled'
 
-def select_bg_sub():
-
-    global bg_sub_Flag, sad_Flag
-
-    if not bg_sub_Flag:
-        bg_sub_Flag = True
-        sad_Flag = False
-
-    #button_bg_sub['state'] = 'disabled'
-    #button_sad['state'] = 'normal'
-
-def select_SAD():
-
-    global bg_sub_Flag, sad_Flag
-    
-    if not sad_Flag:
-        bg_sub_Flag = False
-        sad_Flag = True
-
-    #button_bg_sub['state'] = 'normal'
-    #button_sad['state'] = 'disabled'
-
-  
-def click_event(event, x, y):
-    
-    # checking for left mouse clicks
-    if event == cv2.EVENT_LBUTTONDOWN:
-        gui.display_scrolltext("select position (x,y) :", x,", ", y)
-
-def init_blob_detector():
-    params = cv2.SimpleBlobDetector_Params()
-    params.minThreshold = 1
-    params.maxThreshold = 255
-    params.filterByArea = True
-    params.minArea = 5000
-    params.maxArea = 30000
-    params.filterByCircularity = False
-    params.minCircularity = 0.5
-    params.filterByInertia = False
-    params.filterByConvexity = False
-    params.minConvexity = 0.95
-    params.maxConvexity = 1e37
-    params.filterByColor = True
-    params.blobColor = 255
-    detector = cv2.SimpleBlobDetector_create(params)
-    return detector 
-
 def preprocess_frame(frame):
 
     # Resize frame
@@ -191,11 +150,11 @@ def update_frame():
     frame_flip = preprocess_frame(frame)
 
     img = Image.fromarray(frame_flip)
-    gui.gui_upper_part.canvas_l_img.paste(img)
+    gui.gui_top.canvas_l_img.paste(img)
 
     frame_bg_sub = backSub.apply(frame_flip)
     # Select Method for Foreground detection
-    if bg_sub_Flag == True:
+    if gui.gui_down.select_method == 0:
         # Background Subtraction 
         #frame_bg_sub = backSub.apply(frame_flip) # TODO uncomment this line
 
@@ -203,18 +162,18 @@ def update_frame():
         frame_filter = frame_flip
         frame_filter[frame_bg_sub==0] = 0
 
-    elif sad_Flag == True:
+    elif gui.gui_down.select_method == 1:
 
         # Check if image path exist
-        if not exists(gui.gui_lower_part.tab_video.get_BGImagePath()):
+        if not exists(gui.gui_down.get_bg_img_path()):
             txt = "Background image path does not exist!"
-            gui.display_scrolltext(txt)
+            gui.gui_down.display_scrolltext(txt)
             stop()
             return 0
 
         # TODO: Need to read only once, just a temporary solution 
         dim = (gui.canvas_w, gui.canvas_h)
-        bg_img = cv2.imread(gui.gui_lower_part.tab_video.get_BGImagePath(), cv2.IMREAD_COLOR)
+        bg_img = cv2.imread(gui.gui_down.get_bg_img_path(), cv2.IMREAD_COLOR)
         bg_img = cv2.resize(bg_img, dim, interpolation = cv2.INTER_AREA)
         bg_img = np.fliplr(bg_img)
 
@@ -229,7 +188,7 @@ def update_frame():
         img2 = Image.fromarray(frame_filter)
         dateTimeObj = datetime.now()
         text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Empty Scene'
-        gui.gui_lower_part.display_scrolltext(text)
+        gui.gui_down.display_scrolltext(text)
     
     else:
         img_with_keypoints = cv2.drawKeypoints(
@@ -241,16 +200,16 @@ def update_frame():
         img2 = Image.fromarray(img_with_keypoints)
         dateTimeObj = datetime.now()
         text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Human'
-        gui.gui_lower_part.display_scrolltext(text)
+        gui.gui_down.display_scrolltext(text)
     
-    gui.gui_upper_part.canvas_r_img.paste(img2)
+    gui.gui_top.canvas_r_img.paste(img2)
     
     if run_camera:
         window_app.after(10, update_frame)
 
 # ---- buttons ----
 buttons = tk.Frame(window_app)
-buttons.pack(side='bottom', fill='x')
+buttons.grid(row=2)
 
 button_play = tk.Button(buttons, text="Play", command=play)
 button_play.pack(side='left')
@@ -264,9 +223,6 @@ button_pause.pack(side='left')
 button_resume = tk.Button(buttons, text="Resume", command=resume_frame, state='disabled')
 button_resume.pack(side='left')
 
-button_bg_sub = tk.Button(gui.gui_lower_part.tab_video.tab_video , text="BG Subtraction", command=select_bg_sub, state='normal').grid(row = 1, column=0)
-#button_bg_sub = tk.Button(gui.tab_video, text="BG Subtraction", command=select_bg_sub, state='normal').grid(row = 1, column=0)
-button_sad = tk.Button(gui.gui_lower_part.tab_video.tab_video, text="Sum of Absolute Difference", command=select_SAD, state='normal').grid(row = 1, column=1, sticky='nw')
 # ---- /end buttons ----
 
 blob_detector = init_blob_detector()
