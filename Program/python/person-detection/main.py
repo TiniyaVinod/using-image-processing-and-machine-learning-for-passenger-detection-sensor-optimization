@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from soupsieve import select
 from app_gui import app_gui
 import tkinter as tk
 import cv2
@@ -12,8 +13,10 @@ from blob_detector import *
 
 run_camera = False
 window_app_run = False
+status_text = ""
 
 backSub = cv2.createBackgroundSubtractorKNN()
+blob_detector = init_blob_detector()
 
 # create window application
 window_app = tk.Tk()
@@ -47,15 +50,22 @@ def play():
     start stream (run_camera and update_image) 
     and change state of buttons
     '''
-    global cap, run_camera
+    global cap, run_camera, finish_record
     
     # Check current selected tab
     select_mode = gui.gui_down.get_select_mode()
+    record_status = gui.gui_down.get_record_status()
+    finish_record = False
 
-    if (select_mode == 0): # CAMERA
+    if (select_mode == 0) & (record_status == 0): # CAMERA
 
-        cam_no = gui.gui_down.get_camera_number()
-        cap = cv2.VideoCapture(cam_no) # webcam : 0, other: 1
+        try:
+             cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
+        except:
+            display_status("Camera Number must be Integer")
+            return 0
+       
+        cap = cv2.VideoCapture(cam_no) 
 
         # Check if source is accessible
         if not cap.isOpened():  
@@ -65,20 +75,23 @@ def play():
 
     elif (select_mode == 1): # VIDEO
         video_path = gui.gui_down.get_video_path()
-
-        if not exists(video_path):
-            txt = "path [ "+video_path+" ] does not exist!"
-            gui.gui_down.display_scrolltext(txt)
+        
+        if not exists(video_path): 
+            display_status("path [ " + video_path + " ] does not exist!")
             stop()
             return 0
         else:
-            cap = cv2.VideoCapture(video_path)   
+            cap = cv2.VideoCapture(video_path)         
 
-    elif (select_mode == 2): # Record mode
-        return 0
+    elif (select_mode == 0) & (record_status == 1): # Record Mode
+        export_path = gui.gui_down.get_record_export_path()
+
+        video_writer = cv2.VideoWriter(export_path)
+
+        write_video(video_writer)
+
     else:   # Auto Mode
         return 0
-
 
     if not run_camera:
         run_camera = True
@@ -94,10 +107,11 @@ def stop():
     stop stream (run_camera) 
     and change state of buttons
     '''
-    global run_camera
+    global run_camera, finish_record
 
     if run_camera:
         run_camera = False
+        finish_record = True
 
         cap.release()
 
@@ -114,6 +128,7 @@ def pause_frame():
     button_stop['state'] = 'normal'
     button_pause['state'] = 'disabled'
     button_resume['state'] = 'normal'
+
 
 def resume_frame():
     '''
@@ -134,7 +149,7 @@ def preprocess_frame(frame):
     frame_corr_color = cv2.cvtColor(frame_resize, cv2.COLOR_BGR2RGB)
 
     # Mirror horizontally
-    frame_flip = np.fliplr(frame_corr_color)
+    frame_flip = np.fliplr(frame_corr_color)    
 
     return frame_flip
 
@@ -166,8 +181,7 @@ def update_frame():
 
         # Check if image path exist
         if not exists(gui.gui_down.get_bg_img_path()):
-            txt = "Background image path does not exist!"
-            gui.gui_down.display_scrolltext(txt)
+            display_status("Background image path does not exist!")
             stop()
             return 0
 
@@ -207,6 +221,23 @@ def update_frame():
     if run_camera:
         window_app.after(10, update_frame)
 
+def write_video(video_writer, filepath):
+    ret, frame = cap.read()
+
+    video_writer.write(frame)
+
+    if finish_record:
+        video_writer and video_writer.release()
+    else:
+        write_video(video_writer, filepath)
+
+
+
+
+def display_status(msg):
+    status_msg = "STATUS: "+msg
+    status_text.config(text=status_msg)
+
 # ---- buttons ----
 buttons = tk.Frame(window_app)
 buttons.grid(row=2)
@@ -222,10 +253,12 @@ button_pause.pack(side='left')
 
 button_resume = tk.Button(buttons, text="Resume", command=resume_frame, state='disabled')
 button_resume.pack(side='left')
-
 # ---- /end buttons ----
 
-blob_detector = init_blob_detector()
+
+# Status Bar
+status_text = tk.Label(window_app)
+status_text.grid(row=3, column=0)
 
 window_app.mainloop()
 

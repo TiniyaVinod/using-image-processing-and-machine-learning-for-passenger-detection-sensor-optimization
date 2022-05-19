@@ -17,7 +17,11 @@ class app_gui_down():
 
         self.select_mode = 0 # Mode 0: Camera 1: Video 2: Auto
         self.select_method = 0 # Method 0 : Bg sub 1 : SAD
+        self.record_status = 0 # Record Mode only
 
+        default_video_path = "videos/Person_stand.mp4"
+        default_bg_path = "images/empty_scene.jpg"
+        
         # GUI lower part -------------------------------
 
         # GUI Scroll text left
@@ -67,6 +71,7 @@ class app_gui_down():
 
         self.entry_video   = tk.Entry(self.setting_frame, textvariable=self.video_var)
         self.entry_video.grid(row=2*i+2, column=1, sticky='e')
+        self.entry_video.insert(tk.END, default_video_path)
         i = i + 1
 
         # 3: Record
@@ -78,6 +83,7 @@ class app_gui_down():
 
         self.entry_record   = tk.Entry(self.setting_frame, textvariable=self.record_var)
         self.entry_record.grid(row=2*i+2, column=1, sticky='e')
+        self.entry_record.insert(tk.END, "Records/record.mp4")
         i = i + 1
 
         # 4: Auto Mode
@@ -120,6 +126,7 @@ class app_gui_down():
 
         self.entry_sad_bg_img    = tk.Entry(self.setting_frame, textvariable=self.sad_entry)
         self.entry_sad_bg_img.grid(row=3*i+7, column=1, sticky='e')
+        self.entry_sad_bg_img.insert(tk.END, default_bg_path)
 
     # Display text on scroll text widget
     def display_scrolltext(self, txt):
@@ -144,15 +151,16 @@ class app_gui_down():
         self.btn_auto.config(relief=tk.RAISED)
 
         self.select_mode = 1
+        self.record_status = 0
 
     def press_btn_record(self):
-        self.btn_camera.config(relief=tk.RAISED)
+        self.btn_camera.config(relief=tk.SUNKEN)
         self.btn_video.config(relief=tk.RAISED)
         self.btn_record.config(relief=tk.SUNKEN)
         self.btn_auto.config(relief=tk.RAISED)
 
-        self.select_mode = 2 
-
+        self.record_status = 1
+        
     def press_btn_auto(self):
         self.btn_camera.config(relief=tk.RAISED)
         self.btn_video.config(relief=tk.RAISED)
@@ -160,6 +168,7 @@ class app_gui_down():
         self.btn_auto.config(relief=tk.SUNKEN)
 
         self.select_mode = 3
+        self.record_status = 0
 
     # Button actions for METHOD selection
     def press_btn_bg_sub(self):
@@ -173,14 +182,13 @@ class app_gui_down():
         self.btn_sad.config(relief=tk.SUNKEN)
 
         self.select_method = 1
-
+        
     # Method for get value from entry boxes
     def get_camera_number(self):
-        return int(self.entry_camera.get())
+        return self.entry_camera.get()
 
     def get_video_path(self):
-        #return self.entry_video.get()
-        return "videos/Person_stand.mp4"
+        return self.entry_video.get() 
 
     def get_record_export_path(self):
         return self.record_var.get()
@@ -196,6 +204,7 @@ class app_gui_down():
         return self.select_method
 
     def get_bg_img_path(self):
-        #return self.sad_entry
-        return "images/empty_scene.jpg"
+        return self.sad_entry.get()
 
+    def get_record_status(self):
+        return self.record_status
