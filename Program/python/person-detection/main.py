@@ -73,6 +73,8 @@ def play():
             stop()
             return 0
 
+        display_status("Realtime Camera Feed")
+
     elif (select_mode == 1): # VIDEO
         video_path = gui.gui_down.get_video_path()
         
@@ -81,7 +83,11 @@ def play():
             stop()
             return 0
         else:
-            cap = cv2.VideoCapture(video_path)         
+            cap = cv2.VideoCapture(video_path)
+
+        fps = cap.get(cv2.CAP_PROP_FPS)
+        
+        display_status("Video File Feed")         
 
     elif (select_mode == 0) & (record_status == 1): # Record Mode
         export_path = gui.gui_down.get_record_export_path()
@@ -120,6 +126,8 @@ def stop():
     button_pause['state'] = 'disabled'
     button_resume['state'] = 'disabled'
 
+    display_status("STOP Frame")
+
 def pause_frame():
     '''
     pause the stream
@@ -129,6 +137,7 @@ def pause_frame():
     button_pause['state'] = 'disabled'
     button_resume['state'] = 'normal'
 
+    display_status("Pause Frame")
 
 def resume_frame():
     '''
@@ -138,6 +147,8 @@ def resume_frame():
     button_stop['state'] = 'normal'
     button_pause['state'] = 'normal'
     button_resume['state'] = 'diabled'
+
+    display_status("Resume Frame")
 
 def preprocess_frame(frame):
 
@@ -159,6 +170,7 @@ def update_frame():
 
      # If can't read frame
     if (ret is None) | (ret == False):
+        display_status("Cannot capture frame from source")
         stop()
         return 0
 
@@ -168,6 +180,7 @@ def update_frame():
     gui.gui_top.canvas_l_img.paste(img)
 
     frame_bg_sub = backSub.apply(frame_flip)
+   
     # Select Method for Foreground detection
     if gui.gui_down.select_method == 0:
         # Background Subtraction 
@@ -198,11 +211,18 @@ def update_frame():
 
     # Blob detection
     blob_keypoints = blob_detector.detect(frame_filter)
+
+    select_mode = gui.gui_down.get_select_mode()
+
     if len(blob_keypoints) == 0:
         img2 = Image.fromarray(frame_filter)
-        dateTimeObj = datetime.now()
-        text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Empty Scene'
-        gui.gui_down.display_scrolltext(text)
+        
+        if  select_mode== 1:
+            curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
+            text = "Frame No. "+str(curr_frame)+" : Empty Scene"
+        else:
+            dateTimeObj = datetime.now()
+            text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Empty Scene'          
     
     else:
         img_with_keypoints = cv2.drawKeypoints(
@@ -212,10 +232,15 @@ def update_frame():
             (0,0,255),
             cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
         img2 = Image.fromarray(img_with_keypoints)
-        dateTimeObj = datetime.now()
-        text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Human'
-        gui.gui_down.display_scrolltext(text)
-    
+
+        if select_mode == 1:
+            curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
+            text = "Frame No. "+str(curr_frame)+" : Human"
+        else:
+            dateTimeObj = datetime.now()
+            text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Human'
+       
+    gui.gui_down.display_scrolltext(text)
     gui.gui_top.canvas_r_img.paste(img2)
     
     if run_camera:
@@ -230,8 +255,6 @@ def write_video(video_writer, filepath):
         video_writer and video_writer.release()
     else:
         write_video(video_writer, filepath)
-
-
 
 
 def display_status(msg):
@@ -254,7 +277,6 @@ button_pause.pack(side='left')
 button_resume = tk.Button(buttons, text="Resume", command=resume_frame, state='disabled')
 button_resume.pack(side='left')
 # ---- /end buttons ----
-
 
 # Status Bar
 status_text = tk.Label(window_app)

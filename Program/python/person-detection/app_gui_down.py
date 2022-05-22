@@ -75,15 +75,18 @@ class app_gui_down():
         i = i + 1
 
         # 3: Record
-        self.btn_record     = tk.Button(self.setting_frame, text="Record", command=self.press_btn_record)
+        self.btn_record     = tk.Button(self.setting_frame, text="Start Record", command=self.press_btn_start_record)
         self.btn_record.grid(row=2*i+1, column=0, sticky='w')
+
+        self.btn_stop_record = tk.Button(self.setting_frame, text="Stop Record", command=self.press_btn_stop_record)
+        self.btn_stop_record.grid(row=2*i+1, column=1, sticky='w')
 
         self.label_record   = tk.Label(self.setting_frame, text="Export Directory")
         self.label_record.grid(row=2*i+2, column=0, sticky='w')
 
         self.entry_record   = tk.Entry(self.setting_frame, textvariable=self.record_var)
         self.entry_record.grid(row=2*i+2, column=1, sticky='e')
-        self.entry_record.insert(tk.END, "Records/record.mp4")
+        self.entry_record.insert(tk.END, "records/record.mp4")
         i = i + 1
 
         # 4: Auto Mode
@@ -109,6 +112,7 @@ class app_gui_down():
         self.entry_auto_3.grid(row=2*i+4, column=1, sticky='e')
         i = i + 1
 
+        i = 5
         # Method Selection -------------------------------------------
         self.label_Method   = tk.Label(self.setting_frame, text="Method Selection")
         self.label_Method.grid(row=2*i+1, column=0, sticky='w')
@@ -153,13 +157,19 @@ class app_gui_down():
         self.select_mode = 1
         self.record_status = 0
 
-    def press_btn_record(self):
+    def press_btn_start_record(self):
         self.btn_camera.config(relief=tk.SUNKEN)
         self.btn_video.config(relief=tk.RAISED)
         self.btn_record.config(relief=tk.SUNKEN)
         self.btn_auto.config(relief=tk.RAISED)
 
         self.record_status = 1
+
+    def press_btn_stop_record(self):
+
+        self.record_status = 0
+        return 0
+        
         
     def press_btn_auto(self):
         self.btn_camera.config(relief=tk.RAISED)
@@ -182,7 +192,8 @@ class app_gui_down():
         self.btn_sad.config(relief=tk.SUNKEN)
 
         self.select_method = 1
-        
+
+
     # Method for get value from entry boxes
     def get_camera_number(self):
         return self.entry_camera.get()
