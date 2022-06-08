@@ -10,10 +10,14 @@ from os.path import exists
 from blob_detector import *
 
 # --- main ---
-
+global cap, run_camera, global_frame, finish_record, roi_points, roi_img
+roi_flag = False
 run_camera = False
 window_app_run = False
 status_text = ""
+roi_points = []
+
+
 
 backSub = cv2.createBackgroundSubtractorKNN()
 blob_detector = init_blob_detector()
@@ -26,14 +30,18 @@ window_app.geometry = ("1080x400")
 canvas_w = 320
 canvas_h = 320
 
-# first frame with clear white image
+# first frame with clear white image and init filter_image
 white_img = np.zeros([canvas_w, canvas_h, 3], dtype=np.uint8)
 white_img.fill(255) 
+#roi_img = white_img.copy()
+
 default_img = Image.fromarray(white_img)
 default_img = ImageTk.PhotoImage(default_img) 
 
 default_img2 = Image.fromarray(white_img)
 default_img2 = ImageTk.PhotoImage(default_img2) 
+global_frame = white_img
+
 
 if not window_app_run:
     window_app_run = True
@@ -125,7 +133,7 @@ def stop():
     button_stop['state'] = 'disabled'
     button_pause['state'] = 'disabled'
     button_resume['state'] = 'disabled'
-
+    
     display_status("STOP Frame")
 
 def pause_frame():
@@ -149,6 +157,10 @@ def resume_frame():
     button_resume['state'] = 'diabled'
 
     display_status("Resume Frame")
+    
+def apply_ROI():
+    global roi_flag
+    roi_flag = True
 
 def preprocess_frame(frame):
 
@@ -160,11 +172,13 @@ def preprocess_frame(frame):
     frame_corr_color = cv2.cvtColor(frame_resize, cv2.COLOR_BGR2RGB)
 
     # Mirror horizontally
-    frame_flip = np.fliplr(frame_corr_color)    
-
-    return frame_flip
+    frame_flip = np.fliplr(frame_corr_color)
+        
+    return frame_flip    
 
 def update_frame():
+
+    global global_frame, roi_img, roi_flag
 
     ret, frame = cap.read()
 
@@ -175,12 +189,19 @@ def update_frame():
         return 0
 
     frame_flip = preprocess_frame(frame)
-
+    global_frame = frame_flip.copy()
+    # Apply ROI filter
+    
+    if roi_flag == True:
+        frame_flip[roi_img != 0] = 0
+    
     img = Image.fromarray(frame_flip)
     gui.gui_top.canvas_l_img.paste(img)
-
+    
+    # Apply Background Subtraction
     frame_bg_sub = backSub.apply(frame_flip)
-   
+    
+    
     # Select Method for Foreground detection
     if gui.gui_down.select_method == 0:
         # Background Subtraction 
@@ -205,9 +226,10 @@ def update_frame():
         bg_img = np.fliplr(bg_img)
 
         # Absolute Diff
-        frame_filter = cv2.cvtColor(frame_flip, cv2.COLOR_BGR2RGB)
+        frame_filter = frame_flip.copy()
+        frame_filter = cv2.cvtColor(frame_filter, cv2.COLOR_BGR2RGB)
         frame_sad = cv2.absdiff(frame_filter, bg_img)
-        frame_filter[frame_sad<=40] = 0
+        frame_filter[frame_sad<=20] = 0
 
     # Blob detection
     blob_keypoints = blob_detector.detect(frame_filter)
@@ -256,7 +278,45 @@ def write_video(video_writer, filepath):
     else:
         write_video(video_writer, filepath)
 
+def create_roi():
+    
+    global roi_points
+    
+    roi_points = []
+    
+    # Get Points from callback functions  
+    cv2.imshow('ROI', global_frame)
+    cv2.setMouseCallback('ROI', click_event_ROI)
+    
 
+def click_event_ROI(event, x, y, flags, params):
+
+    global roi_img 
+    
+    roi_img = np.zeros([canvas_w, canvas_h, 3], dtype=np.uint8)
+    roi_img.fill(255)
+       
+    # checking for left mouse clicks
+    if event == cv2.EVENT_LBUTTONDOWN:
+ 
+        # displaying the coordinates
+        # on the image window
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        
+        cv2.putText(global_frame, str(x) + ',' +
+                    str(y), (x,y), font,
+                    1, (255, 0, 0), 2)
+        roi_points.append([x,y])
+        cv2.imshow('ROI', global_frame)
+        cv2.waitKey(0)
+        cv2.destroyWindow('ROI')
+        
+        # Connect dots and create polygon       
+        pts = np.array(roi_points,np.int32)
+        roi_img = cv2.fillPoly(roi_img, [pts], (0,0,0))
+    
+        #cv2.imshow('Shapes', roi_img)  !TODO delete this debug line
+    
 def display_status(msg):
     status_msg = "STATUS: "+msg
     status_text.config(text=status_msg)
@@ -276,6 +336,13 @@ button_pause.pack(side='left')
 
 button_resume = tk.Button(buttons, text="Resume", command=resume_frame, state='disabled')
 button_resume.pack(side='left')
+
+button_apply_ROI     = tk.Button(buttons, text="Apply ROI filter", command=apply_ROI)
+button_apply_ROI.pack(side='left')
+
+button_create_ROI    = tk.Button(buttons, text="Create ROI filter", command=create_roi)
+button_create_ROI.pack(side='left')
+
 # ---- /end buttons ----
 
 # Status Bar

@@ -14,6 +14,9 @@ class app_gui_down():
         self.auto_var_2 = tk.StringVar()
         self.auto_var_3 = tk.StringVar()
         self.sad_entry  = tk.StringVar()
+        self.roi_x_entry = tk.StringVar()
+        self.roi_y_entry = tk.StringVar()
+        self.roi_radius = tk.StringVar()
 
         self.select_mode = 0 # Mode 0: Camera 1: Video 2: Auto
         self.select_method = 0 # Method 0 : Bg sub 1 : SAD
@@ -180,6 +183,8 @@ class app_gui_down():
         self.select_mode = 3
         self.record_status = 0
 
+        
+        
     # Button actions for METHOD selection
     def press_btn_bg_sub(self):
         self.btn_bg_sub.config(relief=tk.SUNKEN)

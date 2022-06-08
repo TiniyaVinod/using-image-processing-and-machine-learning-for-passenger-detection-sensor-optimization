@@ -5,7 +5,7 @@ def init_blob_detector():
     params.minThreshold = 1
     params.maxThreshold = 255
     params.filterByArea = True
-    params.minArea = 5000
+    params.minArea = 4000
     params.maxArea = 30000
     params.filterByCircularity = False
     params.minCircularity = 0.5
