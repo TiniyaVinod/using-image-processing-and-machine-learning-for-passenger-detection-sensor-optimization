@@ -2,19 +2,15 @@
 import tkinter as tk
 from datetime import datetime
 from os.path import exists
-from tkinter.tix import ExFileSelectBox
-from venv import create
 
 import cv2
-import yolov5
 import numpy as np
 from PIL import Image, ImageTk
-from soupsieve import select
+from timeit import default_timer as timer
 
 from app_gui import app_gui
 from blob_detector import *
 from model_class import model_class
-#from model_class import model_class
 
 # --- main ---
 
@@ -24,7 +20,7 @@ run_camera = False
 window_app_run = False
 status_text = ""
 roi_points = []
-model_filename = 'yolov5m.pt'
+model_filename = 'models/yolov5m.pt'
 device = "cuda" # or "cpu"
 
 backSub = cv2.createBackgroundSubtractorKNN()
@@ -80,7 +76,7 @@ def play():
         try:
              cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
         except:
-            display_status("Camera Number must be Integer")
+            display_status("Error : Camera Number must be Integer")
             return 0
        
         cap = cv2.VideoCapture(cam_no) 
@@ -91,7 +87,7 @@ def play():
             stop()
             return 0
 
-        display_status("Realtime Camera Feed")
+        display_status("STATUS : Realtime Camera Feed")
 
     elif (select_mode == 1): # VIDEO
         video_path = gui.gui_down.get_video_path()
@@ -105,7 +101,7 @@ def play():
 
         fps = cap.get(cv2.CAP_PROP_FPS)
         
-        display_status("Video File Feed")         
+        display_status("STATUS : Video File Feed")         
 
     elif (select_mode == 0) & (record_status == 1): # Record Mode
         export_path = gui.gui_down.get_record_export_path()
@@ -144,7 +140,7 @@ def stop():
     button_pause['state'] = 'disabled'
     button_resume['state'] = 'disabled'
     
-    display_status("STOP Frame")
+    display_status("STATUS : STOP Frame")
 
 def pause_frame():
     '''
@@ -155,7 +151,7 @@ def pause_frame():
     button_pause['state'] = 'disabled'
     button_resume['state'] = 'normal'
 
-    display_status("Pause Frame")
+    display_status("STATUS : Pause Frame")
 
 def resume_frame():
     '''
@@ -166,7 +162,7 @@ def resume_frame():
     button_pause['state'] = 'normal'
     button_resume['state'] = 'diabled'
 
-    display_status("Resume Frame")
+    display_status("STATUS : Resume Frame")
     
 def apply_ROI():
     global roi_flag, roi_points
@@ -174,11 +170,12 @@ def apply_ROI():
     if roi_points:
         roi_flag = True
     else:
-        display_status("ROI points not yet specified")
+        display_status("STATUS : ROI points not yet specified")
         roi_flag = False
     
 def default_roi():
     
+    # TODO: Read from config file 
     '''
     Set roi points to default
     '''
@@ -214,6 +211,7 @@ def draw_polygon_roi(frame):
         
         return frame_roi
     else: # empty
+        
         return frame
         
 def preprocess_frame(frame):
@@ -231,6 +229,8 @@ def preprocess_frame(frame):
     return frame_flip    
 
 def update_frame():
+    
+    start = timer()
 
     global global_frame, roi_img, roi_flag
 
@@ -238,7 +238,7 @@ def update_frame():
 
      # If can't read frame
     if (ret is None) | (ret == False):
-        display_status("Cannot capture frame from source")
+        display_status("STATUS : Cannot capture frame from source")
         stop()
         return 0
 
@@ -257,23 +257,25 @@ def update_frame():
     img = Image.fromarray(frame_show)
     gui.gui_top.canvas_l_img.paste(img)
     
-    # Apply Background Subtraction
-    frame_bg_sub = backSub.apply(frame_flip)
-    
     # Select Method for Foreground detection
-    if gui.gui_down.select_method == 0:
+    if gui.gui_down.select_method == 0: # Use no method at all
+        
+        frame_filter = frame_flip
+    
+    elif gui.gui_down.select_method == 1:
+        
         # Background Subtraction 
-        #frame_bg_sub = backSub.apply(frame_flip) # TODO uncomment this line
+        frame_bg_sub = backSub.apply(frame_flip)
 
         # Filter only bg Sub part
         frame_filter = frame_flip
         frame_filter[frame_bg_sub==0] = 0
 
-    elif gui.gui_down.select_method == 1:
+    elif gui.gui_down.select_method == 2:
 
         # Check if image path exist
         if not exists(gui.gui_down.get_bg_img_path()):
-            display_status("Background image path does not exist!")
+            display_status("STATUS : Background image path does not exist!")
             stop()
             return 0
 
@@ -290,7 +292,6 @@ def update_frame():
         frame_filter[frame_sad<=20] = 0
 
     # Blob detection
-    # blob_keypoints = blob_detector.detect(frame_filter)
     select_mode = gui.gui_down.get_select_mode()
 
     # Classification
@@ -324,11 +325,16 @@ def update_frame():
         else:
             dateTimeObj = datetime.now()
             text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Empty Scene'          
-    
-    
        
     gui.gui_down.display_scrolltext(text)
     gui.gui_top.canvas_r_img.paste(img2)
+    
+    sec = timer()-start
+    fps = 1/sec
+    str_fps = "{:.2f}".format(fps)
+    
+    msg = "FPS : " + str_fps
+    display_status(msg)
     
     if run_camera:
         window_app.after(10, update_frame)
@@ -353,7 +359,6 @@ def create_roi():
     cv2.imshow('ROI', global_frame)
     cv2.setMouseCallback('ROI', click_event_ROI)
     
-
 def click_event_ROI(event, x, y, flags, params):
 
     global roi_img 
@@ -380,8 +385,7 @@ def click_event_ROI(event, x, y, flags, params):
         roi_img = cv2.fillPoly(roi_img, [pts], (255,255,255))
     
 def display_status(msg):
-    status_msg = "STATUS: "+msg
-    status_text.config(text=status_msg)
+    status_text.config(text=msg)
 
 # ---- buttons_left ----
 buttons_left = tk.Frame(window_app)
@@ -419,4 +423,4 @@ status_text.grid(row=3, column=0)
 
 window_app.mainloop()
 
-#cap.release()
+cap.release()

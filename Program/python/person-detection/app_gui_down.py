@@ -4,7 +4,6 @@ import tkinter.scrolledtext as st
 
 class app_gui_down():
 
-
     def __init__(self, window_app, canvas_w, canvas_h):
 
         self.camera_var = tk.StringVar()
@@ -135,6 +134,17 @@ class app_gui_down():
         self.entry_sad_bg_img.grid(row=3*i+7, column=1, sticky='e')
         self.entry_sad_bg_img.insert(tk.END, default_bg_path)
 
+    # Find out if button is raised or flat
+    def RaisedOrFlat(self, buttonName):
+        
+        button = buttonName
+        # check if the button is Raised
+        if button['relief']== "raised": 
+            return 'raised'
+        # check if the button is flat
+        elif button['relief'] == "sunken": 
+            return 'sunken'
+
     # Display text on scroll text widget
     def display_scrolltext(self, txt):
         self.scroll_txt_left.config(state=tk.NORMAL)
@@ -173,7 +183,6 @@ class app_gui_down():
         self.record_status = 0
         return 0
         
-        
     def press_btn_auto(self):
         self.btn_camera.config(relief=tk.RAISED)
         self.btn_video.config(relief=tk.RAISED)
@@ -183,21 +192,39 @@ class app_gui_down():
         self.select_mode = 3
         self.record_status = 0
 
-        
-        
     # Button actions for METHOD selection
     def press_btn_bg_sub(self):
-        self.btn_bg_sub.config(relief=tk.SUNKEN)
-        self.btn_sad.config(relief=tk.RAISED)
+        
+        rel = self.RaisedOrFlat(self.btn_bg_sub)
+        
+        if rel == "sunken":
+            
+            self.btn_bg_sub.config(relief=tk.RAISED)
+            
+            self.select_method = 0
+            
+        elif rel == "raised":    
+            
+            self.btn_bg_sub.config(relief=tk.SUNKEN)
+            self.btn_sad.config(relief=tk.RAISED)
 
-        self.select_method = 0
+            self.select_method = 1
 
     def press_btn_sad(self):
-        self.btn_bg_sub.config(relief=tk.RAISED)
-        self.btn_sad.config(relief=tk.SUNKEN)
+        
+        rel = self.RaisedOrFlat(self.btn_sad)
+        
+        if rel == "sunken":
+            
+            self.btn_sad.config(relief=tk.RAISED)
+            
+            self.select_method = 0
+            
+        elif rel == "raised":
+            self.btn_bg_sub.config(relief=tk.RAISED)
+            self.btn_sad.config(relief=tk.SUNKEN)
 
-        self.select_method = 1
-
+            self.select_method = 2
 
     # Method for get value from entry boxes
     def get_camera_number(self):
