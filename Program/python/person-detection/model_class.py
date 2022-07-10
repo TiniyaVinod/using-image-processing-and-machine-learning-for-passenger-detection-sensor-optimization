@@ -1,6 +1,5 @@
 # Model For classification
 import yolov5
-from numba import jit,cuda
 
 class model_class():
     
@@ -22,6 +21,12 @@ class model_class():
         self.model.multi_label = False  # NMS multiple labels per box
         self.model.max_det = 10  # maximum number of detections per image
     
+    # NMS confidence threshold
+    def conf_threshold(self, conf):
+        self.model.conf = conf
+        
+    
+    # Predict result
     def predict_result(self, img):
         
         if self.device == "cuda":  # if gpu is available

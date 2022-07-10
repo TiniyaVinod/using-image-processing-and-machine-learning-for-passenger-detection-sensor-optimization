@@ -9,7 +9,6 @@ from PIL import Image, ImageTk
 from timeit import default_timer as timer
 
 from app_gui import app_gui
-from blob_detector import *
 from model_class import model_class
 
 # --- main ---
@@ -21,15 +20,14 @@ window_app_run = False
 status_text = ""
 roi_points = []
 model_filename = 'models/yolov5m.pt'
-device = "cuda" # or "cpu"
+device = "cuda" # or "cpu" #TODO Read from config
 
-backSub = cv2.createBackgroundSubtractorKNN()
-blob_detector = init_blob_detector()
 
 # create window application
 window_app = tk.Tk()
 window_app.title("Person Detection")
 window_app.geometry = ("1080x400")
+window_app.resizable(width=False, height=False)
 
 canvas_w = 320
 canvas_h = 320
@@ -257,43 +255,8 @@ def update_frame():
     img = Image.fromarray(frame_show)
     gui.gui_top.canvas_l_img.paste(img)
     
-    # Select Method for Foreground detection
-    if gui.gui_down.select_method == 0: # Use no method at all
-        
-        frame_filter = frame_flip
+    select_mode = gui.gui_down.select_mode
     
-    elif gui.gui_down.select_method == 1:
-        
-        # Background Subtraction 
-        frame_bg_sub = backSub.apply(frame_flip)
-
-        # Filter only bg Sub part
-        frame_filter = frame_flip
-        frame_filter[frame_bg_sub==0] = 0
-
-    elif gui.gui_down.select_method == 2:
-
-        # Check if image path exist
-        if not exists(gui.gui_down.get_bg_img_path()):
-            display_status("STATUS : Background image path does not exist!")
-            stop()
-            return 0
-
-        # TODO: Need to read only once, just a temporary solution 
-        dim = (gui.canvas_w, gui.canvas_h)
-        bg_img = cv2.imread(gui.gui_down.get_bg_img_path(), cv2.IMREAD_COLOR)
-        bg_img = cv2.resize(bg_img, dim, interpolation = cv2.INTER_AREA)
-        bg_img = np.fliplr(bg_img)
-
-        # Absolute Diff
-        frame_filter = frame_flip.copy()
-        frame_filter = cv2.cvtColor(frame_filter, cv2.COLOR_BGR2RGB)
-        frame_sad = cv2.absdiff(frame_filter, bg_img)
-        frame_filter[frame_sad<=20] = 0
-
-    # Blob detection
-    select_mode = gui.gui_down.get_select_mode()
-
     # Classification
     predictions = model.predict_result(frame_flip)
     categories = predictions[:, 5]
@@ -317,7 +280,7 @@ def update_frame():
             dateTimeObj = datetime.now()
             text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Person'
     else:
-        img2 = Image.fromarray(frame_filter)
+        img2 = Image.fromarray(frame_flip)
         
         if  select_mode== 1:
             curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
@@ -329,6 +292,7 @@ def update_frame():
     gui.gui_down.display_scrolltext(text)
     gui.gui_top.canvas_r_img.paste(img2)
     
+    # Compute FPS
     sec = timer()-start
     fps = 1/sec
     str_fps = "{:.2f}".format(fps)
