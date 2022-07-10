@@ -13,17 +13,17 @@
 
 1.  Camera
 
-☐ Refactoring codes 
-☐ Default values must be read from config file
-☐ Record ability
-☐ Model Paramter adjustable
-☐ Save predicted output into file(s) with timestamps
+☐ Refactoring codes <br />
+☐ Default values must be read from config file <br />
+☐ Record ability <br />
+☐ Model Paramter adjustable <br />
+☐ Save predicted output into file(s) with timestamps <br />
 
 
 2.  Red Pitaya 
 
-☐ Read Signal from Fast analog IN1
-☐ Synchronize CLK between PC and Red Pitaya
-☐ Sampling rate is adjustable
+☐ Read Signal from Fast analog IN1 <br />
+☐ Synchronize CLK between PC and Red Pitaya <br />
+☐ Sampling rate is adjustable <br />
 
 
