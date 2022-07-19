@@ -2,9 +2,11 @@
 import tkinter as tk
 import tkinter.scrolledtext as st
 
+from common_functions import read_config 
+
 class app_gui_down():
 
-    def __init__(self, window_app, canvas_w, canvas_h):
+    def __init__(self, window_app, canvas_w, canvas_h, conf):
 
         self.camera_var = tk.StringVar()
         self.video_var  = tk.StringVar()
@@ -19,8 +21,7 @@ class app_gui_down():
         self.select_mode = 0 # Mode 0: Camera 1: Video 2: Auto
         self.record_status = 0 # Record Mode only
 
-        # TODO! Deal with this default value
-        default_video_path = "videos/Person_stand.mp4"
+        default_video_path = conf["default"]["video_path"]
         
         # GUI lower part -------------------------------
 
@@ -75,18 +76,15 @@ class app_gui_down():
         i = i + 1
 
         # 3: Record
-        self.btn_record     = tk.Button(self.setting_frame, text="Start Record", command=self.press_btn_start_record)
+        self.btn_record     = tk.Button(self.setting_frame, text="Record", command=self.press_btn_record)
         self.btn_record.grid(row=2*i+1, column=0, sticky='w')
-
-        self.btn_stop_record = tk.Button(self.setting_frame, text="Stop Record", command=self.press_btn_stop_record)
-        self.btn_stop_record.grid(row=2*i+1, column=1, sticky='w')
 
         self.label_record   = tk.Label(self.setting_frame, text="Export Directory")
         self.label_record.grid(row=2*i+2, column=0, sticky='w')
 
         self.entry_record   = tk.Entry(self.setting_frame, textvariable=self.record_var)
         self.entry_record.grid(row=2*i+2, column=1, sticky='e')
-        self.entry_record.insert(tk.END, "records/record.mp4") # TODO read from config
+        self.entry_record.insert(tk.END, conf["default"]["export_record"])
         i = i + 1
         
         # 4: Processing Device
@@ -95,14 +93,14 @@ class app_gui_down():
         
         self.entry_proc_device   = tk.Entry(self.setting_frame, textvariable=self.proc_device)
         self.entry_proc_device.grid(row=2*i+1, column=1, sticky='e')
-        self.entry_proc_device.insert(tk.END, "cuda") #TODO read from config
+        self.entry_proc_device.insert(tk.END, conf["classification"]["computing_device"])
         
         self.label_model_file = tk.Label(self.setting_frame, text="Model filename")
         self.label_model_file.grid(row=2*i+2, column=0, sticky='w')
         
         self.entry_model_file   = tk.Entry(self.setting_frame, textvariable=self.model_file)
         self.entry_model_file.grid(row=2*i+2, column=1, sticky='e')
-        self.entry_model_file.insert(tk.END, "models/yolov5m.pt") #TODO read from config
+        self.entry_model_file.insert(tk.END, conf["classification"]["model_filename"])
         i = i + 1
         
         # 5: Model Setting
@@ -143,7 +141,7 @@ class app_gui_down():
         self.select_mode = 1
         self.record_status = 0
 
-    def press_btn_start_record(self):
+    def press_btn_record(self):
         self.btn_camera.config(relief=tk.SUNKEN)
         self.btn_video.config(relief=tk.RAISED)
         self.btn_record.config(relief=tk.SUNKEN)

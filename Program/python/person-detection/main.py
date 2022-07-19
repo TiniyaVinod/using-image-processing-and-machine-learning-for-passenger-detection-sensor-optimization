@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from csv import writer
 import tkinter as tk
 from datetime import datetime
 from os.path import exists
@@ -10,6 +11,7 @@ from timeit import default_timer as timer
 
 from app_gui import app_gui
 from model_class import model_class
+from common_functions import read_config
 
 # --- main ---
 
@@ -19,18 +21,25 @@ run_camera = False
 window_app_run = False
 status_text = ""
 roi_points = []
-model_filename = 'models/yolov5m.pt'
-device = "cuda" # or "cpu" #TODO Read from config
+config_filename = "config.json"
 
+if not exists(config_filename):
+    print('Cannot find configuration file')
+    
+config = read_config(config_filename)
+
+model_filename = config["classification"]['model_filename']
+device = config["classification"]['computing_device']
 
 # create window application
 window_app = tk.Tk()
-window_app.title("Person Detection")
-window_app.geometry = ("1080x400")
+config_gui = config['gui_prop']
+window_app.title(config_gui['window_title'])
+window_app.geometry = (config_gui['window_geometry'])
 window_app.resizable(width=False, height=False)
 
-canvas_w = 320
-canvas_h = 320
+canvas_w = config_gui['canvas_width']
+canvas_h = config_gui['canvas_height']
 
 # first frame with clear white image and init filter_image
 white_img = np.zeros([canvas_w, canvas_h, 3], dtype=np.uint8)
@@ -54,7 +63,8 @@ if not window_app_run:
         default_img, 
         default_img2, 
         canvas_w, 
-        canvas_h
+        canvas_h,
+        config
         )
     
 def play():
@@ -62,7 +72,7 @@ def play():
     start stream (run_camera and update_image) 
     and change state of buttons_left
     '''
-    global cap, run_camera, finish_record
+    global cap, run_camera, finish_record, video_writer
     
     # Check current selected tab
     select_mode = gui.gui_down.get_select_mode()
@@ -77,7 +87,7 @@ def play():
             display_status("Error : Camera Number must be Integer")
             return 0
        
-        cap = cv2.VideoCapture(cam_no) 
+        cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW) 
 
         # Check if source is accessible
         if not cap.isOpened():  
@@ -102,13 +112,29 @@ def play():
         display_status("STATUS : Video File Feed")         
 
     elif (select_mode == 0) & (record_status == 1): # Record Mode
+        
+        try:
+             cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
+        except:
+            display_status("Error : Camera Number must be Integer")
+            return 0
+        
+        cap = cv2.VideoCapture(cam_no)
+        
         export_path = gui.gui_down.get_record_export_path()
 
-        video_writer = cv2.VideoWriter(export_path)
+        w = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+        h = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        write_fps = 15
+        
+        video_writer = cv2.VideoWriter(export_path, 
+                                       fourcc,
+                                       write_fps,
+                                       (int(w), int(h)),
+                                       True)
 
-        write_video(video_writer)
-
-    else:   # Auto Mode
+    else:   # Auto Mode ( Not implemented )
         return 0
 
     if not run_camera:
@@ -125,14 +151,11 @@ def stop():
     stop stream (run_camera) 
     and change state of buttons_left
     '''
-    global run_camera, finish_record
+    global run_camera
 
     if run_camera:
         run_camera = False
-        finish_record = True
-
-        cap.release()
-
+   
     button_play['state'] = 'normal'
     button_stop['state'] = 'disabled'
     button_pause['state'] = 'disabled'
@@ -168,30 +191,18 @@ def apply_ROI():
     if roi_points:
         roi_flag = True
     else:
-        display_status("STATUS : ROI points not yet specified")
+        display_status("STATUS : ROI points are not specified")
         roi_flag = False
     
-def default_roi():
+def default_roi(config):
     
-    # TODO: Read from config file 
     '''
     Set roi points to default
     '''
     
     global roi_points, roi_img
     
-    roi_points = [[59, 172],
-                  [91, 53],
-                  [166, 1],
-                  [228, 50],
-                  [267, 186],
-                  [279, 233],
-                  [238, 234],
-                  [211, 301],
-                  [162, 319],
-                  [121, 302],
-                  [89, 234],
-                  [55, 229]]
+    roi_points = config['preprocess']['roi_points']
     
     # Connect dots and create polygon       
     pts = np.array(roi_points,np.int32)
@@ -239,9 +250,13 @@ def update_frame():
         display_status("STATUS : Cannot capture frame from source")
         stop()
         return 0
-
+    
     frame_flip = preprocess_frame(frame)
     global_frame = frame_flip.copy()
+    
+    # Record Mode
+    if gui.gui_down.get_record_status() == 1:
+        video_writer.write(frame)
     
     # Apply ROI filter
     if roi_flag == True: 
@@ -261,7 +276,9 @@ def update_frame():
     predictions = model.predict_result(frame_flip)
     categories = predictions[:, 5]
     
-    # Check if there is any person in the frame
+    sec = timer()
+    second = "{:.2f}".format(sec)
+    # Check if there is any person in the frame    
     if ( len(predictions) == 1 and (0 in categories) ):
         boxes = predictions[:, :4] # x1, y1, x2, y2
         
@@ -275,7 +292,7 @@ def update_frame():
 
         if select_mode == 1:
             curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
-            text = "Frame No. "+str(curr_frame)+" : Person"
+            text = "Second : "+str(second)+" Frame No. "+str(curr_frame)+" : Person"
         else:
             dateTimeObj = datetime.now()
             text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Person'
@@ -284,7 +301,7 @@ def update_frame():
         
         if  select_mode== 1:
             curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
-            text = "Frame No. "+str(curr_frame)+" : Empty Scene"
+            text = "Second : "+str(second)+" Frame No. "+str(curr_frame)+" : Empty Scene"
         else:
             dateTimeObj = datetime.now()
             text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Empty Scene'          
@@ -302,16 +319,6 @@ def update_frame():
     
     if run_camera:
         window_app.after(10, update_frame)
-
-def write_video(video_writer, filepath):
-    ret, frame = cap.read()
-
-    video_writer.write(frame)
-
-    if finish_record:
-        video_writer and video_writer.release()
-    else:
-        write_video(video_writer, filepath)
 
 def create_roi():
     
@@ -377,7 +384,7 @@ button_apply_ROI.pack(side='left')
 button_create_ROI    = tk.Button(buttons_right, text="Create ROI filter", command=create_roi)
 button_create_ROI.pack(side='left')
 
-button_default_ROI    = tk.Button(buttons_right, text="default ROI value", command=default_roi)
+button_default_ROI    = tk.Button(buttons_right, text="default ROI value", command=default_roi(config))
 button_default_ROI.pack(side='left')
 # ---- /end buttons_left ----
 
@@ -388,3 +395,6 @@ status_text.grid(row=3, column=0)
 window_app.mainloop()
 
 cap.release()
+
+if gui.gui_down.get_record_status == 1:
+    video_writer.release()

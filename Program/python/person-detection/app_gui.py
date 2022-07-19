@@ -7,7 +7,7 @@ from app_gui_down import app_gui_down
 # --- GUI ---
 class app_gui():
 
-    def __init__(self, window_app, img1, img2, width, height):
+    def __init__(self, window_app, img1, img2, width, height, config):
         
         # Variables
         #self.winapp = window_app
@@ -30,4 +30,4 @@ class app_gui():
         # Create a canvas that can fit the video size
         self.gui_top = app_gui_top(window_app, img1, img2, width, height)
         
-        self.gui_down = app_gui_down(window_app, width, height)
+        self.gui_down = app_gui_down(window_app, width, height, config)
