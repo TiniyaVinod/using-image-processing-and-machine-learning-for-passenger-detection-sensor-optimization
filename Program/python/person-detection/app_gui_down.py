@@ -84,7 +84,7 @@ class app_gui_down():
 
         self.entry_record   = tk.Entry(self.setting_frame, textvariable=self.record_var)
         self.entry_record.grid(row=2*i+2, column=1, sticky='e')
-        self.entry_record.insert(tk.END, conf["default"]["export_record"])
+        self.entry_record.insert(tk.END, conf["default"]["export_record_name"])
         i = i + 1
         
         # 4: Processing Device

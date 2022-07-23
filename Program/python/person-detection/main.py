@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 from csv import writer
+from os import mkdir
 import tkinter as tk
 from datetime import datetime
-from os.path import exists
+from os.path import exists, join
 
 import cv2
 import numpy as np
@@ -67,6 +68,25 @@ if not window_app_run:
         config
         )
     
+def connect_cam():
+    
+    global cap
+    
+    try:
+        cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
+    except:
+        display_status("Error : Camera Number must be Integer")
+        return 0
+    cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW)
+    display_status("STATUS : Ready to play camera")
+    
+    button_play['state'] = 'normal'
+    button_stop['state'] = 'normal'
+    button_connectcam['state'] = 'disabled'
+    
+def disconnect_cam():
+    return 0
+             
 def play():
     '''
     start stream (run_camera and update_image) 
@@ -80,21 +100,11 @@ def play():
     finish_record = False
 
     if (select_mode == 0) & (record_status == 0): # CAMERA
-
-        try:
-             cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
-        except:
-            display_status("Error : Camera Number must be Integer")
-            return 0
-       
-        cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW) 
-
         # Check if source is accessible
         if not cap.isOpened():  
             cap.release()
             stop()
             return 0
-
         display_status("STATUS : Realtime Camera Feed")
 
     elif (select_mode == 1): # VIDEO
@@ -112,17 +122,15 @@ def play():
         display_status("STATUS : Video File Feed")         
 
     elif (select_mode == 0) & (record_status == 1): # Record Mode
-        
-        try:
-             cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
-        except:
-            display_status("Error : Camera Number must be Integer")
-            return 0
-        
-        cap = cv2.VideoCapture(cam_no)
-        
-        export_path = gui.gui_down.get_record_export_path()
+        # Path to write record
+        export_folder = config['default']['export_record_folder']
+        export_filename = config['default']['export_record_name']
+        export_path = join(export_folder, export_filename)
 
+        # if there is no directory, create one
+        if not exists(export_folder):
+            mkdir(export_folder)
+        
         w = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
         h = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
@@ -142,8 +150,7 @@ def play():
         
         button_play['state'] = 'disabled'
         button_stop['state'] = 'normal'
-        button_pause['state'] = 'normal'
-        button_resume['state'] = 'disabled'
+        button_connectcam['state'] = 'disabled'
         update_frame()
 
 def stop():
@@ -151,40 +158,20 @@ def stop():
     stop stream (run_camera) 
     and change state of buttons_left
     '''
-    global run_camera
+    global run_camera, video_writer
 
     if run_camera:
         run_camera = False
+        cap.release()
+    
+    if gui.gui_down.get_record_status() == 1:
+        video_writer.release()
    
     button_play['state'] = 'normal'
     button_stop['state'] = 'disabled'
-    button_pause['state'] = 'disabled'
-    button_resume['state'] = 'disabled'
-    
+    button_connectcam['state'] = 'normal'
     display_status("STATUS : STOP Frame")
 
-def pause_frame():
-    '''
-    pause the stream
-    and change state of buttons_left
-    '''
-    button_stop['state'] = 'normal'
-    button_pause['state'] = 'disabled'
-    button_resume['state'] = 'normal'
-
-    display_status("STATUS : Pause Frame")
-
-def resume_frame():
-    '''
-    resume the stream after pause
-    and change state of buttons_left
-    '''
-    button_stop['state'] = 'normal'
-    button_pause['state'] = 'normal'
-    button_resume['state'] = 'diabled'
-
-    display_status("STATUS : Resume Frame")
-    
 def apply_ROI():
     global roi_flag, roi_points
     
@@ -362,17 +349,14 @@ def display_status(msg):
 buttons_left = tk.Frame(window_app)
 buttons_left.grid(row=2, column=0)
 
-button_play = tk.Button(buttons_left, text="Play", command=play)
+button_play = tk.Button(buttons_left, text="Play", command=play, state='disabled')
 button_play.pack(side='left')
 
 button_stop = tk.Button(buttons_left, text="Stop", command=stop, state='disabled')
 button_stop.pack(side='left')
 
-button_pause = tk.Button(buttons_left, text="Pause", command=pause_frame, state='disabled')
-button_pause.pack(side='left')
-
-button_resume = tk.Button(buttons_left, text="Resume", command=resume_frame, state='disabled')
-button_resume.pack(side='left')
+button_connectcam = tk.Button(buttons_left, text="Connect Camera", command=connect_cam)
+button_connectcam.pack(side='left')
 
 # ---- buttons_right ----
 buttons_right = tk.Frame(window_app)
@@ -393,8 +377,3 @@ status_text = tk.Label(window_app)
 status_text.grid(row=3, column=0)
 
 window_app.mainloop()
-
-cap.release()
-
-if gui.gui_down.get_record_status == 1:
-    video_writer.release()
