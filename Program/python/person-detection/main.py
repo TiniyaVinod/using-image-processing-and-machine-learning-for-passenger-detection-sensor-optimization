@@ -10,16 +10,19 @@ import numpy as np
 from PIL import Image, ImageTk
 from timeit import default_timer as timer
 
+from requests import delete
+
 from app_gui import app_gui
 from model_class import model_class
 from common_functions import read_config
 
 # --- main ---
 
-global cap, run_camera, global_frame, roi_points, roi_img
+global cap, run_camera, global_frame, roi_points, roi_img, isconnect_newcam
 roi_flag = False
 run_camera = False
 window_app_run = False
+isconnect_newcam = False
 status_text = ""
 roi_points = []
 config_filename = "config.json"
@@ -70,7 +73,7 @@ if not window_app_run:
     
 # Button Functions ----------------------------------------------------------
 def connect_cam():
-    global cap, video_writer
+    global cap, video_writer, isconnect_newcam
     
     # Check current selected tab
     select_mode = gui.gui_down.get_select_mode()
@@ -106,9 +109,18 @@ def connect_cam():
         display_status("STATUS : Video File Feed")         
 
     elif (select_mode == 0) & (record_status == 1): # Record Mode
+        
+        try:
+            cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
+        except:
+            display_status("Error : Camera Number must be Integer")
+            return 0
+        cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW)
+        display_status("STATUS : Camera active ")
+        
         # Path to write record
-        export_folder = config['default']['export_record_folder']
-        export_filename = config['default']['export_record_name']
+        export_folder = config['export']['export_record_folder']
+        export_filename = config['export']['export_record_name']
         export_path = join(export_folder, export_filename)
 
         # if there is no directory, create one
@@ -129,16 +141,22 @@ def connect_cam():
     else:   # Auto Mode ( Not implemented )
         return 0
     
+    isconnect_newcam = True
+    
     button_play['state'] = 'normal'
     button_stop['state'] = 'normal'
     button_connectcam['state'] = 'disabled'
     button_disconnectcam['state'] = 'normal'
     
-def disconnect_cam():
+def disconnect_newcam():
+    
+    global isconnect_newcam
     
     cap.release()
     
     display_status("STATUS: Camera inactive")
+    
+    isconnect_newcam = False
 
     button_play['state'] = 'disabled'
     button_stop['state'] = 'disabled'
@@ -160,8 +178,11 @@ def play():
         button_connectcam['state'] = 'disabled'
         button_disconnectcam['state'] = 'disabled'
         update_frame()
-        
-    #!TODO add clearing text
+    
+    # Clear Text
+    if isconnect_newcam == True:
+        gui.gui_down.scroll_txt_left.config(state=tk.NORMAL)
+        gui.gui_down.scroll_txt_left.delete('1.0', tk.END)
         
 def stop():
     '''
@@ -173,6 +194,7 @@ def stop():
     if run_camera:
         run_camera = False
     
+    # if record mode is activated, release the object
     if gui.gui_down.get_record_status() == 1:
         video_writer.release()
     else:
@@ -219,13 +241,11 @@ def draw_polygon_roi(frame):
     
     # draw polygon if with the specified points
     if roi_points: # not empty
-        
         pts = np.array(roi_points, np.int32)
         frame_roi = cv2.polylines(frame, [pts], isClosed = True, color = (255,0,0), thickness=1)
         
         return frame_roi
     else: # empty
-        
         return frame
         
 def preprocess_frame(frame):
@@ -298,7 +318,7 @@ def update_frame():
         
         img_with_keypoints = frame_flip.copy()
         try:
-            cv2.rectangle(img_with_keypoints, (boxes[0,0],boxes[0,1]), (boxes[0,2],boxes[0,3]), (0,255,0), (10))
+            cv2.rectangle(img_with_keypoints, (boxes[0,0],boxes[0,1]), (boxes[0,2],boxes[0,3]), (0,255,0), (5))
         except:
             print("boxes does not exist")
         
@@ -386,7 +406,7 @@ button_stop.pack(side='left')
 button_connectcam = tk.Button(buttons_left, text="Connect Camera/Video", command=connect_cam)
 button_connectcam.pack(side='left')
 
-button_disconnectcam = tk.Button(buttons_left, text="Disconnect Camera/Video", command=disconnect_cam, state='disabled')
+button_disconnectcam = tk.Button(buttons_left, text="Disconnect Camera/Video", command=disconnect_newcam, state='disabled')
 button_disconnectcam.pack(side='left')
 
 # ---- buttons_right ----
