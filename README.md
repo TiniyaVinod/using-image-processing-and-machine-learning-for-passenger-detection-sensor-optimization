@@ -14,8 +14,8 @@
 1.  Camera
 
 ☐ Refactoring codes <br />
-☐ Default values must be read from config file <br />
-☐ Record ability <br />
+☑ Default values must be read from config file <br />
+☑ Record to video file <br />
 ☐ Model Paramter adjustable <br />
 ☐ Save predicted output into file(s) with timestamps <br />
 
