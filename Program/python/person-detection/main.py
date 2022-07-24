@@ -16,7 +16,7 @@ from common_functions import read_config
 
 # --- main ---
 
-global cap, run_camera, global_frame, finish_record, roi_points, roi_img
+global cap, run_camera, global_frame, roi_points, roi_img
 roi_flag = False
 run_camera = False
 window_app_run = False
@@ -29,8 +29,8 @@ if not exists(config_filename):
     
 config = read_config(config_filename)
 
-model_filename = config["classification"]['model_filename']
-device = config["classification"]['computing_device']
+model_filename = config["model_classification"]['model_filename']
+device = config["model_classification"]['computing_device']
 
 # create window application
 window_app = tk.Tk()
@@ -55,7 +55,7 @@ default_img2 = Image.fromarray(white_img)
 default_img2 = ImageTk.PhotoImage(default_img2) 
 global_frame = white_img
 
-model = model_class(model_filename, device)
+model = model_class(config["model_classification"])
 
 if not window_app_run:
     window_app_run = True
@@ -70,45 +70,21 @@ if not window_app_run:
     
 # Button Functions ----------------------------------------------------------
 def connect_cam():
-    global cap
-    
-    try:
-        cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
-    except:
-        display_status("Error : Camera Number must be Integer")
-        return 0
-    cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW)
-    display_status("STATUS : Camera active ")
-    
-    button_play['state'] = 'normal'
-    button_stop['state'] = 'normal'
-    button_connectcam['state'] = 'disabled'
-    button_disconnectcam['state'] = 'normal'
-    
-def disconnect_cam():
-    
-    cap.release()
-    
-    display_status("STATUS: Camera inactive")
-
-    button_play['state'] = 'disabled'
-    button_stop['state'] = 'disabled'
-    button_connectcam['state'] = 'normal'
-    button_disconnectcam['state'] = 'disabled'
-    
-def play():
-    '''
-    start stream (run_camera and update_image) 
-    and change state of buttons_left
-    '''
-    global cap, run_camera, finish_record, video_writer
+    global cap, video_writer
     
     # Check current selected tab
     select_mode = gui.gui_down.get_select_mode()
     record_status = gui.gui_down.get_record_status()
-    finish_record = False
 
-    if (select_mode == 0) & (record_status == 0): # CAMERA
+    if (select_mode == 0) & (record_status == 0): # CAMERA    
+        try:
+            cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
+        except:
+            display_status("Error : Camera Number must be Integer")
+            return 0
+        cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW)
+        display_status("STATUS : Camera active ")
+    
         # Check if source is accessible
         if not cap.isOpened():  
             cap.release()
@@ -117,6 +93,7 @@ def play():
         display_status("STATUS : Realtime Camera Feed")
 
     elif (select_mode == 1): # VIDEO
+        
         video_path = gui.gui_down.get_video_path()
         
         if not exists(video_path): 
@@ -125,9 +102,7 @@ def play():
             return 0
         else:
             cap = cv2.VideoCapture(video_path)
-
-        fps = cap.get(cv2.CAP_PROP_FPS)
-        
+                
         display_status("STATUS : Video File Feed")         
 
     elif (select_mode == 0) & (record_status == 1): # Record Mode
@@ -153,7 +128,30 @@ def play():
 
     else:   # Auto Mode ( Not implemented )
         return 0
+    
+    button_play['state'] = 'normal'
+    button_stop['state'] = 'normal'
+    button_connectcam['state'] = 'disabled'
+    button_disconnectcam['state'] = 'normal'
+    
+def disconnect_cam():
+    
+    cap.release()
+    
+    display_status("STATUS: Camera inactive")
 
+    button_play['state'] = 'disabled'
+    button_stop['state'] = 'disabled'
+    button_connectcam['state'] = 'normal'
+    button_disconnectcam['state'] = 'disabled'
+    
+def play():
+    '''
+    start_timer stream (run_camera and update_image) 
+    and change state of buttons_left
+    '''
+    global cap, run_camera
+    
     if not run_camera:
         run_camera = True
         
@@ -161,9 +159,10 @@ def play():
         button_stop['state'] = 'normal'
         button_connectcam['state'] = 'disabled'
         button_disconnectcam['state'] = 'disabled'
-        gui.gui_down.btn_record['state'] = 'disabled'
         update_frame()
-
+        
+    #!TODO add clearing text
+        
 def stop():
     '''
     stop stream (run_camera) 
@@ -182,8 +181,10 @@ def stop():
     button_play['state'] = 'normal'
     button_stop['state'] = 'disabled'
     button_connectcam['state'] = 'normal'
-    button_disconnectcam['state'] = 'disabled'
+    button_disconnectcam['state'] = 'normal'
     display_status("STATUS : STOP Frame")
+
+# Region of Interest functions--------------------------------------------------
 
 def apply_ROI():
     global roi_flag, roi_points
@@ -194,6 +195,10 @@ def apply_ROI():
         display_status("STATUS : ROI points are not specified")
         roi_flag = False
     
+def remove_ROI():
+    global roi_flag
+    roi_flag = False    
+
 def default_roi(config):
     
     '''
@@ -238,12 +243,16 @@ def preprocess_frame(frame):
     return frame_flip    
 
 def update_frame():
+    start_timer = timer()
     
-    start = timer()
-
     global global_frame, roi_img, roi_flag
-
+    
+    # Read frame capture object
     ret, frame = cap.read()
+
+    curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
+    
+    datetime_format = "%m/%d/%Y, %H:%M:%S"
 
      # If can't read frame
     if (ret is None) | (ret == False):
@@ -273,11 +282,16 @@ def update_frame():
     select_mode = gui.gui_down.select_mode
     
     # Classification
+    # Set parameter
+    model.conf_threshold = gui.gui_down.get_conf_thresh()
+    
     predictions = model.predict_result(frame_flip)
     categories = predictions[:, 5]
     
-    sec = timer()
-    second = "{:.2f}".format(sec)
+    
+    sec = cap.get(cv2.CAP_PROP_POS_MSEC)
+    second = "{:.2f}".format(sec*0.001)
+    
     # Check if there is any person in the frame    
     if ( len(predictions) == 1 and (0 in categories) ):
         boxes = predictions[:, :4] # x1, y1, x2, y2
@@ -290,28 +304,21 @@ def update_frame():
         
         img2 = Image.fromarray(img_with_keypoints)
 
-        if select_mode == 1:
-            curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
-            text = "Second : "+str(second)+" Frame No. "+str(curr_frame)+" : Person"
-        else:
-            dateTimeObj = datetime.now()
-            text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Person'
+        pred_result = "Person"
+        text = form_predict_text(select_mode, second, datetime_format, pred_result)
+        
     else:
         img2 = Image.fromarray(frame_flip)
         
-        if  select_mode== 1:
-            curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
-            text = "Second : "+str(second)+" Frame No. "+str(curr_frame)+" : Empty Scene"
-        else:
-            dateTimeObj = datetime.now()
-            text = dateTimeObj.strftime("%m/%d/%Y, %H:%M:%S")+': Empty Scene'          
-       
+        pred_result = "Empty Scence"
+        text = form_predict_text(select_mode, second, datetime_format, pred_result)
+        
     gui.gui_down.display_scrolltext(text)
-    gui.gui_top.canvas_r_img.paste(img2)
+    gui.gui_top.canvas_r_img.paste(img2) 
     
     # Compute FPS
-    sec = timer()-start
-    fps = 1/sec
+    sec_fps = timer()-start_timer
+    fps = 1/sec_fps
     str_fps = "{:.2f}".format(fps)
     
     msg = "FPS : " + str_fps
@@ -320,6 +327,14 @@ def update_frame():
     if run_camera:
         window_app.after(10, update_frame)
 
+def form_predict_text(select_mode, second, datetime_format, pred_result):
+    if select_mode== 1:
+        text = "Second : "+str(second)+" : "+pred_result
+    else:
+        dateTimeObj = datetime.now()
+        text = dateTimeObj.strftime(datetime_format)+" : "+pred_result
+    return text
+    
 def create_roi():
     
     global roi_points
@@ -368,24 +383,29 @@ button_play.pack(side='left')
 button_stop = tk.Button(buttons_left, text="Stop", command=stop, state='disabled')
 button_stop.pack(side='left')
 
-button_connectcam = tk.Button(buttons_left, text="Connect Camera", command=connect_cam)
+button_connectcam = tk.Button(buttons_left, text="Connect Camera/Video", command=connect_cam)
 button_connectcam.pack(side='left')
 
-button_disconnectcam = tk.Button(buttons_left, text="Disconnect Camera", command=disconnect_cam, state='disabled')
+button_disconnectcam = tk.Button(buttons_left, text="Disconnect Camera/Video", command=disconnect_cam, state='disabled')
 button_disconnectcam.pack(side='left')
 
 # ---- buttons_right ----
 buttons_right = tk.Frame(window_app)
 buttons_right.grid(row=2, column=1)
 
-button_apply_ROI     = tk.Button(buttons_right, text="Apply ROI filter", command=apply_ROI)
+button_apply_ROI     = tk.Button(buttons_right, text="Apply ROI", command=apply_ROI)
 button_apply_ROI.pack(side='left')
 
-button_create_ROI    = tk.Button(buttons_right, text="Create ROI filter", command=create_roi)
+button_default_ROI    = tk.Button(buttons_right, text="Remove ROI", command=remove_ROI)
+button_default_ROI.pack(side='left')
+
+button_create_ROI    = tk.Button(buttons_right, text="Create ROI", command=create_roi)
 button_create_ROI.pack(side='left')
 
-button_default_ROI    = tk.Button(buttons_right, text="default ROI value", command=default_roi(config))
+button_default_ROI    = tk.Button(buttons_right, text="default ROI", command=default_roi(config))
 button_default_ROI.pack(side='left')
+
+
 # ---- /end buttons_left ----
 
 # Status Bar

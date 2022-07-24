@@ -8,6 +8,8 @@
 4. Create ROI and save ROI
 5. Camera selectable
 6. Shows FPS
+7. Record video file (support only AVI codec)
+
 
 ## To do list
 
@@ -16,9 +18,12 @@
 ☐ Refactoring codes <br />
 ☑ Default values must be read from config file <br />
 ☑ Record to video file <br />
-☐ Model Paramter adjustable <br />
-☐ Save predicted output into file(s) with timestamps <br />
-
+△ Model Parameter adjustable <br />
+☐ Save predicted output into file(s) with timestamps (CSV format) <br />
+☐ Load output with timestamps into program
+☑ ROI removeable
+☑ Connect/Disconnect camera
+☐ Clear ScrollText after each session
 
 2.  Red Pitaya 
 

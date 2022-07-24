@@ -1,7 +1,11 @@
 {   
-    "default":  
+    "input":  
     {
-        "video_path": "videos/Person_stand.mp4",
+        "video_path": "videos/Person_stand.mp4"
+    },
+
+    "export":
+    {
         "export_record_folder": "records",
         "export_record_name": "record.avi"
     },
@@ -22,11 +26,15 @@
                         [55, 229]]
     },
     
-    "classification":
+    "model_classification":
     {
         "computing_device": "cuda",
         "model_filename": "models/yolov5m.pt",
-        "model_confidence_thresh": 2.0
+        "model_confidence_threshold": 0.2,
+        "model_iou_threshold": 0.45,
+        "model_agnostic": 0,
+        "model_multi_label": 0,
+        "model_max_detection": 1
     },
 
     "gui_prop":

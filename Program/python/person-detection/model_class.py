@@ -3,28 +3,38 @@ import yolov5
 
 class model_class():
     
-    def __init__(self, model_filename, device):
+    def __init__(self, config):
         
-        self.device = device
+        self.device = config["computing_device"]
+        model_filename = config["model_filename"]
         
-        if device == "cuda": # If gpu is available
-            self.model = yolov5.YOLOv5(model_filename, device)
+        if self.device == "cuda": # If gpu is available
+            self.model = yolov5.YOLOv5(model_filename, self.device)
         else: # If gpu is NOT available
-            self.model = yolov5.load(model_filename, device)
+            self.model = yolov5.load(model_filename, self.device)
+            
+        self.default_config(config)
         
-    def config_model(self):
-        # set model parameters
-        # !TODO set parameter value from outside class
-        self.model.conf = 0.25  # NMS confidence threshold
-        self.model.iou = 0.45  # NMS IoU threshold
-        self.model.agnostic = False  # NMS class-agnostic
-        self.model.multi_label = False  # NMS multiple labels per box
-        self.model.max_det = 10  # maximum number of detections per image
+    def default_config(self, config):
+        # set default value to parameters
+        self.model.conf = config["model_confidence_threshold"]  # NMS confidence threshold
+        self.model.iou = config["model_iou_threshold"]  # NMS IoU threshold
+        self.model.agnostic = bool(config["model_agnostic"])  # NMS class-agnostic
+        self.model.multi_label = bool(config["model_multi_label"])  # NMS multiple labels per box
+        self.model.max_det = config["model_max_detection"]  # maximum number of detections per image
+
+    # Change parameter by selection
+    # Set NMS confidence threshold
+    def conf_threshold(self, conf_num):
+        self.model.conf = conf_num
     
-    # NMS confidence threshold
-    def conf_threshold(self, conf):
-        self.model.conf = conf
+    # Set NMS IoU threshold
+    def iou_threshold(self, iou_num):
+        self.model.iou = iou_num
         
+    # Set Maximum Detection
+    def max_detection(self, det_num):
+        self.model.max_det = det_num
     
     # Predict result
     def predict_result(self, img):
