@@ -68,8 +68,8 @@ if not window_app_run:
         config
         )
     
+# Button Functions ----------------------------------------------------------
 def connect_cam():
-    
     global cap
     
     try:
@@ -78,15 +78,24 @@ def connect_cam():
         display_status("Error : Camera Number must be Integer")
         return 0
     cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW)
-    display_status("STATUS : Ready to play camera")
+    display_status("STATUS : Camera active ")
     
     button_play['state'] = 'normal'
     button_stop['state'] = 'normal'
     button_connectcam['state'] = 'disabled'
+    button_disconnectcam['state'] = 'normal'
     
 def disconnect_cam():
-    return 0
-             
+    
+    cap.release()
+    
+    display_status("STATUS: Camera inactive")
+
+    button_play['state'] = 'disabled'
+    button_stop['state'] = 'disabled'
+    button_connectcam['state'] = 'normal'
+    button_disconnectcam['state'] = 'disabled'
+    
 def play():
     '''
     start stream (run_camera and update_image) 
@@ -151,6 +160,8 @@ def play():
         button_play['state'] = 'disabled'
         button_stop['state'] = 'normal'
         button_connectcam['state'] = 'disabled'
+        button_disconnectcam['state'] = 'disabled'
+        gui.gui_down.btn_record['state'] = 'disabled'
         update_frame()
 
 def stop():
@@ -162,14 +173,16 @@ def stop():
 
     if run_camera:
         run_camera = False
-        cap.release()
     
     if gui.gui_down.get_record_status() == 1:
         video_writer.release()
+    else:
+        gui.gui_down.btn_record['state'] = 'normal'
    
     button_play['state'] = 'normal'
     button_stop['state'] = 'disabled'
     button_connectcam['state'] = 'normal'
+    button_disconnectcam['state'] = 'disabled'
     display_status("STATUS : STOP Frame")
 
 def apply_ROI():
@@ -357,6 +370,9 @@ button_stop.pack(side='left')
 
 button_connectcam = tk.Button(buttons_left, text="Connect Camera", command=connect_cam)
 button_connectcam.pack(side='left')
+
+button_disconnectcam = tk.Button(buttons_left, text="Disconnect Camera", command=disconnect_cam, state='disabled')
+button_disconnectcam.pack(side='left')
 
 # ---- buttons_right ----
 buttons_right = tk.Frame(window_app)
