@@ -20,10 +20,10 @@
 ☑ Record to video file <br />
 △ Model Parameter adjustable <br />
 ☐ Save predicted output into file(s) with timestamps (CSV format) <br />
-☐ Load output with timestamps into program
-☑ ROI removeable
-☑ Connect/Disconnect camera
-☐ Clear ScrollText after each session
+☐ Load output with timestamps into program <br />
+☑ ROI removeable <br />
+☑ Connect/Disconnect camera <br />
+☐ Clear ScrollText after each session <br />
 
 2.  Red Pitaya 
 
