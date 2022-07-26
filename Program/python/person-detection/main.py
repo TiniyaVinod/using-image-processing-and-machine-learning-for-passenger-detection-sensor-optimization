@@ -3,7 +3,7 @@ from csv import writer
 from os import mkdir
 import tkinter as tk
 from datetime import datetime
-from os.path import exists, join
+from os.path import exists, join, splitext
 
 import cv2
 import numpy as np
@@ -168,7 +168,9 @@ def play():
     start_timer stream (run_camera and update_image) 
     and change state of buttons_left
     '''
-    global cap, run_camera
+    global cap, run_camera, record_result
+    
+    record_result = []
     
     if not run_camera:
         run_camera = True
@@ -197,6 +199,7 @@ def stop():
     # if record mode is activated, release the object
     if gui.gui_down.get_record_status() == 1:
         video_writer.release()
+        export_result()
     else:
         gui.gui_down.btn_record['state'] = 'normal'
    
@@ -265,7 +268,7 @@ def preprocess_frame(frame):
 def update_frame():
     start_timer = timer()
     
-    global global_frame, roi_img, roi_flag
+    global global_frame, roi_img, roi_flag, record_result
     
     # Read frame capture object
     ret, frame = cap.read()
@@ -332,7 +335,11 @@ def update_frame():
         
         pred_result = "Empty Scence"
         text = form_predict_text(select_mode, second, datetime_format, pred_result)
-        
+
+    # Save record result
+    if gui.gui_down.get_record_status() == 1:
+        record_result.append(text)
+    
     gui.gui_down.display_scrolltext(text)
     gui.gui_top.canvas_r_img.paste(img2) 
     
@@ -392,7 +399,19 @@ def click_event_ROI(event, x, y, flags, params):
     
 def display_status(msg):
     status_text.config(text=msg)
-
+    
+def export_result():
+    
+    export_filename = splitext(gui.gui_down.get_record_export_path())[0]
+    
+    export_folder = config["export"]["export_record_folder"]
+    export_filename = join(export_folder, export_filename+'.txt')
+    
+    with open(export_filename, 'w') as f:
+        for line in record_result:
+            f.write(line)
+            f.write("\n")
+        
 # ---- buttons_left ----
 buttons_left = tk.Frame(window_app)
 buttons_left.grid(row=2, column=0)
