@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-from csv import writer
-from os import mkdir
 import tkinter as tk
 from datetime import datetime
 from os.path import exists, join, splitext
@@ -10,11 +8,10 @@ import numpy as np
 from PIL import Image, ImageTk
 from timeit import default_timer as timer
 
-from requests import delete
-
 from app_gui import app_gui
 from model_class import model_class
 from common_functions import read_config
+from program_mode import *
 
 # --- main ---
 
@@ -78,67 +75,37 @@ def connect_cam():
     # Check current selected tab
     select_mode = gui.gui_down.get_select_mode()
     record_status = gui.gui_down.get_record_status()
-
-    if (select_mode == 0) & (record_status == 0): # CAMERA    
-        try:
-            cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
-        except:
-            display_status("Error : Camera Number must be Integer")
-            return 0
-        cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW)
-        display_status("STATUS : Camera active ")
     
-        # Check if source is accessible
-        if not cap.isOpened():  
-            cap.release()
-            stop()
-            return 0
-        display_status("STATUS : Realtime Camera Feed")
-
-    elif (select_mode == 1): # VIDEO
-        
-        video_path = gui.gui_down.get_video_path()
-        
-        if not exists(video_path): 
-            display_status("path [ " + video_path + " ] does not exist!")
-            stop()
-            return 0
-        else:
-            cap = cv2.VideoCapture(video_path)
+    cam_num = gui.gui_down.get_camera_number()
+    video_path = gui.gui_down.get_video_path()
+    
+    # Path to write record
+    export_folder = config['export']['export_record_folder']
+    export_filename = config['export']['export_record_name']
+    
+    # Check mode
+    cam_mode = (select_mode == 0) & (record_status == 0)
+    vid_mode = (select_mode == 1)
+    rec_mode = (select_mode == 0) & (record_status == 1)
+    
+    # Behave according to mode
+    if cam_mode: # CAMERA    
+        [cap, msg] = realtime_mode(cam_num)
                 
-        display_status("STATUS : Video File Feed")         
+    elif vid_mode: # VIDEO
+        [cap, msg] = video_mode(video_path)
 
-    elif (select_mode == 0) & (record_status == 1): # Record Mode
+    elif rec_mode: # Record Mode
+        [cap, msg, video_writer] = record_mode(cam_num, 
+                                               export_folder, 
+                                               export_filename)
         
-        try:
-            cam_no = int(gui.gui_down.get_camera_number()) # webcam : 0, other: 1
-        except:
-            display_status("Error : Camera Number must be Integer")
-            return 0
-        cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW)
-        display_status("STATUS : Camera active ")
-        
-        # Path to write record
-        export_folder = config['export']['export_record_folder']
-        export_filename = config['export']['export_record_name']
-        export_path = join(export_folder, export_filename)
-
-        # if there is no directory, create one
-        if not exists(export_folder):
-            mkdir(export_folder)
-        
-        w = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
-        h = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
-        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        write_fps = 15
-        
-        video_writer = cv2.VideoWriter(export_path, 
-                                       fourcc,
-                                       write_fps,
-                                       (int(w), int(h)),
-                                       True)
-
     else:   # Auto Mode ( Not implemented )
+        return 0
+    
+    display_status(msg)
+    if cap == 0:
+        stop()
         return 0
     
     isconnect_newcam = True
@@ -193,6 +160,9 @@ def stop():
     '''
     global run_camera, video_writer
 
+    if isconnect_newcam == False:
+        return 0
+    
     if run_camera:
         run_camera = False
     
