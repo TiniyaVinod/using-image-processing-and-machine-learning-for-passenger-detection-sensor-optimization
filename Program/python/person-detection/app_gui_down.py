@@ -143,10 +143,10 @@ class app_gui_down():
 
     # Display text on scroll text widget
     def display_scrolltext(self, txt):
-        self.scroll_txt_left.config(state=tk.NORMAL)
+        self.scroll_txt_left.config(state='normal')
         self.scroll_txt_left.insert(tk.END, '\n'+txt)
         self.scroll_txt_left.yview_pickplace("end")
-        self.scroll_txt_left.config(state=tk.DISABLED)
+        self.scroll_txt_left.config(state='disabled')
 
     # Button actions for MODE selection
     def press_btn_camera(self):
@@ -174,6 +174,34 @@ class app_gui_down():
     def press_btn_stop_record(self):
         self.record_status = 0
         return 0
+    
+    def enable_setting(self):
+        # enable buttons
+        self.btn_camera['state'] = 'normal'
+        self.btn_video['state'] = 'normal'
+        self.btn_record['state'] = 'normal'
+
+        # enable entry field
+        self.entry_camera['state'] = 'normal'
+        self.entry_video['state'] = 'normal'
+        self.entry_record['state'] = 'normal'
+
+        self.entry_proc_device['state'] = 'normal'
+        self.entry_model_file['state'] = 'normal'
+    
+    def disable_setting(self):
+        # disable buttons
+        self.btn_camera['state'] = 'disabled'
+        self.btn_video['state'] = 'disabled'
+        self.btn_record['state'] = 'disabled'
+        
+        # disable entry field
+        self.entry_camera['state'] = 'disabled'
+        self.entry_video['state'] = 'disabled'
+        self.entry_record['state'] = 'disabled'
+        
+        self.entry_proc_device['state'] = 'disabled'
+        self.entry_model_file['state'] = 'disabled'
         
     # Method for get value from entry boxes
     def get_camera_number(self):

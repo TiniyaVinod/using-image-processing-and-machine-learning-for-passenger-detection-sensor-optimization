@@ -15,11 +15,11 @@ from program_mode import *
 
 # --- main ---
 
-global cap, run_camera, global_frame, roi_points, roi_img, isconnect_newcam
+global cap, run_camera, global_frame, roi_points, roi_img, isconnect_cam
 roi_flag = False
 run_camera = False
 window_app_run = False
-isconnect_newcam = False
+isconnect_cam = False
 status_text = ""
 roi_points = []
 config_filename = "config.json"
@@ -67,10 +67,13 @@ if not window_app_run:
         canvas_h,
         config
         )
-    
+
 # Button Functions ----------------------------------------------------------
 def connect_cam():
-    global cap, video_writer, isconnect_newcam
+    global cap, video_writer, isconnect_cam
+    
+    if isconnect_cam:
+        return 0
     
     # Check current selected tab
     select_mode = gui.gui_down.get_select_mode()
@@ -79,14 +82,10 @@ def connect_cam():
     cam_num = gui.gui_down.get_camera_number()
     video_path = gui.gui_down.get_video_path()
     
-    # Path to write record
-    export_folder = config['export']['export_record_folder']
-    export_filename = config['export']['export_record_name']
-    
     # Check mode
     cam_mode = (select_mode == 0) & (record_status == 0)
     vid_mode = (select_mode == 1)
-    rec_mode = (select_mode == 0) & (record_status == 1)
+    
     
     # Behave according to mode
     if cam_mode: # CAMERA    
@@ -94,11 +93,6 @@ def connect_cam():
                 
     elif vid_mode: # VIDEO
         [cap, msg] = video_mode(video_path)
-
-    elif rec_mode: # Record Mode
-        [cap, msg, video_writer] = record_mode(cam_num, 
-                                               export_folder, 
-                                               export_filename)
         
     else:   # Auto Mode ( Not implemented )
         return 0
@@ -108,22 +102,26 @@ def connect_cam():
         stop()
         return 0
     
-    isconnect_newcam = True
+    isconnect_cam = True
     
     button_play['state'] = 'normal'
-    button_stop['state'] = 'normal'
+    button_stop['state'] = 'disabled'
     button_connectcam['state'] = 'disabled'
     button_disconnectcam['state'] = 'normal'
     
-def disconnect_newcam():
+def disconnect_cam():
     
-    global isconnect_newcam
+    global isconnect_cam
     
-    cap.release()
+    if isconnect_cam:
+        cap.release()
+        isconnect_cam = False
+    else:
+        return 0
     
     display_status("STATUS: Camera inactive")
     
-    isconnect_newcam = False
+    isconnect_cam = False
 
     button_play['state'] = 'disabled'
     button_stop['state'] = 'disabled'
@@ -135,9 +133,18 @@ def play():
     start_timer stream (run_camera and update_image) 
     and change state of buttons_left
     '''
-    global cap, run_camera, record_result
+    global cap, run_camera, record_result, video_writer
     
     record_result = []
+    rec_mode = gui.gui_down.get_record_status()
+        
+    # Check if it is record mode
+    if rec_mode:
+        # Path to write record
+        export_folder = config['export']['export_record_folder']
+        export_filename = gui.gui_down.get_record_export_path()
+        
+        video_writer = record_mode(cap, export_folder, export_filename)
     
     if not run_camera:
         run_camera = True
@@ -146,12 +153,17 @@ def play():
         button_stop['state'] = 'normal'
         button_connectcam['state'] = 'disabled'
         button_disconnectcam['state'] = 'disabled'
+        
+        gui.gui_down.disable_setting()
+        
         update_frame()
     
     # Clear Text
-    if isconnect_newcam == True:
+    if isconnect_cam == True:
         gui.gui_down.scroll_txt_left.config(state=tk.NORMAL)
         gui.gui_down.scroll_txt_left.delete('1.0', tk.END)
+    
+    
         
 def stop():
     '''
@@ -160,7 +172,7 @@ def stop():
     '''
     global run_camera, video_writer
 
-    if isconnect_newcam == False:
+    if isconnect_cam == False:
         return 0
     
     if run_camera:
@@ -175,8 +187,11 @@ def stop():
    
     button_play['state'] = 'normal'
     button_stop['state'] = 'disabled'
-    button_connectcam['state'] = 'normal'
+    button_connectcam['state'] = 'disabled'
     button_disconnectcam['state'] = 'normal'
+    
+    gui.gui_down.enable_setting()
+    
     display_status("STATUS : STOP Frame")
 
 # Region of Interest functions--------------------------------------------------
@@ -267,7 +282,7 @@ def update_frame():
         frame_flip[roi_img == 0] = 0 
         
     else:
-        frame_show = frame_flip
+        frame_show = frame_flip 
     
     img = Image.fromarray(frame_show)
     gui.gui_top.canvas_l_img.paste(img)
@@ -276,22 +291,36 @@ def update_frame():
     
     # Classification
     # Set parameter
-    model.conf_threshold = gui.gui_down.get_conf_thresh()
+    model.model.conf = gui.gui_down.get_conf_thresh()
     
     predictions = model.predict_result(frame_flip)
     categories = predictions[:, 5]
     
-    
     sec = cap.get(cv2.CAP_PROP_POS_MSEC)
     second = "{:.2f}".format(sec*0.001)
     
+    person_classcode = 0.0
+    pred_storage = list(predictions.storage())
+    boxes = []
+    
     # Check if there is any person in the frame    
-    if ( len(predictions) == 1 and (0 in categories) ):
-        boxes = predictions[:, :4] # x1, y1, x2, y2
+    if person_classcode in pred_storage:
+        # Find index of person
+        x = pred_storage.index(person_classcode)
+        
+        score = pred_storage[x-1]
+        boxes = pred_storage[x-5:x-1] # x1, y1, x2, y2
         
         img_with_keypoints = frame_flip.copy()
+
         try:
-            cv2.rectangle(img_with_keypoints, (boxes[0,0],boxes[0,1]), (boxes[0,2],boxes[0,3]), (0,255,0), (5))
+            x1 = int(boxes[0])
+            y1 = int(boxes[1])
+            x2 = int(boxes[2])
+            y2 = int(boxes[3])
+            
+            cv2.rectangle(img_with_keypoints, (x1, y1), (x2, y2), (0,255,0), (5))
+            #cv2.putText(img_with_keypoints, 'person score: '+str(score), (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
         except:
             print("boxes does not exist")
         
@@ -395,7 +424,7 @@ button_stop.pack(side='left')
 button_connectcam = tk.Button(buttons_left, text="Connect Camera/Video", command=connect_cam)
 button_connectcam.pack(side='left')
 
-button_disconnectcam = tk.Button(buttons_left, text="Disconnect Camera/Video", command=disconnect_newcam, state='disabled')
+button_disconnectcam = tk.Button(buttons_left, text="Disconnect Camera/Video", command=disconnect_cam, state='disabled')
 button_disconnectcam.pack(side='left')
 
 # ---- buttons_right ----

@@ -3,7 +3,6 @@ import cv2
 from os import mkdir
 from os.path import exists, join
 
-
 # Real-time mode
 def realtime_mode(cam_num):
     try:
@@ -28,15 +27,7 @@ def video_mode(video_path):
     return [cap, msg]
 
 # Record mode
-def record_mode(cam_num, export_folder, export_filename):
-    try:
-        cam_no = int(cam_num) # webcam : 0, other: 1
-    except:
-        msg = "Error : Camera Number must be Integer"
-        return [0, msg, 0]
-    cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW)
-    msg = "STATUS : Camera active "
-    
+def record_mode(cap, export_folder, export_filename):
     export_path = join(export_folder, export_filename)
 
     # if there is no directory, create one
@@ -54,4 +45,4 @@ def record_mode(cam_num, export_folder, export_filename):
                                    (int(w), int(h)),
                                    True)
     
-    return [0, msg, video_writer]
+    return video_writer
