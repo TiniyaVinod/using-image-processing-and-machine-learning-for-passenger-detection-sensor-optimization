@@ -15,15 +15,15 @@
 
 1.  Camera
 
-☐ Refactoring codes <br />
+△ Refactoring codes <br />
 ☑ Default values must be read from config file <br />
 ☑ Record to video file <br />
 △ Model Parameter adjustable <br />
-☐ Save predicted output into file(s) with timestamps (CSV format) <br />
+☑ Save predicted output into file(s) with timestamps (txt format) <br />
 ☐ Load output with timestamps into program <br />
 ☑ ROI removeable <br />
 ☑ Connect/Disconnect camera <br />
-☐ Clear ScrollText after each session <br />
+☑ Clear ScrollText after each session <br />
 
 2.  Red Pitaya 
 
