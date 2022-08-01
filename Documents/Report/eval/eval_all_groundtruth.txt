@@ -1,0 +1,2086 @@
+Second : 0.03 : Empty Scence
+Second : 0.08 : Empty Scence
+Second : 0.13 : Empty Scence
+Second : 0.16 : Empty Scence
+Second : 0.21 : Empty Scence
+Second : 0.24 : Empty Scence
+Second : 0.29 : Empty Scence
+Second : 0.34 : Empty Scence
+Second : 0.37 : Empty Scence
+Second : 0.42 : Empty Scence
+Second : 0.45 : Empty Scence
+Second : 0.50 : Empty Scence
+Second : 0.54 : Empty Scence
+Second : 0.58 : Empty Scence
+Second : 0.62 : Empty Scence
+Second : 0.66 : Empty Scence
+Second : 0.70 : Empty Scence
+Second : 0.75 : Empty Scence
+Second : 0.78 : Empty Scence
+Second : 0.83 : Empty Scence
+Second : 0.86 : Empty Scence
+Second : 0.91 : Empty Scence
+Second : 0.96 : Empty Scence
+Second : 0.99 : Empty Scence
+Second : 1.04 : Empty Scence
+Second : 1.07 : Empty Scence
+Second : 1.12 : Empty Scence
+Second : 1.17 : Empty Scence
+Second : 1.20 : Empty Scence
+Second : 1.25 : Empty Scence
+Second : 1.28 : Empty Scence
+Second : 1.33 : Empty Scence
+Second : 1.36 : Empty Scence
+Second : 1.41 : Empty Scence
+Second : 1.46 : Empty Scence
+Second : 1.49 : Empty Scence
+Second : 1.54 : Empty Scence
+Second : 1.57 : Empty Scence
+Second : 1.62 : Empty Scence
+Second : 1.66 : Empty Scence
+Second : 1.70 : Empty Scence
+Second : 1.74 : Empty Scence
+Second : 1.78 : Empty Scence
+Second : 1.82 : Empty Scence
+Second : 1.87 : Empty Scence
+Second : 1.90 : Empty Scence
+Second : 1.95 : Empty Scence
+Second : 1.98 : Empty Scence
+Second : 2.03 : Empty Scence
+Second : 2.08 : Empty Scence
+Second : 2.11 : Empty Scence
+Second : 2.16 : Empty Scence
+Second : 2.19 : Empty Scence
+Second : 2.24 : Empty Scence
+Second : 2.29 : Empty Scence
+Second : 2.32 : Empty Scence
+Second : 2.37 : Empty Scence
+Second : 2.40 : Empty Scence
+Second : 2.45 : Empty Scence
+Second : 2.50 : Empty Scence
+Second : 2.53 : Empty Scence
+Second : 2.58 : Empty Scence
+Second : 2.61 : Empty Scence
+Second : 2.66 : Empty Scence
+Second : 2.70 : Empty Scence
+Second : 2.74 : Empty Scence
+Second : 2.78 : Empty Scence
+Second : 2.82 : Empty Scence
+Second : 2.86 : Empty Scence
+Second : 2.91 : Empty Scence
+Second : 2.94 : Empty Scence
+Second : 2.99 : Empty Scence
+Second : 3.02 : Empty Scence
+Second : 3.07 : Empty Scence
+Second : 3.12 : Empty Scence
+Second : 3.15 : Empty Scence
+Second : 3.20 : Empty Scence
+Second : 3.23 : Empty Scence
+Second : 3.28 : Empty Scence
+Second : 3.31 : Empty Scence
+Second : 3.36 : Empty Scence
+Second : 3.41 : Empty Scence
+Second : 3.44 : Empty Scence
+Second : 3.49 : Empty Scence
+Second : 3.52 : Empty Scence
+Second : 3.57 : Person
+Second : 3.62 : Person
+Second : 3.65 : Person
+Second : 3.70 : Person
+Second : 3.73 : Person
+Second : 3.78 : Person
+Second : 3.82 : Person
+Second : 3.86 : Person
+Second : 3.90 : Person
+Second : 3.94 : Person
+Second : 3.98 : Person
+Second : 4.03 : Person
+Second : 4.06 : Person
+Second : 4.11 : Person
+Second : 4.14 : Person
+Second : 4.19 : Person
+Second : 4.24 : Person
+Second : 4.27 : Person
+Second : 4.32 : Person
+Second : 4.35 : Person
+Second : 4.40 : Person
+Second : 4.45 : Person
+Second : 4.48 : Person
+Second : 4.53 : Person
+Second : 4.56 : Person
+Second : 4.61 : Person
+Second : 4.66 : Person
+Second : 4.69 : Person
+Second : 4.74 : Person
+Second : 4.77 : Person
+Second : 4.82 : Person
+Second : 4.86 : Person
+Second : 4.90 : Person
+Second : 4.94 : Person
+Second : 4.98 : Person
+Second : 5.02 : Person
+Second : 5.07 : Person
+Second : 5.10 : Person
+Second : 5.15 : Person
+Second : 5.18 : Person
+Second : 5.23 : Person
+Second : 5.26 : Person
+Second : 5.31 : Person
+Second : 5.36 : Person
+Second : 5.39 : Person
+Second : 5.44 : Person
+Second : 5.47 : Person
+Second : 5.52 : Person
+Second : 5.57 : Person
+Second : 5.60 : Person
+Second : 5.65 : Person
+Second : 5.68 : Person
+Second : 5.73 : Person
+Second : 5.78 : Person
+Second : 5.81 : Person
+Second : 5.86 : Person
+Second : 5.89 : Person
+Second : 5.94 : Person
+Second : 5.98 : Person
+Second : 6.02 : Person
+Second : 6.06 : Person
+Second : 6.10 : Person
+Second : 6.14 : Person
+Second : 6.19 : Person
+Second : 6.22 : Person
+Second : 6.27 : Person
+Second : 6.30 : Person
+Second : 6.35 : Person
+Second : 6.40 : Person
+Second : 6.43 : Person
+Second : 6.48 : Person
+Second : 6.51 : Person
+Second : 6.56 : Person
+Second : 6.61 : Person
+Second : 6.64 : Person
+Second : 6.69 : Person
+Second : 6.72 : Person
+Second : 6.77 : Person
+Second : 6.82 : Person
+Second : 6.85 : Person
+Second : 6.90 : Person
+Second : 6.93 : Person
+Second : 6.98 : Person
+Second : 7.02 : Person
+Second : 7.06 : Person
+Second : 7.10 : Person
+Second : 7.14 : Person
+Second : 7.18 : Person
+Second : 7.23 : Person
+Second : 7.26 : Person
+Second : 7.31 : Person
+Second : 7.34 : Person
+Second : 7.39 : Person
+Second : 7.42 : Person
+Second : 7.47 : Person
+Second : 7.52 : Person
+Second : 7.55 : Person
+Second : 7.60 : Person
+Second : 7.63 : Person
+Second : 7.68 : Person
+Second : 7.73 : Person
+Second : 7.76 : Person
+Second : 7.81 : Person
+Second : 7.84 : Person
+Second : 7.89 : Person
+Second : 7.94 : Person
+Second : 7.97 : Person
+Second : 8.02 : Person
+Second : 8.05 : Person
+Second : 8.10 : Person
+Second : 8.14 : Person
+Second : 8.18 : Person
+Second : 8.22 : Person
+Second : 8.26 : Person
+Second : 8.30 : Person
+Second : 8.35 : Person
+Second : 8.38 : Person
+Second : 8.43 : Person
+Second : 8.46 : Person
+Second : 8.51 : Person
+Second : 8.56 : Person
+Second : 8.59 : Person
+Second : 8.64 : Person
+Second : 8.67 : Person
+Second : 8.72 : Person
+Second : 8.77 : Person
+Second : 8.80 : Person
+Second : 8.85 : Person
+Second : 8.88 : Person
+Second : 8.93 : Person
+Second : 8.98 : Person
+Second : 9.01 : Person
+Second : 9.06 : Person
+Second : 9.09 : Person
+Second : 9.14 : Person
+Second : 9.18 : Person
+Second : 9.22 : Person
+Second : 9.26 : Person
+Second : 9.30 : Person
+Second : 9.34 : Person
+Second : 9.38 : Person
+Second : 9.42 : Person
+Second : 9.47 : Person
+Second : 9.50 : Person
+Second : 9.55 : Person
+Second : 9.58 : Person
+Second : 9.63 : Person
+Second : 9.68 : Person
+Second : 9.71 : Person
+Second : 9.76 : Person
+Second : 9.79 : Person
+Second : 9.84 : Person
+Second : 9.89 : Person
+Second : 9.92 : Person
+Second : 9.97 : Person
+Second : 10.00 : Person
+Second : 10.05 : Person
+Second : 10.10 : Person
+Second : 10.13 : Person
+Second : 10.18 : Person
+Second : 10.21 : Person
+Second : 10.26 : Person
+Second : 10.30 : Person
+Second : 10.34 : Person
+Second : 10.38 : Person
+Second : 10.42 : Person
+Second : 10.46 : Person
+Second : 10.51 : Person
+Second : 10.54 : Person
+Second : 10.59 : Person
+Second : 10.62 : Person
+Second : 10.67 : Person
+Second : 10.72 : Person
+Second : 10.75 : Person
+Second : 10.80 : Person
+Second : 10.83 : Person
+Second : 10.88 : Person
+Second : 10.93 : Person
+Second : 10.96 : Person
+Second : 11.01 : Person
+Second : 11.04 : Person
+Second : 11.09 : Person
+Second : 11.14 : Person
+Second : 11.17 : Person
+Second : 11.22 : Person
+Second : 11.25 : Person
+Second : 11.30 : Person
+Second : 11.33 : Person
+Second : 11.38 : Person
+Second : 11.42 : Person
+Second : 11.46 : Person
+Second : 11.50 : Person
+Second : 11.54 : Person
+Second : 11.58 : Person
+Second : 11.63 : Person
+Second : 11.66 : Person
+Second : 11.71 : Person
+Second : 11.74 : Person
+Second : 11.79 : Person
+Second : 11.84 : Person
+Second : 11.87 : Person
+Second : 11.92 : Person
+Second : 11.95 : Person
+Second : 12.00 : Person
+Second : 12.05 : Person
+Second : 12.08 : Person
+Second : 12.13 : Person
+Second : 12.16 : Person
+Second : 12.21 : Person
+Second : 12.26 : Person
+Second : 12.29 : Person
+Second : 12.34 : Person
+Second : 12.37 : Person
+Second : 12.42 : Person
+Second : 12.46 : Person
+Second : 12.50 : Person
+Second : 12.54 : Person
+Second : 12.58 : Person
+Second : 12.62 : Person
+Second : 12.67 : Person
+Second : 12.70 : Person
+Second : 12.75 : Person
+Second : 12.78 : Person
+Second : 12.83 : Person
+Second : 12.88 : Person
+Second : 12.91 : Person
+Second : 12.96 : Person
+Second : 12.99 : Person
+Second : 13.04 : Person
+Second : 13.09 : Person
+Second : 13.12 : Person
+Second : 13.17 : Person
+Second : 13.20 : Person
+Second : 13.25 : Person
+Second : 13.28 : Person
+Second : 13.33 : Person
+Second : 13.38 : Person
+Second : 13.41 : Person
+Second : 13.46 : Person
+Second : 13.49 : Person
+Second : 13.54 : Person
+Second : 13.58 : Person
+Second : 13.62 : Person
+Second : 13.66 : Person
+Second : 13.70 : Person
+Second : 13.74 : Person
+Second : 13.79 : Person
+Second : 13.82 : Person
+Second : 13.87 : Person
+Second : 13.90 : Person
+Second : 13.95 : Person
+Second : 14.00 : Person
+Second : 14.03 : Person
+Second : 14.08 : Person
+Second : 14.11 : Person
+Second : 14.16 : Person
+Second : 14.21 : Person
+Second : 14.24 : Person
+Second : 14.29 : Person
+Second : 14.32 : Person
+Second : 14.37 : Person
+Second : 14.42 : Person
+Second : 14.45 : Person
+Second : 14.50 : Person
+Second : 14.53 : Person
+Second : 14.58 : Person
+Second : 14.62 : Person
+Second : 14.66 : Person
+Second : 14.70 : Person
+Second : 14.74 : Person
+Second : 14.78 : Person
+Second : 14.83 : Person
+Second : 14.86 : Person
+Second : 14.91 : Person
+Second : 14.94 : Person
+Second : 14.99 : Person
+Second : 15.04 : Person
+Second : 15.07 : Person
+Second : 15.12 : Person
+Second : 15.15 : Person
+Second : 15.20 : Person
+Second : 15.25 : Person
+Second : 15.28 : Person
+Second : 15.33 : Person
+Second : 15.36 : Person
+Second : 15.41 : Person
+Second : 15.44 : Person
+Second : 15.49 : Person
+Second : 15.54 : Person
+Second : 15.57 : Person
+Second : 15.62 : Person
+Second : 15.65 : Person
+Second : 15.70 : Person
+Second : 15.74 : Person
+Second : 15.78 : Person
+Second : 15.82 : Person
+Second : 15.86 : Person
+Second : 15.90 : Person
+Second : 15.95 : Person
+Second : 15.98 : Person
+Second : 16.03 : Person
+Second : 16.06 : Person
+Second : 16.11 : Person
+Second : 16.16 : Person
+Second : 16.19 : Person
+Second : 16.24 : Person
+Second : 16.27 : Person
+Second : 16.32 : Person
+Second : 16.37 : Person
+Second : 16.40 : Person
+Second : 16.45 : Person
+Second : 16.48 : Person
+Second : 16.53 : Person
+Second : 16.58 : Person
+Second : 16.61 : Person
+Second : 16.66 : Person
+Second : 16.69 : Person
+Second : 16.74 : Person
+Second : 16.78 : Person
+Second : 16.82 : Person
+Second : 16.86 : Person
+Second : 16.90 : Person
+Second : 16.94 : Person
+Second : 16.99 : Person
+Second : 17.02 : Person
+Second : 17.07 : Person
+Second : 17.10 : Person
+Second : 17.15 : Person
+Second : 17.20 : Person
+Second : 17.23 : Person
+Second : 17.28 : Person
+Second : 17.31 : Person
+Second : 17.36 : Person
+Second : 17.39 : Person
+Second : 17.44 : Person
+Second : 17.49 : Person
+Second : 17.52 : Person
+Second : 17.57 : Person
+Second : 17.60 : Person
+Second : 17.65 : Person
+Second : 17.70 : Person
+Second : 17.73 : Person
+Second : 17.78 : Person
+Second : 17.81 : Person
+Second : 17.86 : Person
+Second : 17.90 : Person
+Second : 17.94 : Person
+Second : 17.98 : Person
+Second : 18.02 : Person
+Second : 18.06 : Person
+Second : 18.11 : Person
+Second : 18.14 : Person
+Second : 18.19 : Person
+Second : 18.22 : Person
+Second : 18.27 : Person
+Second : 18.32 : Person
+Second : 18.35 : Person
+Second : 18.40 : Person
+Second : 18.43 : Person
+Second : 18.48 : Person
+Second : 18.53 : Person
+Second : 18.56 : Person
+Second : 18.61 : Person
+Second : 18.64 : Person
+Second : 18.69 : Person
+Second : 18.74 : Person
+Second : 18.77 : Person
+Second : 18.82 : Person
+Second : 18.85 : Person
+Second : 18.90 : Person
+Second : 18.94 : Person
+Second : 18.98 : Person
+Second : 19.02 : Person
+Second : 19.06 : Person
+Second : 19.10 : Person
+Second : 19.15 : Person
+Second : 19.18 : Person
+Second : 19.23 : Person
+Second : 19.26 : Person
+Second : 19.31 : Person
+Second : 19.34 : Person
+Second : 19.39 : Person
+Second : 19.44 : Person
+Second : 19.47 : Person
+Second : 19.52 : Person
+Second : 19.55 : Person
+Second : 19.60 : Person
+Second : 19.65 : Person
+Second : 19.68 : Person
+Second : 19.73 : Person
+Second : 19.76 : Person
+Second : 19.81 : Person
+Second : 19.86 : Person
+Second : 19.89 : Person
+Second : 19.94 : Person
+Second : 19.97 : Person
+Second : 20.02 : Person
+Second : 20.06 : Person
+Second : 20.10 : Person
+Second : 20.14 : Person
+Second : 20.18 : Person
+Second : 20.22 : Person
+Second : 20.27 : Person
+Second : 20.30 : Person
+Second : 20.35 : Person
+Second : 20.38 : Person
+Second : 20.43 : Person
+Second : 20.48 : Person
+Second : 20.51 : Person
+Second : 20.56 : Person
+Second : 20.59 : Person
+Second : 20.64 : Person
+Second : 20.69 : Person
+Second : 20.72 : Person
+Second : 20.77 : Person
+Second : 20.80 : Person
+Second : 20.85 : Person
+Second : 20.90 : Person
+Second : 20.93 : Person
+Second : 20.98 : Person
+Second : 21.01 : Person
+Second : 21.06 : Person
+Second : 21.10 : Person
+Second : 21.14 : Person
+Second : 21.18 : Person
+Second : 21.22 : Person
+Second : 21.26 : Person
+Second : 21.30 : Person
+Second : 21.34 : Person
+Second : 21.39 : Person
+Second : 21.42 : Person
+Second : 21.47 : Person
+Second : 21.50 : Person
+Second : 21.55 : Person
+Second : 21.60 : Person
+Second : 21.63 : Person
+Second : 21.68 : Person
+Second : 21.71 : Person
+Second : 21.76 : Person
+Second : 21.81 : Person
+Second : 21.84 : Person
+Second : 21.89 : Person
+Second : 21.92 : Person
+Second : 21.97 : Person
+Second : 22.02 : Person
+Second : 22.05 : Person
+Second : 22.10 : Person
+Second : 22.13 : Person
+Second : 22.18 : Person
+Second : 22.22 : Person
+Second : 22.26 : Person
+Second : 22.30 : Person
+Second : 22.34 : Person
+Second : 22.38 : Person
+Second : 22.43 : Person
+Second : 22.46 : Person
+Second : 22.51 : Person
+Second : 22.54 : Person
+Second : 22.59 : Person
+Second : 22.64 : Person
+Second : 22.67 : Person
+Second : 22.72 : Person
+Second : 22.75 : Person
+Second : 22.80 : Person
+Second : 22.85 : Person
+Second : 22.88 : Person
+Second : 22.93 : Person
+Second : 22.96 : Person
+Second : 23.01 : Person
+Second : 23.06 : Person
+Second : 23.09 : Person
+Second : 23.14 : Person
+Second : 23.17 : Person
+Second : 23.22 : Person
+Second : 23.26 : Person
+Second : 23.30 : Person
+Second : 23.34 : Person
+Second : 23.38 : Person
+Second : 23.42 : Person
+Second : 23.46 : Person
+Second : 23.50 : Person
+Second : 23.55 : Person
+Second : 23.58 : Person
+Second : 23.63 : Person
+Second : 23.66 : Person
+Second : 23.71 : Person
+Second : 23.76 : Person
+Second : 23.79 : Person
+Second : 23.84 : Person
+Second : 23.87 : Person
+Second : 23.92 : Person
+Second : 23.97 : Person
+Second : 24.00 : Person
+Second : 24.05 : Person
+Second : 24.08 : Person
+Second : 24.13 : Person
+Second : 24.18 : Person
+Second : 24.21 : Person
+Second : 24.26 : Person
+Second : 24.29 : Person
+Second : 24.34 : Person
+Second : 24.38 : Person
+Second : 24.42 : Person
+Second : 24.46 : Person
+Second : 24.50 : Person
+Second : 24.54 : Person
+Second : 24.59 : Person
+Second : 24.62 : Person
+Second : 24.67 : Person
+Second : 24.70 : Person
+Second : 24.75 : Person
+Second : 24.80 : Person
+Second : 24.83 : Person
+Second : 24.88 : Person
+Second : 24.91 : Person
+Second : 24.96 : Person
+Second : 25.01 : Person
+Second : 25.04 : Person
+Second : 25.09 : Person
+Second : 25.12 : Person
+Second : 25.17 : Person
+Second : 25.22 : Person
+Second : 25.25 : Person
+Second : 25.30 : Person
+Second : 25.33 : Person
+Second : 25.38 : Empty Scence
+Second : 25.41 : Empty Scence
+Second : 25.46 : Empty Scence
+Second : 25.50 : Empty Scence
+Second : 25.54 : Empty Scence
+Second : 25.58 : Empty Scence
+Second : 25.62 : Empty Scence
+Second : 25.66 : Empty Scence
+Second : 25.71 : Empty Scence
+Second : 25.74 : Empty Scence
+Second : 25.79 : Empty Scence
+Second : 25.82 : Empty Scence
+Second : 25.87 : Empty Scence
+Second : 25.92 : Empty Scence
+Second : 25.95 : Empty Scence
+Second : 26.00 : Empty Scence
+Second : 26.03 : Empty Scence
+Second : 26.08 : Empty Scence
+Second : 26.13 : Empty Scence
+Second : 26.16 : Empty Scence
+Second : 26.21 : Empty Scence
+Second : 26.24 : Empty Scence
+Second : 26.29 : Empty Scence
+Second : 26.34 : Empty Scence
+Second : 26.37 : Empty Scence
+Second : 26.42 : Empty Scence
+Second : 26.45 : Empty Scence
+Second : 26.50 : Empty Scence
+Second : 26.54 : Empty Scence
+Second : 26.58 : Empty Scence
+Second : 26.62 : Empty Scence
+Second : 26.66 : Empty Scence
+Second : 26.70 : Empty Scence
+Second : 26.75 : Empty Scence
+Second : 26.78 : Empty Scence
+Second : 26.83 : Empty Scence
+Second : 26.86 : Empty Scence
+Second : 26.91 : Empty Scence
+Second : 26.96 : Empty Scence
+Second : 26.99 : Empty Scence
+Second : 27.04 : Empty Scence
+Second : 27.07 : Empty Scence
+Second : 27.12 : Empty Scence
+Second : 27.17 : Empty Scence
+Second : 27.20 : Empty Scence
+Second : 27.25 : Empty Scence
+Second : 27.28 : Empty Scence
+Second : 27.33 : Empty Scence
+Second : 27.36 : Empty Scence
+Second : 27.41 : Empty Scence
+Second : 27.46 : Empty Scence
+Second : 27.49 : Empty Scence
+Second : 27.54 : Empty Scence
+Second : 27.57 : Empty Scence
+Second : 27.62 : Empty Scence
+Second : 27.66 : Empty Scence
+Second : 27.70 : Empty Scence
+Second : 27.74 : Empty Scence
+Second : 27.78 : Empty Scence
+Second : 27.82 : Empty Scence
+Second : 27.87 : Empty Scence
+Second : 27.90 : Empty Scence
+Second : 27.95 : Empty Scence
+Second : 27.98 : Empty Scence
+Second : 28.03 : Empty Scence
+Second : 28.08 : Empty Scence
+Second : 28.11 : Empty Scence
+Second : 28.16 : Empty Scence
+Second : 28.19 : Empty Scence
+Second : 28.24 : Empty Scence
+Second : 28.29 : Empty Scence
+Second : 28.32 : Empty Scence
+Second : 28.37 : Empty Scence
+Second : 28.40 : Empty Scence
+Second : 28.45 : Empty Scence
+Second : 28.50 : Empty Scence
+Second : 28.53 : Empty Scence
+Second : 28.58 : Empty Scence
+Second : 28.61 : Empty Scence
+Second : 28.66 : Empty Scence
+Second : 28.70 : Empty Scence
+Second : 28.74 : Empty Scence
+Second : 28.78 : Empty Scence
+Second : 28.82 : Empty Scence
+Second : 28.86 : Empty Scence
+Second : 28.91 : Empty Scence
+Second : 28.94 : Empty Scence
+Second : 28.99 : Empty Scence
+Second : 29.02 : Empty Scence
+Second : 29.07 : Empty Scence
+Second : 29.12 : Empty Scence
+Second : 29.15 : Empty Scence
+Second : 29.20 : Empty Scence
+Second : 29.23 : Empty Scence
+Second : 29.28 : Empty Scence
+Second : 29.31 : Empty Scence
+Second : 29.36 : Empty Scence
+Second : 29.41 : Empty Scence
+Second : 29.44 : Empty Scence
+Second : 29.49 : Empty Scence
+Second : 29.52 : Empty Scence
+Second : 29.57 : Empty Scence
+Second : 29.62 : Empty Scence
+Second : 29.65 : Empty Scence
+Second : 29.70 : Empty Scence
+Second : 29.73 : Empty Scence
+Second : 29.78 : Empty Scence
+Second : 29.82 : Empty Scence
+Second : 29.86 : Empty Scence
+Second : 29.90 : Empty Scence
+Second : 29.94 : Empty Scence
+Second : 29.98 : Empty Scence
+Second : 30.03 : Empty Scence
+Second : 30.06 : Empty Scence
+Second : 30.11 : Empty Scence
+Second : 30.14 : Empty Scence
+Second : 30.19 : Empty Scence
+Second : 30.24 : Empty Scence
+Second : 30.27 : Empty Scence
+Second : 30.32 : Empty Scence
+Second : 30.35 : Empty Scence
+Second : 30.40 : Empty Scence
+Second : 30.45 : Empty Scence
+Second : 30.48 : Empty Scence
+Second : 30.53 : Empty Scence
+Second : 30.56 : Empty Scence
+Second : 30.61 : Empty Scence
+Second : 30.66 : Empty Scence
+Second : 30.69 : Empty Scence
+Second : 30.74 : Empty Scence
+Second : 30.77 : Empty Scence
+Second : 30.82 : Empty Scence
+Second : 30.86 : Empty Scence
+Second : 30.90 : Empty Scence
+Second : 30.94 : Empty Scence
+Second : 30.98 : Empty Scence
+Second : 31.02 : Empty Scence
+Second : 31.07 : Empty Scence
+Second : 31.10 : Empty Scence
+Second : 31.15 : Empty Scence
+Second : 31.18 : Empty Scence
+Second : 31.23 : Empty Scence
+Second : 31.28 : Empty Scence
+Second : 31.31 : Empty Scence
+Second : 31.36 : Empty Scence
+Second : 31.39 : Empty Scence
+Second : 31.44 : Empty Scence
+Second : 31.47 : Empty Scence
+Second : 31.52 : Empty Scence
+Second : 31.57 : Empty Scence
+Second : 31.60 : Empty Scence
+Second : 31.65 : Empty Scence
+Second : 31.68 : Empty Scence
+Second : 31.73 : Empty Scence
+Second : 0.03 : Empty Scence
+Second : 0.08 : Empty Scence
+Second : 0.11 : Empty Scence
+Second : 0.16 : Empty Scence
+Second : 0.21 : Empty Scence
+Second : 0.24 : Empty Scence
+Second : 0.29 : Empty Scence
+Second : 0.32 : Empty Scence
+Second : 0.37 : Empty Scence
+Second : 0.42 : Empty Scence
+Second : 0.45 : Empty Scence
+Second : 0.50 : Empty Scence
+Second : 0.53 : Empty Scence
+Second : 0.58 : Empty Scence
+Second : 0.62 : Empty Scence
+Second : 0.66 : Empty Scence
+Second : 0.70 : Empty Scence
+Second : 0.74 : Empty Scence
+Second : 0.78 : Empty Scence
+Second : 0.83 : Empty Scence
+Second : 0.86 : Empty Scence
+Second : 0.91 : Empty Scence
+Second : 0.94 : Empty Scence
+Second : 0.99 : Empty Scence
+Second : 1.02 : Empty Scence
+Second : 1.07 : Empty Scence
+Second : 1.12 : Empty Scence
+Second : 1.15 : Empty Scence
+Second : 1.20 : Empty Scence
+Second : 1.23 : Empty Scence
+Second : 1.28 : Empty Scence
+Second : 1.33 : Empty Scence
+Second : 1.36 : Empty Scence
+Second : 1.41 : Empty Scence
+Second : 1.44 : Empty Scence
+Second : 1.49 : Empty Scence
+Second : 1.54 : Empty Scence
+Second : 1.57 : Empty Scence
+Second : 1.62 : Empty Scence
+Second : 1.65 : Empty Scence
+Second : 1.70 : Empty Scence
+Second : 1.74 : Empty Scence
+Second : 1.78 : Empty Scence
+Second : 1.82 : Empty Scence
+Second : 1.86 : Empty Scence
+Second : 1.90 : Empty Scence
+Second : 1.95 : Empty Scence
+Second : 1.98 : Empty Scence
+Second : 2.03 : Empty Scence
+Second : 2.06 : Empty Scence
+Second : 2.11 : Empty Scence
+Second : 2.16 : Empty Scence
+Second : 2.19 : Empty Scence
+Second : 2.24 : Empty Scence
+Second : 2.27 : Empty Scence
+Second : 2.32 : Empty Scence
+Second : 2.37 : Empty Scence
+Second : 2.40 : Person
+Second : 2.45 : Person
+Second : 2.48 : Person
+Second : 2.53 : Person
+Second : 2.58 : Person
+Second : 2.61 : Person
+Second : 2.66 : Person
+Second : 2.69 : Person
+Second : 2.74 : Person
+Second : 2.78 : Person
+Second : 2.82 : Person
+Second : 2.86 : Person
+Second : 2.90 : Person
+Second : 2.94 : Person
+Second : 2.99 : Person
+Second : 3.02 : Person
+Second : 3.07 : Person
+Second : 3.10 : Person
+Second : 3.15 : Person
+Second : 3.18 : Person
+Second : 3.23 : Person
+Second : 3.28 : Person
+Second : 3.31 : Person
+Second : 3.36 : Person
+Second : 3.39 : Person
+Second : 3.44 : Person
+Second : 3.49 : Person
+Second : 3.52 : Person
+Second : 3.57 : Person
+Second : 3.60 : Person
+Second : 3.65 : Person
+Second : 3.70 : Person
+Second : 3.73 : Person
+Second : 3.78 : Person
+Second : 3.81 : Person
+Second : 3.86 : Person
+Second : 3.90 : Person
+Second : 3.94 : Person
+Second : 3.98 : Person
+Second : 4.02 : Person
+Second : 4.06 : Person
+Second : 4.11 : Person
+Second : 4.14 : Person
+Second : 4.19 : Person
+Second : 4.22 : Person
+Second : 4.27 : Person
+Second : 4.32 : Person
+Second : 4.35 : Person
+Second : 4.40 : Person
+Second : 4.43 : Person
+Second : 4.48 : Person
+Second : 4.53 : Person
+Second : 4.56 : Person
+Second : 4.61 : Person
+Second : 4.64 : Person
+Second : 4.69 : Person
+Second : 4.74 : Person
+Second : 4.77 : Person
+Second : 4.82 : Person
+Second : 4.85 : Person
+Second : 4.90 : Person
+Second : 4.94 : Person
+Second : 4.98 : Person
+Second : 5.02 : Person
+Second : 5.06 : Person
+Second : 5.10 : Person
+Second : 5.14 : Person
+Second : 5.18 : Person
+Second : 5.23 : Person
+Second : 5.26 : Person
+Second : 5.31 : Person
+Second : 5.34 : Person
+Second : 5.39 : Person
+Second : 5.44 : Person
+Second : 5.47 : Person
+Second : 5.52 : Person
+Second : 5.55 : Person
+Second : 5.60 : Person
+Second : 5.65 : Person
+Second : 5.68 : Person
+Second : 5.73 : Person
+Second : 5.76 : Person
+Second : 5.81 : Person
+Second : 5.86 : Person
+Second : 5.89 : Person
+Second : 5.94 : Person
+Second : 5.97 : Person
+Second : 6.02 : Person
+Second : 6.06 : Person
+Second : 6.10 : Person
+Second : 6.14 : Person
+Second : 6.18 : Person
+Second : 6.22 : Person
+Second : 6.27 : Person
+Second : 6.30 : Person
+Second : 6.35 : Person
+Second : 6.38 : Person
+Second : 6.43 : Person
+Second : 6.48 : Person
+Second : 6.51 : Person
+Second : 6.56 : Person
+Second : 6.59 : Person
+Second : 6.64 : Person
+Second : 6.69 : Person
+Second : 6.72 : Person
+Second : 6.77 : Person
+Second : 6.80 : Person
+Second : 6.85 : Person
+Second : 6.90 : Person
+Second : 6.93 : Person
+Second : 6.98 : Person
+Second : 7.01 : Person
+Second : 7.06 : Person
+Second : 7.09 : Person
+Second : 7.14 : Person
+Second : 7.18 : Person
+Second : 7.22 : Person
+Second : 7.26 : Person
+Second : 7.30 : Person
+Second : 7.34 : Person
+Second : 7.39 : Person
+Second : 7.42 : Person
+Second : 7.47 : Person
+Second : 7.50 : Person
+Second : 7.55 : Person
+Second : 7.60 : Person
+Second : 7.63 : Person
+Second : 7.68 : Person
+Second : 7.71 : Person
+Second : 7.76 : Person
+Second : 7.81 : Person
+Second : 7.84 : Person
+Second : 7.89 : Person
+Second : 7.92 : Person
+Second : 7.97 : Person
+Second : 8.02 : Person
+Second : 8.05 : Person
+Second : 8.10 : Person
+Second : 8.13 : Person
+Second : 8.18 : Person
+Second : 8.22 : Person
+Second : 8.26 : Person
+Second : 8.30 : Person
+Second : 8.34 : Person
+Second : 8.38 : Person
+Second : 8.43 : Person
+Second : 8.46 : Person
+Second : 8.51 : Person
+Second : 8.54 : Person
+Second : 8.59 : Person
+Second : 8.64 : Person
+Second : 8.67 : Person
+Second : 8.72 : Person
+Second : 8.75 : Person
+Second : 8.80 : Person
+Second : 8.85 : Person
+Second : 8.88 : Person
+Second : 8.93 : Person
+Second : 8.96 : Person
+Second : 9.01 : Person
+Second : 9.04 : Person
+Second : 9.09 : Person
+Second : 9.14 : Person
+Second : 9.17 : Person
+Second : 9.22 : Person
+Second : 9.25 : Person
+Second : 9.30 : Person
+Second : 9.34 : Person
+Second : 9.38 : Person
+Second : 9.42 : Person
+Second : 9.46 : Person
+Second : 9.50 : Person
+Second : 9.55 : Person
+Second : 9.58 : Person
+Second : 9.63 : Person
+Second : 9.66 : Person
+Second : 9.71 : Person
+Second : 9.76 : Person
+Second : 9.79 : Person
+Second : 9.84 : Person
+Second : 9.87 : Person
+Second : 9.92 : Person
+Second : 9.97 : Person
+Second : 10.00 : Person
+Second : 10.05 : Person
+Second : 10.08 : Person
+Second : 10.13 : Person
+Second : 10.18 : Person
+Second : 10.21 : Person
+Second : 10.26 : Person
+Second : 10.29 : Person
+Second : 10.34 : Person
+Second : 10.38 : Person
+Second : 10.42 : Person
+Second : 10.46 : Person
+Second : 10.50 : Person
+Second : 10.54 : Person
+Second : 10.59 : Person
+Second : 10.62 : Person
+Second : 10.67 : Person
+Second : 10.70 : Person
+Second : 10.75 : Person
+Second : 10.80 : Person
+Second : 10.83 : Person
+Second : 10.88 : Person
+Second : 10.91 : Person
+Second : 10.96 : Person
+Second : 11.01 : Person
+Second : 11.04 : Person
+Second : 11.09 : Person
+Second : 11.12 : Person
+Second : 11.17 : Person
+Second : 11.20 : Person
+Second : 11.25 : Person
+Second : 11.30 : Person
+Second : 11.33 : Person
+Second : 11.38 : Person
+Second : 11.41 : Person
+Second : 11.46 : Person
+Second : 11.50 : Person
+Second : 11.54 : Person
+Second : 11.58 : Person
+Second : 11.62 : Person
+Second : 11.66 : Person
+Second : 11.71 : Person
+Second : 11.74 : Person
+Second : 11.79 : Person
+Second : 11.82 : Person
+Second : 11.87 : Person
+Second : 11.92 : Person
+Second : 11.95 : Person
+Second : 12.00 : Person
+Second : 12.03 : Person
+Second : 12.08 : Person
+Second : 12.13 : Person
+Second : 12.16 : Person
+Second : 12.21 : Person
+Second : 12.24 : Person
+Second : 12.29 : Person
+Second : 12.34 : Person
+Second : 12.37 : Person
+Second : 12.42 : Person
+Second : 12.45 : Person
+Second : 12.50 : Person
+Second : 12.54 : Person
+Second : 12.58 : Person
+Second : 12.62 : Person
+Second : 12.66 : Person
+Second : 12.70 : Person
+Second : 12.75 : Person
+Second : 12.78 : Person
+Second : 12.83 : Person
+Second : 12.86 : Person
+Second : 12.91 : Person
+Second : 12.96 : Person
+Second : 12.99 : Person
+Second : 13.04 : Person
+Second : 13.07 : Person
+Second : 13.12 : Person
+Second : 13.15 : Person
+Second : 13.20 : Person
+Second : 13.25 : Person
+Second : 13.28 : Person
+Second : 13.33 : Person
+Second : 13.36 : Person
+Second : 13.41 : Person
+Second : 13.46 : Person
+Second : 13.49 : Person
+Second : 13.54 : Person
+Second : 13.57 : Person
+Second : 13.62 : Person
+Second : 13.66 : Person
+Second : 13.70 : Person
+Second : 13.74 : Person
+Second : 13.78 : Person
+Second : 13.82 : Person
+Second : 13.87 : Person
+Second : 13.90 : Person
+Second : 13.95 : Person
+Second : 13.98 : Person
+Second : 14.03 : Person
+Second : 14.08 : Person
+Second : 14.11 : Person
+Second : 14.16 : Person
+Second : 14.19 : Person
+Second : 14.24 : Person
+Second : 14.29 : Person
+Second : 14.32 : Person
+Second : 14.37 : Person
+Second : 14.40 : Person
+Second : 14.45 : Person
+Second : 14.50 : Person
+Second : 14.53 : Person
+Second : 14.58 : Person
+Second : 14.61 : Person
+Second : 14.66 : Person
+Second : 14.70 : Person
+Second : 14.74 : Person
+Second : 14.78 : Person
+Second : 14.82 : Person
+Second : 14.86 : Person
+Second : 14.91 : Person
+Second : 14.94 : Person
+Second : 14.99 : Person
+Second : 15.02 : Person
+Second : 15.07 : Person
+Second : 15.10 : Person
+Second : 15.15 : Person
+Second : 15.20 : Person
+Second : 15.23 : Person
+Second : 15.28 : Person
+Second : 15.31 : Person
+Second : 15.36 : Person
+Second : 15.41 : Person
+Second : 15.44 : Person
+Second : 15.49 : Person
+Second : 15.52 : Person
+Second : 15.57 : Person
+Second : 15.62 : Person
+Second : 15.65 : Person
+Second : 15.70 : Person
+Second : 15.73 : Person
+Second : 15.78 : Person
+Second : 15.82 : Person
+Second : 15.86 : Person
+Second : 15.90 : Person
+Second : 15.94 : Person
+Second : 15.98 : Person
+Second : 16.03 : Person
+Second : 16.06 : Person
+Second : 16.11 : Person
+Second : 16.14 : Person
+Second : 16.19 : Person
+Second : 16.24 : Person
+Second : 16.27 : Person
+Second : 16.32 : Person
+Second : 16.35 : Person
+Second : 16.40 : Person
+Second : 16.45 : Person
+Second : 16.48 : Person
+Second : 16.53 : Person
+Second : 16.56 : Person
+Second : 16.61 : Person
+Second : 16.66 : Person
+Second : 16.69 : Person
+Second : 16.74 : Person
+Second : 16.77 : Person
+Second : 16.82 : Person
+Second : 16.86 : Person
+Second : 16.90 : Person
+Second : 16.94 : Person
+Second : 16.98 : Person
+Second : 17.02 : Person
+Second : 17.06 : Person
+Second : 17.10 : Person
+Second : 17.15 : Person
+Second : 17.18 : Person
+Second : 17.23 : Person
+Second : 17.26 : Person
+Second : 17.31 : Person
+Second : 17.36 : Person
+Second : 17.39 : Person
+Second : 17.44 : Person
+Second : 17.47 : Person
+Second : 17.52 : Person
+Second : 17.57 : Person
+Second : 17.60 : Person
+Second : 17.65 : Person
+Second : 17.68 : Person
+Second : 17.73 : Person
+Second : 17.78 : Person
+Second : 17.81 : Person
+Second : 17.86 : Person
+Second : 17.89 : Person
+Second : 17.94 : Person
+Second : 17.98 : Person
+Second : 18.02 : Person
+Second : 18.06 : Person
+Second : 18.10 : Person
+Second : 18.14 : Person
+Second : 18.19 : Person
+Second : 18.22 : Person
+Second : 18.27 : Person
+Second : 18.30 : Person
+Second : 18.35 : Person
+Second : 18.40 : Person
+Second : 18.43 : Person
+Second : 18.48 : Person
+Second : 18.51 : Person
+Second : 18.56 : Person
+Second : 18.61 : Person
+Second : 18.64 : Person
+Second : 18.69 : Person
+Second : 18.72 : Person
+Second : 18.77 : Person
+Second : 18.82 : Person
+Second : 18.85 : Person
+Second : 18.90 : Person
+Second : 18.93 : Person
+Second : 18.98 : Person
+Second : 19.02 : Person
+Second : 19.06 : Person
+Second : 19.10 : Person
+Second : 19.14 : Person
+Second : 19.18 : Person
+Second : 19.22 : Person
+Second : 19.26 : Person
+Second : 19.31 : Person
+Second : 19.34 : Person
+Second : 19.39 : Person
+Second : 19.42 : Person
+Second : 19.47 : Person
+Second : 19.52 : Person
+Second : 19.55 : Person
+Second : 19.60 : Person
+Second : 19.63 : Person
+Second : 19.68 : Person
+Second : 19.73 : Person
+Second : 19.76 : Person
+Second : 19.81 : Person
+Second : 19.84 : Person
+Second : 19.89 : Person
+Second : 19.94 : Person
+Second : 19.97 : Person
+Second : 20.02 : Person
+Second : 20.05 : Person
+Second : 20.10 : Person
+Second : 20.14 : Person
+Second : 20.18 : Person
+Second : 20.22 : Person
+Second : 20.26 : Person
+Second : 20.30 : Person
+Second : 20.35 : Person
+Second : 20.38 : Person
+Second : 20.43 : Person
+Second : 20.46 : Person
+Second : 20.51 : Person
+Second : 20.56 : Person
+Second : 20.59 : Person
+Second : 20.64 : Person
+Second : 20.67 : Person
+Second : 20.72 : Person
+Second : 20.77 : Person
+Second : 20.80 : Person
+Second : 20.85 : Person
+Second : 20.88 : Person
+Second : 20.93 : Person
+Second : 20.98 : Person
+Second : 21.01 : Person
+Second : 21.06 : Person
+Second : 21.09 : Person
+Second : 21.14 : Person
+Second : 21.17 : Person
+Second : 21.22 : Person
+Second : 21.26 : Person
+Second : 21.30 : Person
+Second : 21.34 : Person
+Second : 21.38 : Person
+Second : 21.42 : Person
+Second : 21.47 : Person
+Second : 21.50 : Person
+Second : 21.55 : Person
+Second : 21.58 : Person
+Second : 21.63 : Person
+Second : 21.68 : Person
+Second : 21.71 : Person
+Second : 21.76 : Person
+Second : 21.79 : Person
+Second : 21.84 : Person
+Second : 21.89 : Person
+Second : 21.92 : Person
+Second : 21.97 : Person
+Second : 22.00 : Person
+Second : 22.05 : Person
+Second : 22.10 : Person
+Second : 22.13 : Person
+Second : 22.18 : Person
+Second : 22.21 : Person
+Second : 22.26 : Person
+Second : 22.30 : Person
+Second : 22.34 : Person
+Second : 22.38 : Person
+Second : 22.42 : Person
+Second : 22.46 : Person
+Second : 22.51 : Person
+Second : 22.54 : Person
+Second : 22.59 : Person
+Second : 22.62 : Person
+Second : 22.67 : Person
+Second : 22.72 : Person
+Second : 22.75 : Person
+Second : 22.80 : Person
+Second : 22.83 : Person
+Second : 22.88 : Person
+Second : 22.93 : Person
+Second : 22.96 : Person
+Second : 23.01 : Person
+Second : 23.04 : Person
+Second : 23.09 : Person
+Second : 23.12 : Person
+Second : 23.17 : Person
+Second : 23.22 : Person
+Second : 23.25 : Person
+Second : 23.30 : Person
+Second : 23.33 : Person
+Second : 23.38 : Person
+Second : 23.42 : Person
+Second : 23.46 : Person
+Second : 23.50 : Person
+Second : 23.54 : Person
+Second : 23.58 : Person
+Second : 23.63 : Person
+Second : 23.66 : Person
+Second : 23.71 : Person
+Second : 23.74 : Person
+Second : 23.79 : Person
+Second : 23.84 : Person
+Second : 23.87 : Person
+Second : 23.92 : Person
+Second : 23.95 : Person
+Second : 24.00 : Person
+Second : 24.05 : Person
+Second : 24.08 : Person
+Second : 24.13 : Person
+Second : 24.16 : Person
+Second : 24.21 : Person
+Second : 24.26 : Person
+Second : 24.29 : Person
+Second : 24.34 : Person
+Second : 24.37 : Person
+Second : 24.42 : Person
+Second : 24.46 : Person
+Second : 24.50 : Person
+Second : 24.54 : Person
+Second : 24.58 : Person
+Second : 24.62 : Person
+Second : 24.67 : Person
+Second : 24.70 : Person
+Second : 24.75 : Person
+Second : 24.78 : Person
+Second : 24.83 : Person
+Second : 24.88 : Person
+Second : 24.91 : Person
+Second : 24.96 : Person
+Second : 24.99 : Person
+Second : 25.04 : Person
+Second : 25.07 : Person
+Second : 25.12 : Person
+Second : 25.17 : Person
+Second : 25.20 : Person
+Second : 25.25 : Person
+Second : 25.28 : Person
+Second : 25.33 : Person
+Second : 25.38 : Person
+Second : 25.41 : Person
+Second : 25.46 : Person
+Second : 25.49 : Person
+Second : 25.54 : Person
+Second : 25.58 : Person
+Second : 25.62 : Person
+Second : 25.66 : Person
+Second : 25.70 : Person
+Second : 25.74 : Person
+Second : 25.79 : Person
+Second : 25.82 : Person
+Second : 25.87 : Person
+Second : 25.90 : Person
+Second : 25.95 : Person
+Second : 26.00 : Person
+Second : 26.03 : Person
+Second : 26.08 : Person
+Second : 26.11 : Person
+Second : 26.16 : Person
+Second : 26.21 : Person
+Second : 26.24 : Person
+Second : 26.29 : Person
+Second : 26.32 : Person
+Second : 26.37 : Person
+Second : 26.42 : Person
+Second : 26.45 : Person
+Second : 26.50 : Person
+Second : 26.53 : Person
+Second : 26.58 : Person
+Second : 26.62 : Person
+Second : 26.66 : Person
+Second : 26.70 : Person
+Second : 26.74 : Person
+Second : 26.78 : Person
+Second : 26.83 : Person
+Second : 26.86 : Person
+Second : 26.91 : Person
+Second : 26.94 : Person
+Second : 26.99 : Person
+Second : 27.04 : Person
+Second : 27.07 : Person
+Second : 27.12 : Empty Scence
+Second : 27.15 : Empty Scence
+Second : 27.20 : Empty Scence
+Second : 27.23 : Empty Scence
+Second : 27.28 : Empty Scence
+Second : 27.33 : Empty Scence
+Second : 27.36 : Empty Scence
+Second : 27.41 : Empty Scence
+Second : 27.44 : Empty Scence
+Second : 27.49 : Empty Scence
+Second : 27.54 : Empty Scence
+Second : 27.57 : Empty Scence
+Second : 27.62 : Empty Scence
+Second : 27.65 : Empty Scence
+Second : 27.70 : Empty Scence
+Second : 27.74 : Empty Scence
+Second : 27.78 : Empty Scence
+Second : 27.82 : Empty Scence
+Second : 27.86 : Empty Scence
+Second : 27.90 : Empty Scence
+Second : 27.95 : Empty Scence
+Second : 27.98 : Empty Scence
+Second : 28.03 : Empty Scence
+Second : 28.06 : Empty Scence
+Second : 28.11 : Empty Scence
+Second : 28.16 : Empty Scence
+Second : 28.19 : Empty Scence
+Second : 28.24 : Empty Scence
+Second : 28.27 : Empty Scence
+Second : 28.32 : Empty Scence
+Second : 28.37 : Empty Scence
+Second : 28.40 : Empty Scence
+Second : 28.45 : Empty Scence
+Second : 28.48 : Empty Scence
+Second : 28.53 : Empty Scence
+Second : 28.58 : Empty Scence
+Second : 28.61 : Empty Scence
+Second : 28.66 : Empty Scence
+Second : 28.69 : Empty Scence
+Second : 28.74 : Empty Scence
+Second : 28.78 : Empty Scence
+Second : 28.82 : Empty Scence
+Second : 28.86 : Empty Scence
+Second : 28.90 : Empty Scence
+Second : 28.94 : Empty Scence
+Second : 28.99 : Empty Scence
+Second : 29.02 : Empty Scence
+Second : 29.07 : Empty Scence
+Second : 29.10 : Empty Scence
+Second : 29.15 : Empty Scence
+Second : 29.18 : Empty Scence
+Second : 29.23 : Empty Scence
+Second : 29.28 : Empty Scence
+Second : 29.31 : Empty Scence
+Second : 29.36 : Empty Scence
+Second : 29.39 : Empty Scence
+Second : 29.44 : Empty Scence
+Second : 29.49 : Empty Scence
+Second : 29.52 : Empty Scence
+Second : 29.57 : Empty Scence
+Second : 29.60 : Empty Scence
+Second : 29.65 : Empty Scence
+Second : 29.70 : Empty Scence
+Second : 29.73 : Empty Scence
+Second : 29.78 : Empty Scence
+Second : 29.81 : Empty Scence
+Second : 29.86 : Empty Scence
+Second : 29.90 : Empty Scence
+Second : 29.94 : Empty Scence
+Second : 29.98 : Empty Scence
+Second : 30.02 : Empty Scence
+Second : 30.06 : Empty Scence
+Second : 30.11 : Empty Scence
+Second : 30.14 : Empty Scence
+Second : 30.19 : Empty Scence
+Second : 30.22 : Empty Scence
+Second : 30.27 : Empty Scence
+Second : 30.32 : Empty Scence
+Second : 30.35 : Empty Scence
+Second : 30.40 : Empty Scence
+Second : 30.43 : Empty Scence
+Second : 30.48 : Empty Scence
+Second : 30.53 : Empty Scence
+Second : 30.56 : Empty Scence
+Second : 30.61 : Empty Scence
+Second : 30.64 : Empty Scence
+Second : 30.69 : Empty Scence
+Second : 30.74 : Empty Scence
+Second : 30.77 : Empty Scence
+Second : 30.82 : Empty Scence
+Second : 30.85 : Empty Scence
+Second : 30.90 : Empty Scence
+Second : 30.94 : Empty Scence
+Second : 30.98 : Empty Scence
+Second : 31.02 : Empty Scence
+Second : 31.06 : Empty Scence
+Second : 31.10 : Empty Scence
+Second : 31.14 : Empty Scence
+Second : 31.18 : Empty Scence
+Second : 31.23 : Empty Scence
+Second : 31.26 : Empty Scence
+Second : 31.31 : Empty Scence
+Second : 31.34 : Empty Scence
+Second : 31.39 : Empty Scence
+Second : 31.44 : Empty Scence
+Second : 31.47 : Empty Scence
+Second : 31.52 : Empty Scence
+Second : 31.55 : Empty Scence
+Second : 31.60 : Empty Scence
+Second : 31.65 : Empty Scence
+Second : 31.68 : Empty Scence
+Second : 31.73 : Empty Scence
+Second : 31.76 : Empty Scence
+Second : 31.81 : Empty Scence
+Second : 31.86 : Empty Scence
+Second : 31.89 : Empty Scence
+Second : 31.94 : Empty Scence
+Second : 31.97 : Empty Scence
+Second : 32.02 : Empty Scence
+Second : 32.06 : Empty Scence
+Second : 32.10 : Empty Scence
+Second : 32.14 : Empty Scence
+Second : 32.18 : Empty Scence
+Second : 32.22 : Empty Scence
+Second : 32.27 : Empty Scence
+Second : 32.30 : Empty Scence
+Second : 32.35 : Empty Scence
+Second : 32.38 : Empty Scence
+Second : 32.43 : Empty Scence
+Second : 32.48 : Empty Scence
+Second : 32.51 : Empty Scence
+Second : 32.56 : Empty Scence
+Second : 32.59 : Empty Scence
+Second : 32.64 : Empty Scence
+Second : 32.69 : Empty Scence
+Second : 32.72 : Empty Scence
+Second : 32.77 : Empty Scence
+Second : 32.80 : Empty Scence
+Second : 32.85 : Empty Scence
+Second : 32.90 : Empty Scence
+Second : 32.93 : Empty Scence
+Second : 32.98 : Empty Scence
+Second : 33.01 : Empty Scence
+Second : 33.06 : Empty Scence
+Second : 33.09 : Empty Scence
+Second : 33.14 : Empty Scence
+Second : 33.18 : Empty Scence
+Second : 33.22 : Empty Scence
+Second : 33.26 : Empty Scence
+Second : 33.30 : Empty Scence
+Second : 33.34 : Empty Scence
+Second : 33.39 : Empty Scence
+Second : 33.42 : Empty Scence
+Second : 33.47 : Empty Scence
+Second : 33.50 : Empty Scence
+Second : 33.55 : Empty Scence
+Second : 33.60 : Empty Scence
+Second : 33.63 : Empty Scence
+Second : 33.68 : Empty Scence
+Second : 33.71 : Empty Scence
+Second : 33.76 : Empty Scence
+Second : 33.81 : Empty Scence
+Second : 33.84 : Empty Scence
+Second : 33.89 : Empty Scence
+Second : 33.92 : Empty Scence
+Second : 33.97 : Empty Scence
+Second : 34.02 : Empty Scence
+Second : 34.05 : Empty Scence
+Second : 34.10 : Empty Scence
+Second : 34.13 : Empty Scence
+Second : 34.18 : Empty Scence
+Second : 34.22 : Empty Scence
+
+Second : 0.03 : Empty Scence
+Second : 0.06 : Empty Scence
+Second : 0.10 : Empty Scence
+Second : 0.13 : Empty Scence
+Second : 0.16 : Empty Scence
+Second : 0.19 : Empty Scence
+Second : 0.22 : Empty Scence
+Second : 0.26 : Empty Scence
+Second : 0.30 : Empty Scence
+Second : 0.34 : Empty Scence
+Second : 0.37 : Empty Scence
+Second : 0.40 : Empty Scence
+Second : 0.43 : Empty Scence
+Second : 0.46 : Empty Scence
+Second : 0.50 : Empty Scence
+Second : 0.53 : Empty Scence
+Second : 0.56 : Empty Scence
+Second : 0.59 : Empty Scence
+Second : 0.64 : Empty Scence
+Second : 0.67 : Empty Scence
+Second : 0.70 : Empty Scence
+Second : 0.74 : Empty Scence
+Second : 0.77 : Empty Scence
+Second : 0.80 : Empty Scence
+Second : 0.83 : Empty Scence
+Second : 0.86 : Empty Scence
+Second : 0.90 : Empty Scence
+Second : 0.93 : Empty Scence
+Second : 0.98 : Empty Scence
+Second : 1.01 : Empty Scence
+Second : 1.04 : Empty Scence
+Second : 1.07 : Empty Scence
+Second : 1.10 : Empty Scence
+Second : 1.14 : Empty Scence
+Second : 1.17 : Empty Scence
+Second : 1.20 : Empty Scence
+Second : 1.23 : Empty Scence
+Second : 1.26 : Empty Scence
+Second : 1.31 : Empty Scence
+Second : 1.34 : Empty Scence
+Second : 1.38 : Empty Scence
+Second : 1.41 : Empty Scence
+Second : 1.44 : Empty Scence
+Second : 1.47 : Empty Scence
+Second : 1.50 : Empty Scence
+Second : 1.54 : Empty Scence
+Second : 1.57 : Empty Scence
+Second : 1.60 : Empty Scence
+Second : 1.65 : Empty Scence
+Second : 1.68 : Empty Scence
+Second : 1.71 : Empty Scence
+Second : 1.74 : Empty Scence
+Second : 1.78 : Empty Scence
+Second : 1.81 : Empty Scence
+Second : 1.84 : Empty Scence
+Second : 1.87 : Empty Scence
+Second : 1.90 : Empty Scence
+Second : 1.94 : Empty Scence
+Second : 1.98 : Empty Scence
+Second : 2.02 : Empty Scence
+Second : 2.05 : Empty Scence
+Second : 2.08 : Empty Scence
+Second : 2.11 : Empty Scence
+Second : 2.14 : Empty Scence
+Second : 2.18 : Empty Scence
+Second : 2.21 : Empty Scence
+Second : 2.24 : Empty Scence
+Second : 2.27 : Empty Scence
+Second : 2.30 : Empty Scence
+Second : 2.35 : Empty Scence
+Second : 2.38 : Empty Scence
+Second : 2.42 : Empty Scence
+Second : 2.45 : Empty Scence
+Second : 2.48 : Empty Scence
+Second : 2.51 : Empty Scence
+Second : 2.54 : Empty Scence
+Second : 2.58 : Empty Scence
+Second : 2.61 : Empty Scence
+Second : 2.64 : Empty Scence
+Second : 2.69 : Empty Scence
+Second : 2.72 : Empty Scence
+Second : 2.75 : Empty Scence
+Second : 2.78 : Empty Scence
+Second : 2.82 : Empty Scence
+Second : 2.85 : Empty Scence
+Second : 2.88 : Empty Scence
+Second : 2.91 : Empty Scence
+Second : 2.94 : Empty Scence
+Second : 2.98 : Empty Scence
+Second : 3.02 : Empty Scence
+Second : 3.06 : Empty Scence
+Second : 3.09 : Empty Scence
+Second : 3.12 : Empty Scence
+Second : 3.15 : Empty Scence
+Second : 3.18 : Empty Scence
+Second : 3.22 : Empty Scence
+Second : 3.25 : Empty Scence
+Second : 3.28 : Empty Scence
+Second : 3.31 : Empty Scence
+Second : 3.36 : Empty Scence
+Second : 3.39 : Empty Scence
+Second : 3.42 : Empty Scence
+Second : 3.46 : Empty Scence
+Second : 3.49 : Empty Scence
+Second : 3.52 : Empty Scence
+Second : 3.55 : Empty Scence
+Second : 3.58 : Empty Scence
+Second : 3.62 : Empty Scence
+Second : 3.65 : Empty Scence
+Second : 3.70 : Empty Scence
+Second : 3.73 : Empty Scence
+Second : 3.76 : Empty Scence
+Second : 3.79 : Empty Scence
+Second : 3.82 : Empty Scence
+Second : 3.86 : Empty Scence
+Second : 3.89 : Empty Scence
+Second : 3.92 : Empty Scence
+Second : 3.95 : Empty Scence
+Second : 3.98 : Empty Scence
+Second : 4.02 : Empty Scence
+Second : 4.06 : Empty Scence
+Second : 4.10 : Empty Scence
+Second : 4.13 : Empty Scence
+Second : 4.16 : Empty Scence
+Second : 4.19 : Empty Scence
+Second : 4.22 : Empty Scence
+Second : 4.26 : Empty Scence
+Second : 4.29 : Empty Scence
+Second : 4.32 : Empty Scence
+Second : 4.35 : Empty Scence
+Second : 4.40 : Empty Scence
+Second : 4.43 : Empty Scence
+Second : 4.46 : Empty Scence
+Second : 4.50 : Empty Scence
+Second : 4.53 : Empty Scence
+Second : 4.56 : Empty Scence
+Second : 4.59 : Empty Scence
+Second : 4.62 : Empty Scence
+Second : 4.66 : Empty Scence
+Second : 4.69 : Empty Scence
+Second : 4.74 : Empty Scence
+Second : 4.77 : Empty Scence
+Second : 4.80 : Empty Scence
+Second : 4.83 : Empty Scence
+Second : 4.86 : Empty Scence
+Second : 4.90 : Empty Scence
+Second : 4.93 : Empty Scence
+Second : 4.96 : Empty Scence
+Second : 4.99 : Empty Scence
+Second : 5.02 : Empty Scence
+Second : 5.07 : Empty Scence
+Second : 5.10 : Empty Scence
+Second : 5.14 : Empty Scence
+Second : 5.17 : Empty Scence
+Second : 5.20 : Empty Scence
+Second : 5.23 : Empty Scence
+Second : 5.26 : Empty Scence
+Second : 5.30 : Empty Scence
+Second : 5.33 : Empty Scence
+Second : 5.36 : Empty Scence
+Second : 5.41 : Empty Scence
+Second : 5.44 : Empty Scence
+Second : 5.47 : Empty Scence
+Second : 5.50 : Empty Scence
+Second : 5.54 : Empty Scence
+Second : 5.57 : Empty Scence
+Second : 5.60 : Empty Scence
+Second : 5.63 : Empty Scence
+Second : 5.66 : Empty Scence
+Second : 5.70 : Empty Scence
+Second : 5.73 : Empty Scence
+Second : 5.78 : Empty Scence
+Second : 5.81 : Empty Scence
+Second : 5.84 : Empty Scence
+Second : 5.87 : Empty Scence
+Second : 5.90 : Empty Scence
+Second : 5.94 : Empty Scence
+Second : 5.97 : Empty Scence
+Second : 6.00 : Empty Scence
+Second : 6.03 : Empty Scence
+Second : 6.06 : Empty Scence
+Second : 6.11 : Empty Scence
+Second : 6.14 : Empty Scence
+Second : 6.18 : Empty Scence
+Second : 6.21 : Empty Scence
+Second : 6.24 : Empty Scence
+Second : 6.27 : Empty Scence
+Second : 6.30 : Empty Scence
+Second : 6.34 : Empty Scence
+Second : 6.37 : Empty Scence
+Second : 6.40 : Empty Scence
+Second : 6.45 : Empty Scence
+Second : 6.48 : Empty Scence
+Second : 6.51 : Empty Scence
+Second : 6.54 : Empty Scence
+Second : 6.58 : Empty Scence
+Second : 6.61 : Empty Scence
+Second : 6.64 : Empty Scence
+Second : 6.67 : Empty Scence
+Second : 6.70 : Empty Scence
+Second : 6.74 : Empty Scence
+Second : 6.78 : Empty Scence
+Second : 6.82 : Empty Scence
+Second : 6.85 : Empty Scence
+Second : 6.88 : Empty Scence
+Second : 6.91 : Empty Scence
+Second : 6.94 : Empty Scence
+Second : 6.98 : Empty Scence
+Second : 7.01 : Empty Scence
+Second : 7.04 : Empty Scence
+Second : 7.07 : Empty Scence
+Second : 7.12 : Empty Scence
+Second : 7.15 : Empty Scence
+Second : 7.18 : Empty Scence
+Second : 7.22 : Empty Scence
+Second : 7.25 : Empty Scence
+Second : 7.28 : Empty Scence
+Second : 7.31 : Empty Scence
+Second : 7.34 : Empty Scence
+Second : 7.38 : Empty Scence
+Second : 7.41 : Empty Scence
+Second : 7.44 : Empty Scence
+Second : 7.49 : Empty Scence
+Second : 7.52 : Empty Scence
+Second : 7.55 : Empty Scence
+Second : 7.58 : Empty Scence
+Second : 7.62 : Empty Scence
+Second : 7.65 : Empty Scence
+Second : 7.68 : Empty Scence
+Second : 7.71 : Empty Scence
+Second : 7.74 : Empty Scence
+Second : 7.78 : Empty Scence
+Second : 7.82 : Empty Scence
+Second : 7.86 : Empty Scence
+Second : 7.89 : Empty Scence
+Second : 7.92 : Empty Scence
+Second : 7.95 : Empty Scence
+Second : 7.98 : Empty Scence
+Second : 8.02 : Empty Scence
+Second : 8.05 : Empty Scence
+Second : 8.08 : Empty Scence
+Second : 8.11 : Empty Scence
+Second : 8.16 : Empty Scence
+Second : 8.19 : Empty Scence
+Second : 8.22 : Empty Scence
+Second : 8.26 : Empty Scence
+Second : 8.29 : Empty Scence
+Second : 8.32 : Empty Scence
+Second : 8.35 : Empty Scence
+Second : 8.38 : Empty Scence
+Second : 8.42 : Empty Scence
+Second : 8.45 : Empty Scence
+Second : 8.50 : Empty Scence
+Second : 8.53 : Empty Scence
+Second : 8.56 : Empty Scence
+Second : 8.59 : Empty Scence
+Second : 8.62 : Empty Scence
+Second : 8.66 : Empty Scence
+Second : 8.69 : Empty Scence
+Second : 8.72 : Empty Scence
+Second : 8.75 : Empty Scence
+Second : 8.78 : Empty Scence
+Second : 8.83 : Empty Scence
+Second : 8.86 : Empty Scence
+Second : 8.90 : Empty Scence
+Second : 8.93 : Empty Scence
+Second : 8.96 : Empty Scence
+Second : 8.99 : Empty Scence
+Second : 9.02 : Empty Scence
+Second : 9.06 : Empty Scence
+Second : 9.09 : Empty Scence
+Second : 9.12 : Empty Scence
+Second : 9.15 : Empty Scence
+Second : 9.20 : Empty Scence
+Second : 9.23 : Empty Scence
+Second : 9.26 : Empty Scence
+Second : 9.30 : Empty Scence
+Second : 9.33 : Empty Scence
+Second : 9.36 : Empty Scence
+Second : 9.39 : Empty Scence
+Second : 9.42 : Empty Scence
+Second : 9.46 : Empty Scence
+Second : 9.49 : Empty Scence
+Second : 9.54 : Empty Scence
+Second : 9.57 : Empty Scence
+Second : 9.60 : Empty Scence
+Second : 9.63 : Empty Scence
+Second : 9.66 : Empty Scence
+Second : 9.70 : Empty Scence
+Second : 9.73 : Empty Scence
+Second : 9.76 : Empty Scence
+Second : 9.79 : Empty Scence
+Second : 9.82 : Empty Scence
+Second : 9.87 : Empty Scence
+Second : 9.90 : Empty Scence
+Second : 9.94 : Empty Scence
+Second : 9.97 : Empty Scence
+Second : 10.00 : Empty Scence
+Second : 10.03 : Empty Scence
+Second : 10.06 : Empty Scence
+Second : 10.10 : Empty Scence
+Second : 10.13 : Empty Scence
+Second : 10.16 : Empty Scence
+Second : 10.21 : Empty Scence
+Second : 10.24 : Empty Scence
+Second : 10.27 : Empty Scence
+Second : 10.30 : Empty Scence
+Second : 10.34 : Empty Scence
+Second : 10.37 : Empty Scence
+Second : 10.40 : Empty Scence
+Second : 10.43 : Empty Scence
+Second : 10.46 : Empty Scence
+Second : 10.50 : Empty Scence
+Second : 10.54 : Empty Scence
+Second : 10.58 : Empty Scence
+Second : 10.61 : Empty Scence
+Second : 10.64 : Empty Scence
+Second : 10.67 : Empty Scence
+Second : 10.70 : Empty Scence
+Second : 10.74 : Empty Scence
+Second : 10.77 : Empty Scence
+Second : 10.80 : Empty Scence
+Second : 10.83 : Empty Scence
+Second : 10.86 : Empty Scence
+Second : 10.91 : Empty Scence
+Second : 10.94 : Empty Scence
+Second : 10.98 : Empty Scence
+Second : 11.01 : Empty Scence
+Second : 11.04 : Empty Scence
+Second : 11.07 : Empty Scence
+Second : 11.10 : Empty Scence
+Second : 11.14 : Empty Scence
+Second : 11.17 : Empty Scence
+Second : 11.20 : Empty Scence
+Second : 11.25 : Empty Scence
+Second : 11.28 : Empty Scence
+Second : 11.31 : Empty Scence
+Second : 11.34 : Empty Scence
+Second : 11.38 : Empty Scence
+Second : 11.41 : Empty Scence
+Second : 11.44 : Empty Scence
+Second : 11.47 : Empty Scence
+Second : 11.50 : Empty Scence
+Second : 11.54 : Empty Scence
+Second : 11.58 : Empty Scence
+Second : 11.62 : Empty Scence
+Second : 11.65 : Empty Scence
+Second : 11.68 : Empty Scence
+Second : 11.71 : Empty Scence
+Second : 11.74 : Empty Scence
+Second : 11.78 : Empty Scence
+Second : 11.81 : Empty Scence
+Second : 11.84 : Empty Scence
+Second : 11.87 : Empty Scence
+Second : 11.92 : Empty Scence
+Second : 11.95 : Empty Scence
+Second : 11.98 : Empty Scence
+Second : 12.02 : Empty Scence
+Second : 12.05 : Empty Scence
+Second : 12.08 : Empty Scence
+Second : 12.11 : Empty Scence
+Second : 12.14 : Empty Scence
+Second : 12.18 : Empty Scence
+Second : 12.21 : Empty Scence
+Second : 12.26 : Empty Scence
+Second : 12.29 : Empty Scence
+Second : 12.32 : Empty Scence
+Second : 12.35 : Empty Scence
+Second : 12.38 : Empty Scence
+Second : 12.42 : Empty Scence
+Second : 12.45 : Empty Scence
+Second : 12.48 : Empty Scence
+Second : 12.51 : Empty Scence
+Second : 12.54 : Empty Scence
+Second : 12.59 : Empty Scence
+Second : 12.62 : Empty Scence
+Second : 12.66 : Empty Scence
+Second : 12.69 : Empty Scence
+Second : 12.72 : Empty Scence
+Second : 12.75 : Empty Scence
+Second : 12.78 : Empty Scence
+Second : 12.82 : Empty Scence
+Second : 12.85 : Empty Scence
+Second : 12.88 : Empty Scence
+Second : 12.91 : Empty Scence
+Second : 12.96 : Empty Scence
+Second : 12.99 : Empty Scence
+Second : 13.02 : Empty Scence
+Second : 13.06 : Empty Scence
+Second : 13.09 : Empty Scence
+Second : 13.12 : Empty Scence
+Second : 13.15 : Empty Scence
+Second : 13.18 : Empty Scence
+Second : 13.22 : Empty Scence
+Second : 13.25 : Empty Scence
+Second : 13.30 : Empty Scence
+Second : 13.33 : Empty Scence
+Second : 13.36 : Empty Scence
+Second : 13.39 : Empty Scence
+Second : 13.42 : Empty Scence
+Second : 13.46 : Empty Scence
+Second : 13.49 : Empty Scence
+Second : 13.52 : Empty Scence
+Second : 13.55 : Empty Scence
+Second : 13.58 : Empty Scence
+Second : 13.63 : Empty Scence
+Second : 13.66 : Empty Scence
+Second : 13.70 : Empty Scence
+Second : 13.73 : Empty Scence
+Second : 13.76 : Empty Scence
+Second : 13.79 : Empty Scence
+Second : 13.82 : Empty Scence
+Second : 13.86 : Empty Scence
+Second : 13.89 : Empty Scence
+Second : 13.92 : Empty Scence
+Second : 13.97 : Empty Scence
+Second : 14.00 : Empty Scence
+Second : 14.03 : Empty Scence
+Second : 14.06 : Empty Scence
+Second : 14.10 : Empty Scence
+Second : 14.13 : Empty Scence
+Second : 14.16 : Empty Scence
+Second : 14.19 : Empty Scence
+Second : 14.22 : Empty Scence
+Second : 14.26 : Empty Scence
+Second : 14.30 : Empty Scence
+Second : 14.34 : Empty Scence
+Second : 14.37 : Empty Scence
+Second : 14.40 : Empty Scence
+Second : 14.43 : Empty Scence
+Second : 14.46 : Empty Scence
+Second : 14.50 : Empty Scence
+Second : 14.53 : Empty Scence
+Second : 14.56 : Empty Scence
+Second : 14.59 : Empty Scence
+Second : 14.62 : Empty Scence
+Second : 14.67 : Empty Scence
+Second : 14.70 : Empty Scence
+Second : 14.74 : Empty Scence
+Second : 14.77 : Empty Scence
+Second : 14.80 : Empty Scence
+Second : 14.83 : Empty Scence
+Second : 14.86 : Empty Scence
+Second : 14.90 : Empty Scence
+Second : 14.93 : Empty Scence
+Second : 14.96 : Empty Scence
+Second : 15.01 : Empty Scence
+Second : 15.04 : Empty Scence
+Second : 15.07 : Empty Scence
+Second : 15.10 : Empty Scence
+Second : 15.14 : Empty Scence
+Second : 15.17 : Empty Scence
+Second : 15.20 : Empty Scence
+Second : 15.23 : Empty Scence
+Second : 15.26 : Empty Scence
+Second : 15.30 : Empty Scence
+Second : 15.34 : Empty Scence
+Second : 15.38 : Empty Scence
+Second : 15.41 : Empty Scence
+Second : 15.44 : Empty Scence
+Second : 15.47 : Empty Scence
+Second : 15.50 : Empty Scence
+Second : 15.54 : Empty Scence
+Second : 15.57 : Empty Scence
+Second : 15.60 : Empty Scence
+Second : 15.63 : Empty Scence
+Second : 15.68 : Empty Scence
+Second : 15.71 : Empty Scence
+Second : 15.74 : Empty Scence
+Second : 15.78 : Empty Scence
+Second : 15.81 : Empty Scence
+Second : 15.84 : Empty Scence
+Second : 15.87 : Empty Scence
+Second : 15.90 : Empty Scence
+Second : 15.94 : Empty Scence
+Second : 15.97 : Empty Scence
+Second : 16.02 : Empty Scence
+Second : 16.05 : Empty Scence
+Second : 16.08 : Empty Scence
+Second : 16.11 : Empty Scence
+Second : 16.14 : Empty Scence
+Second : 16.18 : Empty Scence
+Second : 16.21 : Empty Scence
+Second : 16.24 : Empty Scence
+Second : 16.27 : Empty Scence
+Second : 16.30 : Empty Scence
+Second : 16.34 : Empty Scence
+Second : 16.38 : Empty Scence
+Second : 16.42 : Empty Scence
+Second : 16.45 : Empty Scence
+Second : 16.48 : Empty Scence
+Second : 16.51 : Empty Scence
+Second : 16.54 : Empty Scence
+Second : 16.58 : Empty Scence
+Second : 16.61 : Empty Scence
+Second : 16.64 : Empty Scence
+Second : 16.67 : Empty Scence
