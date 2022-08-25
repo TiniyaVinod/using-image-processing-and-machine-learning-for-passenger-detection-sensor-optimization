@@ -11,7 +11,7 @@ class model_class():
         if self.device == "cuda": # If gpu is available
             self.model = yolov5.YOLOv5(model_filename, self.device)
         else: # If gpu is NOT available
-            self.model = yolov5.load(model_filename, self.device)
+            self.model = yolov5.load(model_filename)
             
         self.default_config(config)
         

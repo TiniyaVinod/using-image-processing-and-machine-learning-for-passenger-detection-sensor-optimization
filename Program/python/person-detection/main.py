@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import tkinter as tk
 from datetime import datetime
 from os.path import exists, join, splitext
@@ -260,7 +259,7 @@ def update_frame():
 
     curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
     
-    datetime_format = "%m/%d/%Y, %H:%M:%S"
+    datetime_format = "%m/%d/%Y, %H:%M:%S" # .f
 
      # If can't read frame
     if (ret is None) | (ret == False):
@@ -291,7 +290,7 @@ def update_frame():
     
     # Classification
     # Set parameter
-    model.model.conf = gui.gui_down.get_conf_thresh()
+    # model.model.conf = gui.gui_down.get_conf_thresh()
     
     predictions = model.predict_result(frame_flip)
     categories = predictions[:, 5]

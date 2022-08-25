@@ -28,7 +28,7 @@
     
     "model_classification":
     {
-        "computing_device": "cuda",
+        "computing_device": "cpu",
         "model_filename": "models/yolov5m.pt",
         "model_confidence_threshold": 0.2,
         "model_iou_threshold": 0.45,
