@@ -249,6 +249,7 @@ def preprocess_frame(frame):
         
     return frame_flip    
 
+count = 0
 def update_frame():
     start_timer = timer()
     
@@ -256,6 +257,28 @@ def update_frame():
     
     # Read frame capture object
     ret, frame = cap.read()
+
+    
+    # font = cv2.FONT_HERSHEY_SIMPLEX
+  
+    # # org
+    # org = (50, 50)
+    
+    # # fontScale
+    # fontScale = 1
+    
+    # # Blue color in BGR
+    # color = (255, 0, 0)
+    
+    # # Line thickness of 2 px
+    # thickness = 2
+    
+    # # Using cv2.putText() method
+    # frame = cv2.putText(frame, 'Person', org, font, 
+    #                fontScale, color, thickness, cv2.LINE_AA)
+
+
+
 
     curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
     
@@ -268,6 +291,9 @@ def update_frame():
         return 0
     
     frame_flip = preprocess_frame(frame)
+
+    
+
     global_frame = frame_flip.copy()
     
     # Record Mode
@@ -283,7 +309,13 @@ def update_frame():
     else:
         frame_show = frame_flip 
     
+
     img = Image.fromarray(frame_show)
+    
+    
+    
+
+
     gui.gui_top.canvas_l_img.paste(img)
     
     select_mode = gui.gui_down.select_mode
@@ -325,6 +357,8 @@ def update_frame():
         
         img2 = Image.fromarray(img_with_keypoints)
 
+        
+
         pred_result = "Person"
         text = form_predict_text(select_mode, second, datetime_format, pred_result)
         
@@ -333,6 +367,32 @@ def update_frame():
         
         pred_result = "Empty Scence"
         text = form_predict_text(select_mode, second, datetime_format, pred_result)
+
+    img_array = np.array(img2)
+        
+    font = cv2.FONT_HERSHEY_SIMPLEX
+
+    # org
+    org = (50, 50)
+    
+    # fontScale
+    fontScale = 1
+    
+    # Blue color in BGR
+    color = (255, 0, 0)
+    
+    # Line thickness of 2 px
+    thickness = 2
+    
+    # Using cv2.putText() method
+    img_array = cv2.putText(img_array, pred_result, org, font, 
+                fontScale, color, thickness, cv2.LINE_AA)
+
+    img2 = Image.fromarray(img_array)
+
+    global count
+    img2.save(f"frames/{pred_result}_{count}.jpg")
+    count += 1
 
     # Save record result
     if gui.gui_down.get_record_status() == 1:
