@@ -449,9 +449,18 @@ def update_frame():
         "recall": recall,
         "f1_score": f1_score
     }
+    predictions = []
+    for text in output_result_text:
+        class_name = text.split(",")[0].split(":")[-1].strip()
+        confidence_score = text.split(",")[1].split(":")[-1].strip()
+        pred_dictionary = {
+            class_name: confidence_score
+        }
+        predictions.insert(0, pred_dictionary)
+    score_data["predictions"] = predictions
     output_score.insert(0, score_data)
 
-    with open("prediction_result_for_chair_threshold_01.json", "w", encoding="utf-8") as f:
+    with open("prediction_result_for_chair_with_person_threshold_01.json", "w", encoding="utf-8") as f:
         json.dump(output_score, f, ensure_ascii=False, indent=4)
 
 
