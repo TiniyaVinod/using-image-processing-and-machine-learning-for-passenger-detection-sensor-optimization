@@ -30,11 +30,11 @@
     {
         "computing_device": "cpu",
         "model_filename": "models/yolov5m.pt",
-        "model_confidence_threshold": 0.2,
+        "model_confidence_threshold": 0.1,
         "model_iou_threshold": 0.45,
         "model_agnostic": 0,
         "model_multi_label": 0,
-        "model_max_detection": 1
+        "model_max_detection": 10
     },
 
     "gui_prop":

@@ -11,6 +11,7 @@ from app_gui import app_gui
 from model_class import model_class
 from common_functions import read_config
 from program_mode import *
+import json
 
 # --- main ---
 
@@ -249,7 +250,11 @@ def preprocess_frame(frame):
         
     return frame_flip    
 
+output_score = []
+
 count = 0
+chair_count = 0
+non_chair_count = 0
 def update_frame():
     start_timer = timer()
     
@@ -323,8 +328,12 @@ def update_frame():
     # Classification
     # Set parameter
     # model.model.conf = gui.gui_down.get_conf_thresh()
+    predicted_result_from_model = model.predict_result(frame_flip)
+    predictions = predicted_result_from_model[0]
+    output_result_text = predicted_result_from_model[1]
+    # print("Check predictions")
+    # print(predictions, type(predictions))
     
-    predictions = model.predict_result(frame_flip)
     categories = predictions[:, 5]
     
     sec = cap.get(cv2.CAP_PROP_POS_MSEC)
@@ -332,6 +341,10 @@ def update_frame():
     
     person_classcode = 0.0
     pred_storage = list(predictions.storage())
+    # print("pred_storage")
+    # print(pred_storage)
+    # print(dir(predictions))
+    # print("-------------------------")
     boxes = []
     
     # Check if there is any person in the frame    
@@ -350,7 +363,7 @@ def update_frame():
             x2 = int(boxes[2])
             y2 = int(boxes[3])
             
-            cv2.rectangle(img_with_keypoints, (x1, y1), (x2, y2), (0,255,0), (5))
+            # cv2.rectangle(img_with_keypoints, (x1, y1), (x2, y2), (0,255,0), (5))
             #cv2.putText(img_with_keypoints, 'person score: '+str(score), (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
         except:
             print("boxes does not exist")
@@ -373,26 +386,85 @@ def update_frame():
     font = cv2.FONT_HERSHEY_SIMPLEX
 
     # org
-    org = (50, 50)
-    
+    org = (5, 25)
+    # org2 = (5, 50)
+    # org3 = (5, 75)
+    # org4 = (5, 100)
+    orgs = [(5, 25*(i+1)) for i in range(len(output_result_text))]
     # fontScale
-    fontScale = 1
+    fontScale = 0.5
     
     # Blue color in BGR
     color = (255, 0, 0)
     
     # Line thickness of 2 px
-    thickness = 2
+    thickness = 1
     
-    # Using cv2.putText() method
-    img_array = cv2.putText(img_array, pred_result, org, font, 
+    for i in range(len(output_result_text)):
+        img_array = cv2.putText(img_array, output_result_text[i], orgs[i], font, 
                 fontScale, color, thickness, cv2.LINE_AA)
+    # Using cv2.putText() method
+    
+    image_name = ''
+    global chair_count
+    global non_chair_count
+    global count
+    increase_chair_count = False
+    # increase total_count
+    count += 1
+    for i in range(len(output_result_text)):
+        if "CHAIR" in output_result_text[i]:
+            increase_chair_count = True
+    if increase_chair_count:
+        chair_count += 1
+        image_name = f"{count}_chair_{chair_count}"
+        increase_chair_count = False
+    else:
+        non_chair_count += 1
+        image_name = f"{count}_non_chair_{non_chair_count}"
+        increase_chair_count = False
+
+    
+
+    true_positive = chair_count
+    false_positive = 0
+    true_negative = 0
+    false_negative = non_chair_count
+
+    precision = true_positive / (true_positive + false_positive)
+
+    recall = true_positive / (true_positive + false_negative)
+
+    f1_score = (2*precision*recall)/(precision + recall)
+
+    global output_score
+    print(count, f1_score)
+    score_data = {
+        "total_count": true_positive + false_negative + true_negative + false_positive,
+        "true_positive": true_positive,
+        "false_positive": false_positive,
+        "true_negative": true_negative,
+        "false_negative": false_negative,
+        "precision": precision,
+        "recall": recall,
+        "f1_score": f1_score
+    }
+    output_score.insert(0, score_data)
+
+    with open("prediction_result_for_chair_threshold_01.json", "w", encoding="utf-8") as f:
+        json.dump(output_score, f, ensure_ascii=False, indent=4)
+
+
+    
+
+    # img_array = cv2.putText(img_array, output_result_text[1], org2, font, 
+    #             fontScale, color, thickness, cv2.LINE_AA)
 
     img2 = Image.fromarray(img_array)
 
-    global count
-    img2.save(f"frames/{pred_result}_{count}.jpg")
-    count += 1
+    
+    img2.save(f"frames/{image_name}.jpg")
+    
 
     # Save record result
     if gui.gui_down.get_record_status() == 1:
