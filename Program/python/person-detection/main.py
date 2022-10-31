@@ -413,7 +413,7 @@ def update_frame():
     # increase total_count
     count += 1
     for i in range(len(output_result_text)):
-        if "CHAIR" in output_result_text[i]:
+        if "CHAIR" in output_result_text[i] and "PERSON" not in output_result_text[i]:
             increase_chair_count = True
     if increase_chair_count:
         chair_count += 1
@@ -449,6 +449,9 @@ def update_frame():
         "recall": recall,
         "f1_score": f1_score
     }
+    # score_data = {
+    #     "count": count
+    # }
     predictions = []
     for text in output_result_text:
         class_name = text.split(",")[0].split(":")[-1].strip()
@@ -460,7 +463,7 @@ def update_frame():
     score_data["predictions"] = predictions
     output_score.insert(0, score_data)
 
-    with open("prediction_result_for_chair_with_person_threshold_01.json", "w", encoding="utf-8") as f:
+    with open("prediction_result_311022_camera_fixed_at_top_test4_for_person_threshold_01.json", "w", encoding="utf-8") as f:
         json.dump(output_score, f, ensure_ascii=False, indent=4)
 
 

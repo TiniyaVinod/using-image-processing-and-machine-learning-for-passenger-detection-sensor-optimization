@@ -1,0 +1,848 @@
+[
+    {
+        "total_count": 38,
+        "true_positive": 38,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "TV": "11 %"
+            },
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "15 %"
+            },
+            {
+                "CHAIR": "18 %"
+            },
+            {
+                "PERSON": "67 %"
+            }
+        ]
+    },
+    {
+        "total_count": 37,
+        "true_positive": 37,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "16 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "PERSON": "66 %"
+            }
+        ]
+    },
+    {
+        "total_count": 36,
+        "true_positive": 36,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "PERSON": "68 %"
+            }
+        ]
+    },
+    {
+        "total_count": 35,
+        "true_positive": 35,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "TV": "11 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "PERSON": "64 %"
+            }
+        ]
+    },
+    {
+        "total_count": 34,
+        "true_positive": 34,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "PERSON": "70 %"
+            }
+        ]
+    },
+    {
+        "total_count": 33,
+        "true_positive": 33,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "TV": "11 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "PERSON": "68 %"
+            }
+        ]
+    },
+    {
+        "total_count": 32,
+        "true_positive": 32,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "18 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "PERSON": "61 %"
+            }
+        ]
+    },
+    {
+        "total_count": 31,
+        "true_positive": 31,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "TV": "13 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "PERSON": "70 %"
+            }
+        ]
+    },
+    {
+        "total_count": 30,
+        "true_positive": 30,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "10 %"
+            },
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "PERSON": "23 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "PERSON": "58 %"
+            }
+        ]
+    },
+    {
+        "total_count": 29,
+        "true_positive": 29,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "PERSON": "55 %"
+            }
+        ]
+    },
+    {
+        "total_count": 28,
+        "true_positive": 28,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "PERSON": "62 %"
+            }
+        ]
+    },
+    {
+        "total_count": 27,
+        "true_positive": 27,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "CHAIR": "15 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "PERSON": "56 %"
+            }
+        ]
+    },
+    {
+        "total_count": 26,
+        "true_positive": 26,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "16 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "PERSON": "76 %"
+            }
+        ]
+    },
+    {
+        "total_count": 25,
+        "true_positive": 25,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "PERSON": "10 %"
+            },
+            {
+                "CHAIR": "16 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "CELL PHONE": "30 %"
+            },
+            {
+                "PERSON": "80 %"
+            }
+        ]
+    },
+    {
+        "total_count": 24,
+        "true_positive": 24,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "PERSON": "11 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "PERSON": "81 %"
+            }
+        ]
+    },
+    {
+        "total_count": 23,
+        "true_positive": 23,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "45 %"
+            },
+            {
+                "PERSON": "82 %"
+            }
+        ]
+    },
+    {
+        "total_count": 22,
+        "true_positive": 22,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "PERSON": "82 %"
+            }
+        ]
+    },
+    {
+        "total_count": 21,
+        "true_positive": 21,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "18 %"
+            },
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "PERSON": "82 %"
+            }
+        ]
+    },
+    {
+        "total_count": 20,
+        "true_positive": 20,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "12 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "PERSON": "78 %"
+            }
+        ]
+    },
+    {
+        "total_count": 19,
+        "true_positive": 19,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "15 %"
+            },
+            {
+                "PERSON": "79 %"
+            }
+        ]
+    },
+    {
+        "total_count": 18,
+        "true_positive": 18,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "PERSON": "10 %"
+            },
+            {
+                "CHAIR": "14 %"
+            },
+            {
+                "CHAIR": "41 %"
+            },
+            {
+                "PERSON": "81 %"
+            }
+        ]
+    },
+    {
+        "total_count": 17,
+        "true_positive": 17,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "PERSON": "80 %"
+            }
+        ]
+    },
+    {
+        "total_count": 16,
+        "true_positive": 16,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "PERSON": "82 %"
+            }
+        ]
+    },
+    {
+        "total_count": 15,
+        "true_positive": 15,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "PERSON": "81 %"
+            }
+        ]
+    },
+    {
+        "total_count": 14,
+        "true_positive": 14,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "PERSON": "81 %"
+            }
+        ]
+    },
+    {
+        "total_count": 13,
+        "true_positive": 13,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "PERSON": "82 %"
+            }
+        ]
+    },
+    {
+        "total_count": 12,
+        "true_positive": 12,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "PERSON": "81 %"
+            }
+        ]
+    },
+    {
+        "total_count": 11,
+        "true_positive": 11,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "PERSON": "10 %"
+            },
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "PERSON": "80 %"
+            }
+        ]
+    },
+    {
+        "total_count": 10,
+        "true_positive": 10,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "PERSON": "11 %"
+            },
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "PERSON": "77 %"
+            }
+        ]
+    },
+    {
+        "total_count": 9,
+        "true_positive": 9,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "PERSON": "78 %"
+            }
+        ]
+    },
+    {
+        "total_count": 8,
+        "true_positive": 8,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "PERSON": "14 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "PERSON": "83 %"
+            }
+        ]
+    },
+    {
+        "total_count": 7,
+        "true_positive": 7,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "PERSON": "10 %"
+            },
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "PERSON": "79 %"
+            }
+        ]
+    },
+    {
+        "total_count": 6,
+        "true_positive": 6,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "PERSON": "23 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "PERSON": "81 %"
+            }
+        ]
+    },
+    {
+        "total_count": 5,
+        "true_positive": 5,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "12 %"
+            },
+            {
+                "PERSON": "15 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "PERSON": "80 %"
+            }
+        ]
+    },
+    {
+        "total_count": 4,
+        "true_positive": 4,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "12 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "PERSON": "79 %"
+            }
+        ]
+    },
+    {
+        "total_count": 3,
+        "true_positive": 3,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "PERSON": "79 %"
+            }
+        ]
+    },
+    {
+        "total_count": 2,
+        "true_positive": 2,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "PERSON": "71 %"
+            }
+        ]
+    },
+    {
+        "total_count": 1,
+        "true_positive": 1,
+        "false_positive": 0,
+        "true_negative": 0,
+        "false_negative": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "predictions": [
+            {
+                "LAPTOP": "12 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "PERSON": "57 %"
+            }
+        ]
+    }
+]
