@@ -255,6 +255,8 @@ output_score = []
 count = 0
 chair_count = 0
 non_chair_count = 0
+person_count = 0
+non_person_count = 0
 def update_frame():
     start_timer = timer()
     
@@ -408,50 +410,66 @@ def update_frame():
     image_name = ''
     global chair_count
     global non_chair_count
+    global person_count
+    global non_person_count
     global count
     increase_chair_count = False
     # increase total_count
     count += 1
+    local_chair_only_count = 0
     for i in range(len(output_result_text)):
-        if "CHAIR" in output_result_text[i] and "PERSON" not in output_result_text[i]:
-            increase_chair_count = True
+        if ("CHAIR" in output_result_text[i] or "TOILET" in output_result_text[i] ) and "PERSON" not in output_result_text[i]:
+            local_chair_only_count += 1
+    
+    if local_chair_only_count == len(output_result_text):
+        increase_chair_count = True
+        print("INCREASE CHAIR COUNT !!!!!!!!!!!!")
+
     if increase_chair_count:
         chair_count += 1
         image_name = f"{count}_chair_{chair_count}"
         increase_chair_count = False
     else:
-        non_chair_count += 1
-        image_name = f"{count}_non_chair_{non_chair_count}"
-        increase_chair_count = False
+        if "PERSON" in output_result_text[0]:
+            person_count += 1
+            image_name = f"{count}_person_{person_count}"
+        else:
+            non_person_count += 1
+            # image_name = f"{count}_non_person_{non_person_count}"
+            non_chair_count += 1
+            image_name = f"{count}_others_{non_chair_count}"
+            increase_chair_count = False
 
     
 
-    true_positive = chair_count
-    false_positive = 0
-    true_negative = 0
-    false_negative = non_chair_count
+    
 
-    precision = true_positive / (true_positive + false_positive)
+    # true_positive = person_count
+    # false_positive = 0
+    # true_negative = 0
+    # false_negative = non_person_count
 
-    recall = true_positive / (true_positive + false_negative)
+    # precision = true_positive / (true_positive + false_positive)
 
-    f1_score = (2*precision*recall)/(precision + recall)
+    # recall = true_positive / (true_positive + false_negative)
+
+    # f1_score = (2*precision*recall)/(precision + recall)
 
     global output_score
-    print(count, f1_score)
-    score_data = {
-        "total_count": true_positive + false_negative + true_negative + false_positive,
-        "true_positive": true_positive,
-        "false_positive": false_positive,
-        "true_negative": true_negative,
-        "false_negative": false_negative,
-        "precision": precision,
-        "recall": recall,
-        "f1_score": f1_score
-    }
+    # print(count, f1_score)
     # score_data = {
-    #     "count": count
+    #     "total_count": true_positive + false_negative + true_negative + false_positive,
+    #     "true_positive": true_positive,
+    #     "false_positive": false_positive,
+    #     "true_negative": true_negative,
+    #     "false_negative": false_negative,
+    #     "precision": precision,
+    #     "recall": recall,
+    #     "f1_score": f1_score
     # }
+    score_data = {
+        "total_count": count
+    }
     predictions = []
     for text in output_result_text:
         class_name = text.split(",")[0].split(":")[-1].strip()
@@ -459,11 +477,11 @@ def update_frame():
         pred_dictionary = {
             class_name: confidence_score
         }
-        predictions.insert(0, pred_dictionary)
+        predictions.insert(-1, pred_dictionary)
     score_data["predictions"] = predictions
     output_score.insert(0, score_data)
 
-    with open("prediction_result_311022_camera_fixed_at_top_test4_for_person_threshold_01.json", "w", encoding="utf-8") as f:
+    with open("prediction_result_311022_camera_test5_for_3_classes_threshold_01.json", "w", encoding="utf-8") as f:
         json.dump(output_score, f, ensure_ascii=False, indent=4)
 
 
@@ -474,8 +492,14 @@ def update_frame():
 
     img2 = Image.fromarray(img_array)
 
-    
-    img2.save(f"frames/{image_name}.jpg")
+    if "chair" in image_name:
+        img2.save(f"3110_test1/frames_chair/{image_name}.jpg")
+    elif 'person' in image_name:
+        img2.save(f"3110_test1/frames_person/{image_name}.jpg")
+    else:
+        img2.save(f"3110_test1/frames_others/{image_name}.jpg")
+
+
     
 
     # Save record result
