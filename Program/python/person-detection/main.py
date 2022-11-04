@@ -430,7 +430,9 @@ def update_frame():
         image_name = f"{count}_chair_{chair_count}"
         increase_chair_count = False
     else:
-        if "PERSON" in output_result_text[0]:
+        output_result = " ".join(output_result_text[:3])
+        print(output_result, " JOINED RESULT")
+        if "PERSON" in output_result:
             person_count += 1
             image_name = f"{count}_person_{person_count}"
         else:
@@ -481,7 +483,7 @@ def update_frame():
     score_data["predictions"] = predictions
     output_score.insert(0, score_data)
 
-    with open("prediction_result_311022_camera_test5_for_3_classes_threshold_01.json", "w", encoding="utf-8") as f:
+    with open("prediction_result_041122_camera_test2_for_3_classes_threshold_01.json", "w", encoding="utf-8") as f:
         json.dump(output_score, f, ensure_ascii=False, indent=4)
 
 
@@ -493,11 +495,11 @@ def update_frame():
     img2 = Image.fromarray(img_array)
 
     if "chair" in image_name:
-        img2.save(f"3110_test1/frames_chair/{image_name}.jpg")
+        img2.save(f"0411_test2/frames_chair/{image_name}.jpg")
     elif 'person' in image_name:
-        img2.save(f"3110_test1/frames_person/{image_name}.jpg")
+        img2.save(f"0411_test2/frames_person/{image_name}.jpg")
     else:
-        img2.save(f"3110_test1/frames_others/{image_name}.jpg")
+        img2.save(f"0411_test2/frames_others/{image_name}.jpg")
 
 
     
