@@ -62,7 +62,18 @@ class model_class():
             predictions = result.pred[0]
             # print("predictions :", predictions)
 
-        return (predictions, output_result_text)
-        
+            outputs_to_plot = []
+
+            for i in range(len(result.pandas().xyxy[0].confidence)):
+                obj_dict = {}
+                obj_dict["label"]= result.pandas().xyxy[0].name[i]
+                obj_dict["confidence"] = math.floor(result.pandas().xyxy[0].confidence[i]*100)
+                obj_dict["x1"] = result.pandas().xyxy[0].xmin[i]
+                obj_dict["y1"] = result.pandas().xyxy[0].ymin[i]
+                obj_dict["x2"] = result.pandas().xyxy[0].xmax[i]
+                obj_dict["y2"] = result.pandas().xyxy[0].ymax[i]
+                outputs_to_plot.append(obj_dict)
+
+        return (predictions, output_result_text, outputs_to_plot)
 
         

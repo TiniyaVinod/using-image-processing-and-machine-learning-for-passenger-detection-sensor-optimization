@@ -333,6 +333,7 @@ def update_frame():
     predicted_result_from_model = model.predict_result(frame_flip)
     predictions = predicted_result_from_model[0]
     output_result_text = predicted_result_from_model[1]
+    predictions_all_class = predicted_result_from_model[2]
     # print("Check predictions")
     # print(predictions, type(predictions))
     
@@ -348,9 +349,22 @@ def update_frame():
     # print(dir(predictions))
     # print("-------------------------")
     boxes = []
-    
-    # Check if there is any person in the frame    
-    if person_classcode in pred_storage:
+    img_with_keypoints = frame_flip.copy()
+    for obj in predictions_all_class:
+        print("Predicion Label : ", obj)
+        print("********************++++")
+        x1 = int(obj["x1"])
+        y1 = int(obj["y1"])
+        x2 = int(obj["x2"])
+        y2 = int(obj["y2"])
+        label = obj["label"]
+        confidence = obj["confidence"]
+        text = f"{label.upper()} : {confidence} %"
+        cv2.rectangle(img_with_keypoints, (x1, y1), (x2, y2), (255,0,0), (1))
+        cv2.putText(img_with_keypoints, text, (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255,0,0), 1)
+    img2 = Image.fromarray(img_with_keypoints)
+    # Check if there is any person in the frame  
+    if False:
         # Find index of person
         x = pred_storage.index(person_classcode)
         
@@ -366,7 +380,7 @@ def update_frame():
             y2 = int(boxes[3])
             
             # cv2.rectangle(img_with_keypoints, (x1, y1), (x2, y2), (0,255,0), (5))
-            #cv2.putText(img_with_keypoints, 'person score: '+str(score), (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
+            # cv2.putText(img_with_keypoints, 'person score: '+str(score), (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
         except:
             print("boxes does not exist")
         
@@ -377,7 +391,7 @@ def update_frame():
         pred_result = "Person"
         text = form_predict_text(select_mode, second, datetime_format, pred_result)
         
-    else:
+    elif False:
         img2 = Image.fromarray(frame_flip)
         
         pred_result = "Empty Scence"
@@ -401,11 +415,13 @@ def update_frame():
     
     # Line thickness of 2 px
     thickness = 1
-    
-    for i in range(len(output_result_text)):
-        img_array = cv2.putText(img_array, output_result_text[i], orgs[i], font, 
-                fontScale, color, thickness, cv2.LINE_AA)
+    # Saving the prediction result of the program
+    # for i in range(len(output_result_text)):
+    #     img_array = cv2.putText(img_array, output_result_text[i], orgs[i], font, 
+    #             fontScale, color, thickness, cv2.LINE_AA)
     # Using cv2.putText() method
+
+    # img_array = plot_boxes(predictions_all_class, img_array)
     
     image_name = ''
     global chair_count
@@ -469,22 +485,22 @@ def update_frame():
     #     "recall": recall,
     #     "f1_score": f1_score
     # }
-    score_data = {
-        "total_count": count
-    }
-    predictions = []
-    for text in output_result_text:
-        class_name = text.split(",")[0].split(":")[-1].strip()
-        confidence_score = text.split(",")[1].split(":")[-1].strip()
-        pred_dictionary = {
-            class_name: confidence_score
-        }
-        predictions.insert(-1, pred_dictionary)
-    score_data["predictions"] = predictions
-    output_score.insert(0, score_data)
+    # score_data = {
+    #     "total_count": count
+    # }
+    # predictions = []
+    # for text in output_result_text:
+    #     class_name = text.split(",")[0].split(":")[-1].strip()
+    #     confidence_score = text.split(",")[1].split(":")[-1].strip()
+    #     pred_dictionary = {
+    #         class_name: confidence_score
+    #     }
+    #     predictions.insert(-1, pred_dictionary)
+    # score_data["predictions"] = predictions
+    # output_score.insert(0, score_data)
 
-    with open("prediction_result_041122_camera_test2_for_3_classes_threshold_01.json", "w", encoding="utf-8") as f:
-        json.dump(output_score, f, ensure_ascii=False, indent=4)
+    # with open("prediction_result_111122_camera_test0_for_3_classes_threshold_01.json", "w", encoding="utf-8") as f:
+    #     json.dump(output_score, f, ensure_ascii=False, indent=4)
 
 
     
@@ -495,11 +511,11 @@ def update_frame():
     img2 = Image.fromarray(img_array)
 
     if "chair" in image_name:
-        img2.save(f"0411_test2/frames_chair/{image_name}.jpg")
+        img2.save(f"1111_test0/frames_chair/{image_name}.jpg")
     elif 'person' in image_name:
-        img2.save(f"0411_test2/frames_person/{image_name}.jpg")
+        img2.save(f"1111_test0/frames_person/{image_name}.jpg")
     else:
-        img2.save(f"0411_test2/frames_others/{image_name}.jpg")
+        img2.save(f"1111_test0/frames_others/{image_name}.jpg")
 
 
     
@@ -521,6 +537,8 @@ def update_frame():
     
     if run_camera:
         window_app.after(10, update_frame)
+
+
 
 def form_predict_text(select_mode, second, datetime_format, pred_result):
     if select_mode== 1:
