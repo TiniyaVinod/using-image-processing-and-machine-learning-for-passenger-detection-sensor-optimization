@@ -360,8 +360,12 @@ def update_frame():
         label = obj["label"]
         confidence = obj["confidence"]
         text = f"{label.upper()} : {confidence} %"
-        cv2.rectangle(img_with_keypoints, (x1, y1), (x2, y2), (255,0,0), (1))
-        cv2.putText(img_with_keypoints, text, (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255,0,0), 1)
+
+        color_val = min(255, obj["label_int"]*3)
+        box_color = (255, color_val, color_val)
+
+        cv2.rectangle(img_with_keypoints, (x1, y1), (x2, y2), box_color, (1))
+        cv2.putText(img_with_keypoints, text, (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.4, box_color, 1)
     img2 = Image.fromarray(img_with_keypoints)
     # Check if there is any person in the frame  
     if False:
@@ -511,14 +515,14 @@ def update_frame():
     img2 = Image.fromarray(img_array)
 
     if "chair" in image_name:
-        img2.save(f"1111_test0/frames_chair/{image_name}.jpg")
+        img2.save(f"1411_test6_2_with_lights_in_left_of_passenger_camera_on_left_of_red_pitaya/frames_chair/{image_name}.jpg")
     elif 'person' in image_name:
-        img2.save(f"1111_test0/frames_person/{image_name}.jpg")
+        img2.save(f"1411_test6_2_with_lights_in_left_of_passenger_camera_on_left_of_red_pitaya/frames_person/{image_name}.jpg")
     else:
-        img2.save(f"1111_test0/frames_others/{image_name}.jpg")
+        img2.save(f"1411_test6_2_with_lights_in_left_of_passenger_camera_on_left_of_red_pitaya/frames_others/{image_name}.jpg")
 
 
-    
+    text = "some-text-value"
 
     # Save record result
     if gui.gui_down.get_record_status() == 1:

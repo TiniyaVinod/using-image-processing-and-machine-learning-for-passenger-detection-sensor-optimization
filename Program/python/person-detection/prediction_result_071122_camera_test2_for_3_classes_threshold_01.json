@@ -1,0 +1,7038 @@
+[
+    {
+        "total_count": 413,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 412,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 411,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 410,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 409,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "22 %"
+            },
+            {
+                "CHAIR": "34 %"
+            }
+        ]
+    },
+    {
+        "total_count": 408,
+        "predictions": [
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 407,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "10 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 406,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "25 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 405,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 404,
+        "predictions": [
+            {
+                "TOILET": "28 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "18 %"
+            },
+            {
+                "CHAIR": "31 %"
+            }
+        ]
+    },
+    {
+        "total_count": 403,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 402,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "33 %"
+            }
+        ]
+    },
+    {
+        "total_count": 401,
+        "predictions": [
+            {
+                "CHAIR": "41 %"
+            },
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 400,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 399,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 398,
+        "predictions": [
+            {
+                "TOILET": "42 %"
+            },
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 397,
+        "predictions": [
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 396,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "TOILET": "20 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 395,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 394,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 393,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 392,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 391,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 390,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 389,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 388,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "TOILET": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 387,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 386,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 385,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 384,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 383,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 382,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 381,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 380,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 379,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "TOILET": "33 %"
+            }
+        ]
+    },
+    {
+        "total_count": 378,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 377,
+        "predictions": [
+            {
+                "CHAIR": "42 %"
+            },
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 376,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 375,
+        "predictions": [
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 374,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 373,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 372,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "16 %"
+            },
+            {
+                "CHAIR": "12 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 371,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 370,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 369,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 368,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "TOILET": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 367,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "CHAIR": "12 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 366,
+        "predictions": [
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 365,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "TOILET": "27 %"
+            },
+            {
+                "CHAIR": "34 %"
+            }
+        ]
+    },
+    {
+        "total_count": 364,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "TOILET": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 363,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 362,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "51 %"
+            }
+        ]
+    },
+    {
+        "total_count": 361,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 360,
+        "predictions": [
+            {
+                "TOILET": "40 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 359,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 358,
+        "predictions": [
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 357,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 356,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 355,
+        "predictions": [
+            {
+                "TOILET": "29 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 354,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 353,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 352,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 351,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "29 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 350,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 349,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 348,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 347,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 346,
+        "predictions": [
+            {
+                "TOILET": "26 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 345,
+        "predictions": [
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 344,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "TOILET": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 343,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 342,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "TOILET": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 341,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "TOILET": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 340,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 339,
+        "predictions": [
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 338,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "25 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 337,
+        "predictions": [
+            {
+                "TOILET": "40 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 336,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "TOILET": "22 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 335,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "27 %"
+            },
+            {
+                "CHAIR": "34 %"
+            }
+        ]
+    },
+    {
+        "total_count": 334,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 333,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 332,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 331,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 330,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 329,
+        "predictions": [
+            {
+                "CHAIR": "43 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "10 %"
+            },
+            {
+                "TOILET": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 328,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 327,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 326,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 325,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 324,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "TOILET": "27 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 323,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "15 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 322,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 321,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 320,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 319,
+        "predictions": [
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "18 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 318,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "TOILET": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 317,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 316,
+        "predictions": [
+            {
+                "TOILET": "41 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 315,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 314,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 313,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "32 %"
+            }
+        ]
+    },
+    {
+        "total_count": 312,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 311,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 310,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "TOILET": "26 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 309,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 308,
+        "predictions": [
+            {
+                "TOILET": "40 %"
+            },
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 307,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 306,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "10 %"
+            },
+            {
+                "TOILET": "34 %"
+            }
+        ]
+    },
+    {
+        "total_count": 305,
+        "predictions": [
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 304,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 303,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "34 %"
+            }
+        ]
+    },
+    {
+        "total_count": 302,
+        "predictions": [
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 301,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "25 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 300,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "TOILET": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 299,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 298,
+        "predictions": [
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "TOILET": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 297,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "CHAIR": "10 %"
+            },
+            {
+                "TOILET": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 296,
+        "predictions": [
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "33 %"
+            }
+        ]
+    },
+    {
+        "total_count": 295,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "34 %"
+            }
+        ]
+    },
+    {
+        "total_count": 294,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "TOILET": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 293,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 292,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 291,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "TOILET": "22 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 290,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "TOILET": "48 %"
+            }
+        ]
+    },
+    {
+        "total_count": 289,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 288,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "26 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 287,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 286,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 285,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "TOILET": "24 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 284,
+        "predictions": [
+            {
+                "CHAIR": "43 %"
+            },
+            {
+                "TOILET": "24 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 283,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 282,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 281,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 280,
+        "predictions": [
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "21 %"
+            },
+            {
+                "CHAIR": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 279,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 278,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "TOILET": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 277,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "23 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "CHAIR": "30 %"
+            }
+        ]
+    },
+    {
+        "total_count": 276,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "33 %"
+            }
+        ]
+    },
+    {
+        "total_count": 275,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "27 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "31 %"
+            }
+        ]
+    },
+    {
+        "total_count": 274,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "TOILET": "28 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 273,
+        "predictions": [
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 272,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 271,
+        "predictions": [
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 270,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 269,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 268,
+        "predictions": [
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "18 %"
+            },
+            {
+                "TOILET": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 267,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "TOILET": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 266,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 265,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 264,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "21 %"
+            },
+            {
+                "CHAIR": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 263,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "TOILET": "28 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 262,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "31 %"
+            }
+        ]
+    },
+    {
+        "total_count": 261,
+        "predictions": [
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "TOILET": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 260,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 259,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 258,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 257,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 256,
+        "predictions": [
+            {
+                "TOILET": "40 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 255,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 254,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "TOILET": "28 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 253,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 252,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 251,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 250,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "TOILET": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 249,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "16 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 248,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 247,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "CHAIR": "12 %"
+            },
+            {
+                "TOILET": "32 %"
+            }
+        ]
+    },
+    {
+        "total_count": 246,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 245,
+        "predictions": [
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 244,
+        "predictions": [
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "32 %"
+            }
+        ]
+    },
+    {
+        "total_count": 243,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "TOILET": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 242,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "TOILET": "26 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 241,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "25 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 240,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 239,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "TOILET": "28 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 238,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 237,
+        "predictions": [
+            {
+                "TOILET": "26 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 236,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 235,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "48 %"
+            }
+        ]
+    },
+    {
+        "total_count": 234,
+        "predictions": [
+            {
+                "TOILET": "41 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 233,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 232,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "29 %"
+            },
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 231,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 230,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 229,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 228,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 227,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 226,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 225,
+        "predictions": [
+            {
+                "CHAIR": "41 %"
+            },
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 224,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 223,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "TOILET": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 222,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 221,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 220,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 219,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "27 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 218,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "TOILET": "28 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 217,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 216,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 215,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "TOILET": "24 %"
+            },
+            {
+                "CHAIR": "48 %"
+            }
+        ]
+    },
+    {
+        "total_count": 214,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "33 %"
+            }
+        ]
+    },
+    {
+        "total_count": 213,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 212,
+        "predictions": [
+            {
+                "CHAIR": "42 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "12 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 211,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 210,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 209,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 208,
+        "predictions": [
+            {
+                "TOILET": "40 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 207,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 206,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 205,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 204,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 203,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 202,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 201,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "30 %"
+            }
+        ]
+    },
+    {
+        "total_count": 200,
+        "predictions": [
+            {
+                "CHAIR": "49 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "TOILET": "51 %"
+            }
+        ]
+    },
+    {
+        "total_count": 199,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 198,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "28 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 197,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 196,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 195,
+        "predictions": [
+            {
+                "TOILET": "40 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 194,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "18 %"
+            },
+            {
+                "TOILET": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 193,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "TOILET": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 192,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 191,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 190,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 189,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 188,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "34 %"
+            }
+        ]
+    },
+    {
+        "total_count": 187,
+        "predictions": [
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 186,
+        "predictions": [
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "TOILET": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 185,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "TOILET": "21 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 184,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 183,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 182,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 181,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 180,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "TOILET": "26 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 179,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 178,
+        "predictions": [
+            {
+                "TOILET": "29 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "50 %"
+            }
+        ]
+    },
+    {
+        "total_count": 177,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 176,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 175,
+        "predictions": [
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 174,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 173,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 172,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 171,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "TOILET": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 170,
+        "predictions": [
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "27 %"
+            }
+        ]
+    },
+    {
+        "total_count": 169,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 168,
+        "predictions": [
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "TOILET": "28 %"
+            }
+        ]
+    },
+    {
+        "total_count": 167,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "29 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "31 %"
+            }
+        ]
+    },
+    {
+        "total_count": 166,
+        "predictions": [
+            {
+                "TOILET": "42 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 165,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 164,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "TOILET": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 163,
+        "predictions": [
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 162,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 161,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "TOILET": "29 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 160,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 159,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "14 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 158,
+        "predictions": [
+            {
+                "TOILET": "24 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "CHAIR": "32 %"
+            }
+        ]
+    },
+    {
+        "total_count": 157,
+        "predictions": [
+            {
+                "TOILET": "42 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 156,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "TOILET": "28 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 155,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 154,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 153,
+        "predictions": [
+            {
+                "TOILET": "40 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 152,
+        "predictions": [
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 151,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 150,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "TOILET": "29 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 149,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "TOILET": "25 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 148,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 147,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 146,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "48 %"
+            }
+        ]
+    },
+    {
+        "total_count": 145,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 144,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 143,
+        "predictions": [
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 142,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "30 %"
+            }
+        ]
+    },
+    {
+        "total_count": 141,
+        "predictions": [
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 140,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 139,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 138,
+        "predictions": [
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 137,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 136,
+        "predictions": [
+            {
+                "TOILET": "42 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 135,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 134,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 133,
+        "predictions": [
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 132,
+        "predictions": [
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 131,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 130,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 129,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 128,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 127,
+        "predictions": [
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "34 %"
+            }
+        ]
+    },
+    {
+        "total_count": 126,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 125,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 124,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 123,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 122,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "22 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 121,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 120,
+        "predictions": [
+            {
+                "CHAIR": "43 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 119,
+        "predictions": [
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 118,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 117,
+        "predictions": [
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 116,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "18 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 115,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 114,
+        "predictions": [
+            {
+                "CHAIR": "41 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 113,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "TOILET": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 112,
+        "predictions": [
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 111,
+        "predictions": [
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 110,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "TOILET": "29 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 109,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "12 %"
+            },
+            {
+                "TOILET": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 108,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 107,
+        "predictions": [
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 106,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "18 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 105,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 104,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "18 %"
+            },
+            {
+                "TOILET": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 103,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "TOILET": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 102,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 101,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "TOILET": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 100,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "52 %"
+            }
+        ]
+    },
+    {
+        "total_count": 99,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 98,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 97,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 96,
+        "predictions": [
+            {
+                "CHAIR": "44 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 95,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 94,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 93,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 92,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "25 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 91,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 90,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 89,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 88,
+        "predictions": [
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 87,
+        "predictions": [
+            {
+                "TOILET": "37 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 86,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 85,
+        "predictions": [
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "24 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 84,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "11 %"
+            },
+            {
+                "TOILET": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 83,
+        "predictions": [
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 82,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 81,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 80,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 79,
+        "predictions": [
+            {
+                "TOILET": "27 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 78,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "10 %"
+            },
+            {
+                "TOILET": "37 %"
+            }
+        ]
+    },
+    {
+        "total_count": 77,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 76,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 75,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 74,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 73,
+        "predictions": [
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 72,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 71,
+        "predictions": [
+            {
+                "TOILET": "44 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 70,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "35 %"
+            }
+        ]
+    },
+    {
+        "total_count": 69,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "22 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 68,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 67,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 66,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 65,
+        "predictions": [
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 64,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "14 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 63,
+        "predictions": [
+            {
+                "TOILET": "46 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "52 %"
+            }
+        ]
+    },
+    {
+        "total_count": 62,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "17 %"
+            },
+            {
+                "TOILET": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 61,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "33 %"
+            }
+        ]
+    },
+    {
+        "total_count": 60,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 59,
+        "predictions": [
+            {
+                "TOILET": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "48 %"
+            }
+        ]
+    },
+    {
+        "total_count": 58,
+        "predictions": [
+            {
+                "TOILET": "29 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "CHAIR": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 57,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "16 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 56,
+        "predictions": [
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 55,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 54,
+        "predictions": [
+            {
+                "TOILET": "40 %"
+            },
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "51 %"
+            }
+        ]
+    },
+    {
+        "total_count": 53,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "TOILET": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 52,
+        "predictions": [
+            {
+                "TOILET": "29 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 51,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "14 %"
+            },
+            {
+                "TOILET": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 50,
+        "predictions": [
+            {
+                "CHAIR": "53 %"
+            },
+            {
+                "CHAIR": "42 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CAT": "64 %"
+            }
+        ]
+    },
+    {
+        "total_count": 49,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CAT": "51 %"
+            }
+        ]
+    },
+    {
+        "total_count": 48,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CAT": "29 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 47,
+        "predictions": [
+            {
+                "CHAIR": "44 %"
+            },
+            {
+                "CAT": "35 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "DOG": "13 %"
+            },
+            {
+                "CHAIR": "50 %"
+            }
+        ]
+    },
+    {
+        "total_count": 46,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "PERSON": "34 %"
+            },
+            {
+                "CAT": "28 %"
+            },
+            {
+                "TOILET": "25 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 45,
+        "predictions": [
+            {
+                "CHAIR": "46 %"
+            },
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CAT": "30 %"
+            },
+            {
+                "CHAIR": "13 %"
+            },
+            {
+                "CHAIR": "54 %"
+            }
+        ]
+    },
+    {
+        "total_count": 44,
+        "predictions": [
+            {
+                "CHAIR": "46 %"
+            },
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 43,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "DOG": "14 %"
+            },
+            {
+                "CHAIR": "52 %"
+            }
+        ]
+    },
+    {
+        "total_count": 42,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 41,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 40,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "53 %"
+            }
+        ]
+    },
+    {
+        "total_count": 39,
+        "predictions": [
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 38,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "DOG": "21 %"
+            },
+            {
+                "TOILET": "50 %"
+            }
+        ]
+    },
+    {
+        "total_count": 37,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 36,
+        "predictions": [
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "TOILET": "46 %"
+            }
+        ]
+    },
+    {
+        "total_count": 35,
+        "predictions": [
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 34,
+        "predictions": [
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 33,
+        "predictions": [
+            {
+                "TOILET": "38 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 32,
+        "predictions": [
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "TOILET": "33 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "39 %"
+            }
+        ]
+    },
+    {
+        "total_count": 31,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 30,
+        "predictions": [
+            {
+                "TOILET": "31 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 29,
+        "predictions": [
+            {
+                "TOILET": "41 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 28,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "36 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 27,
+        "predictions": [
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "TOILET": "35 %"
+            },
+            {
+                "CHAIR": "40 %"
+            }
+        ]
+    },
+    {
+        "total_count": 26,
+        "predictions": [
+            {
+                "CHAIR": "33 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 25,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "34 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 24,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 23,
+        "predictions": [
+            {
+                "TOILET": "42 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "50 %"
+            }
+        ]
+    },
+    {
+        "total_count": 22,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 21,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "38 %"
+            }
+        ]
+    },
+    {
+        "total_count": 20,
+        "predictions": [
+            {
+                "CHAIR": "37 %"
+            },
+            {
+                "CHAIR": "30 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "TOILET": "45 %"
+            }
+        ]
+    },
+    {
+        "total_count": 19,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 18,
+        "predictions": [
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "33 %"
+            }
+        ]
+    },
+    {
+        "total_count": 17,
+        "predictions": [
+            {
+                "CHAIR": "35 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 16,
+        "predictions": [
+            {
+                "TOILET": "40 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 15,
+        "predictions": [
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "TOILET": "27 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "CHAIR": "32 %"
+            }
+        ]
+    },
+    {
+        "total_count": 14,
+        "predictions": [
+            {
+                "CHAIR": "38 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "TOILET": "48 %"
+            }
+        ]
+    },
+    {
+        "total_count": 13,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "27 %"
+            },
+            {
+                "CHAIR": "20 %"
+            },
+            {
+                "TOILET": "52 %"
+            }
+        ]
+    },
+    {
+        "total_count": 12,
+        "predictions": [
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "33 %"
+            }
+        ]
+    },
+    {
+        "total_count": 11,
+        "predictions": [
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "43 %"
+            }
+        ]
+    },
+    {
+        "total_count": 10,
+        "predictions": [
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "28 %"
+            },
+            {
+                "TOILET": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 9,
+        "predictions": [
+            {
+                "CHAIR": "41 %"
+            },
+            {
+                "CHAIR": "26 %"
+            },
+            {
+                "CHAIR": "22 %"
+            },
+            {
+                "TOILET": "42 %"
+            }
+        ]
+    },
+    {
+        "total_count": 8,
+        "predictions": [
+            {
+                "CHAIR": "46 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "TOILET": "49 %"
+            }
+        ]
+    },
+    {
+        "total_count": 7,
+        "predictions": [
+            {
+                "TOILET": "41 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "44 %"
+            }
+        ]
+    },
+    {
+        "total_count": 6,
+        "predictions": [
+            {
+                "CHAIR": "40 %"
+            },
+            {
+                "TOILET": "34 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "CHAIR": "47 %"
+            }
+        ]
+    },
+    {
+        "total_count": 5,
+        "predictions": [
+            {
+                "TOILET": "39 %"
+            },
+            {
+                "CHAIR": "32 %"
+            },
+            {
+                "CHAIR": "25 %"
+            },
+            {
+                "CHAIR": "41 %"
+            }
+        ]
+    },
+    {
+        "total_count": 4,
+        "predictions": [
+            {
+                "TOILET": "32 %"
+            },
+            {
+                "CHAIR": "31 %"
+            },
+            {
+                "CHAIR": "23 %"
+            },
+            {
+                "CHAIR": "33 %"
+            }
+        ]
+    },
+    {
+        "total_count": 3,
+        "predictions": [
+            {
+                "CHAIR": "24 %"
+            },
+            {
+                "TOILET": "24 %"
+            },
+            {
+                "CHAIR": "21 %"
+            },
+            {
+                "CHAIR": "36 %"
+            }
+        ]
+    },
+    {
+        "total_count": 2,
+        "predictions": [
+            {
+                "CHAIR": "49 %"
+            },
+            {
+                "CHAIR": "29 %"
+            },
+            {
+                "TOILET": "52 %"
+            }
+        ]
+    },
+    {
+        "total_count": 1,
+        "predictions": [
+            {
+                "CHAIR": "39 %"
+            },
+            {
+                "TOILET": "36 %"
+            },
+            {
+                "CHAIR": "19 %"
+            },
+            {
+                "CHAIR": "45 %"
+            }
+        ]
+    }
+]
