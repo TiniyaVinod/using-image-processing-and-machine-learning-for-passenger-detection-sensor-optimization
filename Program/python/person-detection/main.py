@@ -519,7 +519,7 @@ def update_frame():
 
     output_score.insert(0, predictions)
 
-    with open("prediction_result_2511_test1_with_timestamp.json", "w", encoding="utf-8") as f:
+    with open("prediction_result_2511_test8_with_timestamp.json", "w", encoding="utf-8") as f:
         json.dump(output_score, f, ensure_ascii=False, indent=4)
 
 
@@ -531,11 +531,11 @@ def update_frame():
     img2 = Image.fromarray(img_array)
 
     if "chair" in image_name:
-        img2.save(f"2511_test1_with_timestamp/frames_chair/{image_name}.jpg")
+        img2.save(f"2511_test8_with_timestamp/frames_chair/{image_name}.jpg")
     elif 'person' in image_name:
-        img2.save(f"2511_test1_with_timestamp/frames_person/{image_name}.jpg")
+        img2.save(f"2511_test8_with_timestamp/frames_person/{image_name}.jpg")
     else:
-        img2.save(f"2511_test1_with_timestamp/frames_others/{image_name}.jpg")
+        img2.save(f"2511_test8_with_timestamp/frames_others/{image_name}.jpg")
 
 
     text = "some-text-value"
