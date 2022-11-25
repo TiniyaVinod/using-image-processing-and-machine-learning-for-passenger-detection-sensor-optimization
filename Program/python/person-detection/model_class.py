@@ -63,10 +63,10 @@ class model_class():
             # print("predictions :", predictions)
 
             outputs_to_plot = []
-            print("++++++++++++++++++++++++++++++++++++++++++++")
-            print("++++++++++++++++++++++++++++++++++++++++++++")
-            print(result.pandas().xyxy[0].name[i], result.pandas().xyxy[0].get("class"))
-            print("++++++++++++++++++++++++++++++++++++++++++++")
+            # print("++++++++++++++++++++++++++++++++++++++++++++")
+            # print("++++++++++++++++++++++++++++++++++++++++++++")
+            # print(result.pandas().xyxy[0].name[i], result.pandas().xyxy[0].get("class"))
+            # print("++++++++++++++++++++++++++++++++++++++++++++")
 
             for i in range(len(result.pandas().xyxy[0].confidence)):
                 obj_dict = {}

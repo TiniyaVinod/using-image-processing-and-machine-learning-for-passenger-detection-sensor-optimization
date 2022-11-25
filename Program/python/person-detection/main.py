@@ -12,6 +12,8 @@ from model_class import model_class
 from common_functions import read_config
 from program_mode import *
 import json
+from datetime import datetime
+
 
 # --- main ---
 
@@ -427,7 +429,8 @@ def update_frame():
 
     # img_array = plot_boxes(predictions_all_class, img_array)
     
-    image_name = ''
+    timestamp = (datetime.today()-datetime.today().replace(hour=0, minute=0, second=0)).seconds
+    image_name = f'{timestamp}_'
     global chair_count
     global non_chair_count
     global person_count
@@ -445,21 +448,26 @@ def update_frame():
         increase_chair_count = True
         print("INCREASE CHAIR COUNT !!!!!!!!!!!!")
 
+    output_label = ""
+
     if increase_chair_count:
+        output_label = "chair"
         chair_count += 1
-        image_name = f"{count}_chair_{chair_count}"
+        image_name += f"{count}_chair_{chair_count}"
         increase_chair_count = False
     else:
         output_result = " ".join(output_result_text[:3])
         print(output_result, " JOINED RESULT")
         if "PERSON" in output_result:
+            output_label = "person"
             person_count += 1
-            image_name = f"{count}_person_{person_count}"
+            image_name += f"{count}_person_{person_count}"
         else:
+            output_label = "others"
             non_person_count += 1
             # image_name = f"{count}_non_person_{non_person_count}"
             non_chair_count += 1
-            image_name = f"{count}_others_{non_chair_count}"
+            image_name += f"{count}_others_{non_chair_count}"
             increase_chair_count = False
 
     
@@ -503,8 +511,16 @@ def update_frame():
     # score_data["predictions"] = predictions
     # output_score.insert(0, score_data)
 
-    # with open("prediction_result_111122_camera_test0_for_3_classes_threshold_01.json", "w", encoding="utf-8") as f:
-    #     json.dump(output_score, f, ensure_ascii=False, indent=4)
+    predictions = {
+        "total_count": count,
+        "timestamp": timestamp,
+        "prediction": output_label
+    }
+
+    output_score.insert(0, predictions)
+
+    with open("prediction_result_2511_test1_with_timestamp.json", "w", encoding="utf-8") as f:
+        json.dump(output_score, f, ensure_ascii=False, indent=4)
 
 
     
@@ -515,11 +531,11 @@ def update_frame():
     img2 = Image.fromarray(img_array)
 
     if "chair" in image_name:
-        img2.save(f"1411_test6_2_with_lights_in_left_of_passenger_camera_on_left_of_red_pitaya/frames_chair/{image_name}.jpg")
+        img2.save(f"2511_test1_with_timestamp/frames_chair/{image_name}.jpg")
     elif 'person' in image_name:
-        img2.save(f"1411_test6_2_with_lights_in_left_of_passenger_camera_on_left_of_red_pitaya/frames_person/{image_name}.jpg")
+        img2.save(f"2511_test1_with_timestamp/frames_person/{image_name}.jpg")
     else:
-        img2.save(f"1411_test6_2_with_lights_in_left_of_passenger_camera_on_left_of_red_pitaya/frames_others/{image_name}.jpg")
+        img2.save(f"2511_test1_with_timestamp/frames_others/{image_name}.jpg")
 
 
     text = "some-text-value"
