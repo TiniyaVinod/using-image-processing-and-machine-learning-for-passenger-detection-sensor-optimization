@@ -1,5 +1,7 @@
 # Using-Image-Processing-for-Autonomous-Illumination-Sensor-Optimization
 
+## Individual project work continued from the work of Mr. Paween.
+
 ## Features
 
 1. Detect person in frame
