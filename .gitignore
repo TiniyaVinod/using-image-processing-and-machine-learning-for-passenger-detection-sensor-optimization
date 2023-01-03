@@ -1,6 +1,13 @@
 venv/
+.env/
+
 .vscode
 __pycache__
 frames/
 records/
 frames*/
+
+# experiments data
+experiments/
+
+.DS_Store
