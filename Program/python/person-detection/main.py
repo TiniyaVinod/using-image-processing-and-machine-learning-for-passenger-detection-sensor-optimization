@@ -59,6 +59,13 @@ global_frame = white_img
 
 model = model_class(config["model_classification"])
 
+
+# sharing value for multiprocess communication
+from multiprocessing import Value
+
+shared_value = Value('i', 1)
+shared_time = Value('i', 0)
+
 if not window_app_run:
     window_app_run = True
     gui = app_gui(
@@ -130,6 +137,20 @@ def disconnect_cam():
     button_stop['state'] = 'disabled'
     button_connectcam['state'] = 'normal'
     button_disconnectcam['state'] = 'disabled'
+
+def parallel_func(shared_value):
+    import os
+    print("process id ", os.getpid())
+    import time
+    run_loop = shared_value.value
+    while run_loop:
+        time.sleep(3)
+        print("########################parallel###########################")
+        print("----------  ",run_loop, "    --------")
+        print("---------shared-time---------  ", shared_time.value)
+        print("########################function###########################")
+        run_loop = shared_value.value
+
     
 def play():
     '''
@@ -137,7 +158,7 @@ def play():
     and change state of buttons_left
     '''
     print("--------play clicked -------------")
-    global cap, run_camera, record_result, video_writer
+    global cap, run_camera, record_result, video_writer, shared_value
     
     record_result = []
     rec_mode = gui.gui_down.get_record_status()
@@ -161,6 +182,13 @@ def play():
         gui.gui_down.disable_setting()
         
         update_frame()
+
+    # start a parallel process
+    import multiprocessing
+    shared_value.value = 1
+
+    process = multiprocessing.Process(target=parallel_func, args=(shared_value,))
+    process.start()
     
     # Clear Text
     if isconnect_cam == True:
@@ -174,13 +202,22 @@ def stop():
     stop stream (run_camera) 
     and change state of buttons_left
     '''
-    global run_camera, video_writer
+    global run_camera, video_writer, shared_value
+
+
+    print("----stop called ---------")
+    print("type of shared_value ")
+    print(type(shared_value))
+    print("value before change   : ", shared_value.value)
+    shared_value.value = 0
+    print("value after change   : ", shared_value.value)
 
     if isconnect_cam == False:
         return 0
     
     if run_camera:
         run_camera = False
+        shared_value.value = 0
     
     # if record mode is activated, release the object
     if gui.gui_down.get_record_status() == 1:
@@ -265,6 +302,7 @@ def update_frame():
     start_timer = timer()
     
     global global_frame, roi_img, roi_flag, record_result
+    global shared_time
     
     # Read frame capture object
     ret, frame = cap.read()
@@ -432,6 +470,7 @@ def update_frame():
     # img_array = plot_boxes(predictions_all_class, img_array)
     
     timestamp = (datetime.today()-datetime.today().replace(hour=0, minute=0, second=0)).seconds
+    shared_time.value = timestamp
     image_name = f'{timestamp}_'
     global chair_count
     global non_chair_count
