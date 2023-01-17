@@ -61,10 +61,11 @@ model = model_class(config["model_classification"])
 
 
 # sharing value for multiprocess communication
-from multiprocessing import Value
+from multiprocessing import Value, Array
 
 shared_value = Value('i', 1)
 shared_time = Value('i', 0)
+shared_array = Array('i', size_or_initializer=16384)
 
 if not window_app_run:
     window_app_run = True
@@ -138,13 +139,60 @@ def disconnect_cam():
     button_connectcam['state'] = 'normal'
     button_disconnectcam['state'] = 'disabled'
 
+global global_socket_obj
+
+def get_socket():
+    global global_socket_obj
+
+    import socket
+
+    server_address_port = ("192.168.178.25", 61231)
+
+
+    # Create a UDP socket at client side
+    global_socket_obj = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+
+    # return udp_client_socket
+
+
 def parallel_func(shared_value):
+    print("+++++++++++++++++ inside parallel func++++++++++++++++++")
+    print("+++++++++++++++++ inside parallel func++++++++++++++++++")
+    get_socket()
+    global global_socket_obj
     import os
     print("process id ", os.getpid())
     import time
     run_loop = shared_value.value
+    
+    # for i in range(16384):
+    #     shared_array[i] = data[i]
     while run_loop:
-        time.sleep(3)
+        # time.sleep(3)
+
+        # get socket 
+        udp_client_socket = global_socket_obj
+        # Send to server using created UDP socket
+        buffer_size = 65536
+        server_address_port = ("192.168.178.25", 61231)
+
+        msg_from_client = "-a 1"
+
+        bytes_to_send = str.encode(msg_from_client)
+
+        udp_client_socket.sendto(bytes_to_send, server_address_port)
+
+        packet = udp_client_socket.recv(buffer_size)
+
+        import struct
+        l = []
+        for index, dat in enumerate(struct.iter_unpack('@h', packet[64:])):
+            # l.append(dat)
+            # print(index, dat[0])
+            shared_array[index] = dat[0]
+        print(shared_array[:])
+
+    
         print("########################parallel###########################")
         print("----------  ",run_loop, "    --------")
         print("---------shared-time---------  ", shared_time.value)
@@ -202,7 +250,7 @@ def stop():
     stop stream (run_camera) 
     and change state of buttons_left
     '''
-    global run_camera, video_writer, shared_value
+    global run_camera, video_writer, shared_value, global_socket_obj
 
 
     print("----stop called ---------")
@@ -210,6 +258,9 @@ def stop():
     print(type(shared_value))
     print("value before change   : ", shared_value.value)
     shared_value.value = 0
+
+    global_socket_obj.close()
+
     print("value after change   : ", shared_value.value)
 
     if isconnect_cam == False:
@@ -302,7 +353,10 @@ def update_frame():
     start_timer = timer()
     
     global global_frame, roi_img, roi_flag, record_result
-    global shared_time
+    global shared_time, shared_value, shared_array
+
+    print(" Inside update frame ")
+    # print(shared_array[:])
     
     # Read frame capture object
     ret, frame = cap.read()
@@ -359,13 +413,29 @@ def update_frame():
         frame_show = frame_flip 
     
 
-    img = Image.fromarray(frame_show)
+    print(type(frame_show))
+    print(frame_show.shape)
+    print(frame_show.size)
+
+    from PIL import Image
+    import matplotlib
+    import matplotlib.pyplot as plt
+    import io
+    matplotlib.use('agg')
+    plt.figure(figsize=(3.3,3.3))
+    plt.plot(shared_array[:])
+    img_buf = io.BytesIO()
+    plt.savefig(img_buf, format='png')
+    im = Image.open(img_buf)
+
+    # img = Image.fromarray(frame_show)
     
+    # print(type(img))
     
     
 
 
-    gui.gui_top.canvas_l_img.paste(img)
+    gui.gui_top.canvas_l_img.paste(im)
     
     select_mode = gui.gui_down.select_mode
     
