@@ -10,7 +10,7 @@ def realtime_mode(cam_num):
     except:
         msg = "Error : Camera Number must be Integer"
         return [0, msg]
-    cap = cv2.VideoCapture(cam_no, cv2.CAP_DSHOW)
+    cap = cv2.VideoCapture(cam_no)
     msg = "STATUS : Camera active "
     
     return [cap, msg]    
