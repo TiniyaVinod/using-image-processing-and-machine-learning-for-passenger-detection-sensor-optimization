@@ -78,10 +78,17 @@ if not window_app_run:
         config
         )
 
+
+def stop_socket():
+    global global_socket_obj
+    global_socket_obj.close()
+
 # Button Functions ----------------------------------------------------------
 def connect_cam():
     global cap, video_writer, isconnect_cam
     
+    get_socket()
+
     if isconnect_cam:
         return 0
     
@@ -123,7 +130,8 @@ def connect_cam():
 def disconnect_cam():
     
     global isconnect_cam
-    
+
+    shared_value.value = 0
     if isconnect_cam:
         cap.release()
         isconnect_cam = False
@@ -155,12 +163,33 @@ def get_socket():
     # return udp_client_socket
 
 
+
+from contextlib import contextmanager
+import subprocess
+
+import psutil
+
+
+# @contextmanager
+# def process(*args, **kwargs):
+#     proc = subprocess.Popen(*args, **kwargs)
+#     try:
+#         yield proc
+#     finally:
+#         for child in psutil.Process(proc.pid).children(recursive=True):
+#             child.kill()
+#         proc.kill()
+
+
+
+global parent_pid, child_pid
 def parallel_func(shared_value):
     print("+++++++++++++++++ inside parallel func++++++++++++++++++")
     print("+++++++++++++++++ inside parallel func++++++++++++++++++")
-    get_socket()
-    global global_socket_obj
+    global global_socket_obj, parent_pid, child_pid
     import os
+    parent_pid = os.getppid()
+    child_pid = os.getpid()
     print("process id ", os.getpid())
     import time
     run_loop = shared_value.value
@@ -190,7 +219,7 @@ def parallel_func(shared_value):
             # l.append(dat)
             # print(index, dat[0])
             shared_array[index] = dat[0]
-        print(shared_array[:])
+        # print(shared_array[:])
 
     
         print("########################parallel###########################")
@@ -198,6 +227,22 @@ def parallel_func(shared_value):
         print("---------shared-time---------  ", shared_time.value)
         print("########################function###########################")
         run_loop = shared_value.value
+
+
+# def terminate_process_if_parent_dies():
+#     import psutil
+#     global parent_pid, child_pid
+
+#     try:
+#         parent = psutil.Process(pid=parent_pid)
+#         child = psutil.Process(pid=child_pid)
+#     except:
+#         pass
+#     finally:
+#         child.terminate()
+
+# os.killpg(os.getpid(), signal.SIGTERM)
+    
 
     
 def play():
@@ -207,6 +252,8 @@ def play():
     '''
     print("--------play clicked -------------")
     global cap, run_camera, record_result, video_writer, shared_value
+
+    get_socket()
     
     record_result = []
     rec_mode = gui.gui_down.get_record_status()
@@ -259,7 +306,7 @@ def stop():
     print("value before change   : ", shared_value.value)
     shared_value.value = 0
 
-    global_socket_obj.close()
+    stop_socket()
 
     print("value after change   : ", shared_value.value)
 
