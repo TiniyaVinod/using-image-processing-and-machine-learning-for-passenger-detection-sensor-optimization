@@ -213,6 +213,10 @@ def parallel_func(shared_value):
 
         packet = udp_client_socket.recv(buffer_size)
 
+        import numpy, random
+
+        np.save(f'experiments/binaries/{shared_time.value}_adc_{random.randint(0,100)}.npy', packet)
+
         import struct
         l = []
         for index, dat in enumerate(struct.iter_unpack('@h', packet[64:])):
