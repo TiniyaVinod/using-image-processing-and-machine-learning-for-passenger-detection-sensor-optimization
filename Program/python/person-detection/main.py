@@ -72,6 +72,7 @@ shared_prediction = Value("u", "o")
 
 event_is_updated = Event()
 event_is_not_stopped = Event()
+event_is_run_loop = Event()
 
 shared_toggle_update_loop = Value("i", 0)
 
@@ -83,6 +84,19 @@ if not window_app_run:
 def stop_socket():
     global global_socket_obj
     global_socket_obj.close()
+
+
+def start_process():
+    import multiprocessing
+
+    process = multiprocessing.Process(
+        target=parallel_func, args=(shared_value, shared_prediction, event_is_updated)
+    )
+    process.start()
+
+
+# def terminate_process(pid):
+#     process.terminate()
 
 
 # Button Functions ----------------------------------------------------------
@@ -128,6 +142,15 @@ def connect_cam():
     button_connectcam["state"] = "disabled"
     button_disconnectcam["state"] = "normal"
 
+    # start a parallel process
+    import multiprocessing
+
+    shared_value.value = 1
+
+    event_is_run_loop.clear()
+
+    start_process()
+
 
 def disconnect_cam():
 
@@ -148,6 +171,14 @@ def disconnect_cam():
     button_stop["state"] = "disabled"
     button_connectcam["state"] = "normal"
     button_disconnectcam["state"] = "disabled"
+
+    ## remove the child process
+    # Terminate the process when parent is done
+    try:
+        child_process = psutil.Process(child_pid)
+        child_process.terminate()
+    except Exception as e:
+        print("Exception occured : ", e)
 
 
 global global_socket_obj
@@ -188,18 +219,11 @@ loop_count = 0
 
 def parallel_func(shared_value, shared_prediction, event_is_updated):
     print("+++++++++++++++++ inside parallel func++++++++++++++++++")
+    print(event_is_run_loop.is_set())
     print("+++++++++++++++++ inside parallel func++++++++++++++++++")
     global global_socket_obj, parent_pid, child_pid, loop_count
-    # parent_pid = os.getppid()
-    # child_pid = os.getpid()
-    # try:
-    #     child_process = psutil.Process(child_pid)
-    #     parent_process = psutil.Process(parent_pid)
-    #     print(parent_process)
-    #     print(child_process)
-    # except:
-    #     print("parent process unavailable!")
-    #     child_process.terminate()
+    parent_pid = os.getppid()
+    child_pid = os.getpid()
 
     # print("process id ", os.getpid())
 
@@ -211,7 +235,13 @@ def parallel_func(shared_value, shared_prediction, event_is_updated):
     # for i in range(16384):
     #     shared_array[i] = data[i]
 
-    while run_loop:
+    is_run_loop_by_event = event_is_run_loop.wait(15)
+
+    while is_run_loop_by_event:
+
+        print("-------inside while loopof parallel function-------------")
+        print(event_is_run_loop.is_set())
+        print("-------inside while loopof parallel function-------------")
 
         udp_client_socket = global_socket_obj
         # Send to server using created UDP socket
@@ -229,10 +259,13 @@ def parallel_func(shared_value, shared_prediction, event_is_updated):
         import numpy, random
 
         print("Waiting for the event to set.....")
-        if event_is_updated.wait():
+        if event_is_updated.wait(timeout=150):
             loop_count += 1
             print("Waiting Done!")
             event_is_updated.clear()
+        else:
+            print("Parallel process exiting due to Timeout.")
+            break
 
         file_name = (
             f"{loop_count}_{shared_time.value}_{shared_prediction.value}_adc.npy"
@@ -253,10 +286,16 @@ def parallel_func(shared_value, shared_prediction, event_is_updated):
         # print(shared_array[:])
 
         print("########################parallel###########################")
-        print("----------  ", run_loop, "    --------")
+        print("----------  ", run_loop, "    --------", event_is_run_loop.is_set())
         print("---------shared-time---------  ", shared_time.value)
+
         print("########################function###########################")
         run_loop = shared_value.value
+
+        if event_is_run_loop.wait(30):
+            continue
+        else:
+            break
 
 
 # def terminate_process_if_parent_dies():
@@ -287,6 +326,10 @@ def play():
     record_result = []
     rec_mode = gui.gui_down.get_record_status()
 
+    # Set Event
+
+    event_is_run_loop.set()
+
     # Check if it is record mode
     if rec_mode:
         # Path to write record
@@ -307,16 +350,6 @@ def play():
 
         update_frame()
 
-    # start a parallel process
-    import multiprocessing
-
-    shared_value.value = 1
-
-    process = multiprocessing.Process(
-        target=parallel_func, args=(shared_value, shared_prediction, event_is_updated)
-    )
-    process.start()
-
     # Clear Text
     if isconnect_cam == True:
         gui.gui_down.scroll_txt_left.config(state=tk.NORMAL)
@@ -335,6 +368,8 @@ def stop():
     print(type(shared_value))
     print("value before change   : ", shared_value.value)
     shared_value.value = 0
+
+    event_is_run_loop.clear()
 
     stop_socket()
 
@@ -445,6 +480,11 @@ def update_frame():
 
     print(" Inside update frame ")
     # print(shared_array[:])
+
+    timestamp = (
+        datetime.today() - datetime.today().replace(hour=0, minute=0, second=0)
+    ).seconds
+    shared_time.value = timestamp
 
     # Read frame capture object
     ret, frame = cap.read()
@@ -624,10 +664,6 @@ def update_frame():
 
     # img_array = plot_boxes(predictions_all_class, img_array)
 
-    timestamp = (
-        datetime.today() - datetime.today().replace(hour=0, minute=0, second=0)
-    ).seconds
-    shared_time.value = timestamp
     image_name = f"{timestamp}_"
     global chair_count
     global non_chair_count
