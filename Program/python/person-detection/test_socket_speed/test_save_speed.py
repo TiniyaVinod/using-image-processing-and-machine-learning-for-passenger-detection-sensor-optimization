@@ -19,12 +19,17 @@ socket_obj.sendto(bytes_to_send, server_address_port)
 
 async def get_server():
     packet = socket_obj.recv(buffer_size)
-    np.save(f'../test_concurrency/{time.time()}_adc_{random.randint(0,1000)}.npy', packet)
+    np.save(
+        f"../test_concurrency/{time.time()}_adc_{random.randint(0,1000)}.npy", packet
+    )
+
 
 count = 0
+
+
 async def main():
     global count
-    while count<60:
+    while count < 60:
         count += 1
         await get_server()
 
@@ -35,4 +40,4 @@ asyncio.run(main())
 
 stop = time.time()
 
-print("total time : ", stop-start)
+print("total time : ", stop - start)

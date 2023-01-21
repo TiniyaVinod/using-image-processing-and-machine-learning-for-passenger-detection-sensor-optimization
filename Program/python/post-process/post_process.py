@@ -7,10 +7,8 @@
 #   5.  Get label_cams for timestamp and export label_cams as txt file.
 
 
-
-
 def export_data(path, data):
-    with open(path, 'w') as f:
+    with open(path, "w") as f:
         for line in data:
             f.write(line)
 
@@ -50,8 +48,8 @@ print(u_time)
 
 data_cam = []
 with open(path_camera_file) as f:
-    data_cam = f.readlines()   
-    
+    data_cam = f.readlines()
+
 data_ultra = []
 with open(path_ultras_file) as f:
     data_ultra = f.readlines()
@@ -60,18 +58,18 @@ cam_timestamps = []
 label_cam = []
 # Get timestamps for Camera data
 for str in data_cam:
-    split_str =  str.split(' : ')
+    split_str = str.split(" : ")
     timestring = split_str[0]
-    
+
     label_res = split_str[1]
     # label_res = label_res.split(r'\n')[0]
-    
+
     label_cam.append(label_res)
     e = datetime.strptime(timestring, datetime_format)
     timestamp = datetime.timestamp(e)
     cam_timestamps.append(timestamp)
 
-# Add timestmamps for ultrasonic data 
+# Add timestmamps for ultrasonic data
 data_ultra_timestamps = []
 u_basetime = datetime.fromtimestamp(u_time)
 plus_time = timedelta(seconds=1)
@@ -80,64 +78,64 @@ for i in range(len(data_ultra)):
         e = u_basetime
     elif i % sec_per_measurement == 0:
         e = e + plus_time
-        
+
     timestamp = datetime.timestamp(e)
     data_ultra_timestamps.append(timestamp)
-    
+
 # Compare and extract the same timestamps between two data
 unique_ultra_timestamp = np.unique(data_ultra_timestamps)
 
 keyword_PER = "person"
 keyword_EMP = "Empty"
 for ultra_ts in unique_ultra_timestamp:
-   
+
     ultra_ts_index = data_ultra_timestamps.index(ultra_ts)
-    
+
     # Extract index for same timestamps between both
     res_idx = []
     for cam_ts in cam_timestamps:
         if cam_ts == ultra_ts:
             res_idx.append(cam_timestamps.index(cam_ts))
-    
+
     if res_idx == []:
         continue
-    
+
     # Extract prediction result
     data_export = []
     res_list = []
     for idx in res_idx:
         res_list.append(label_cam[idx])
-    
-    cnt_person = sum(keyword_PER in s for s in res_list)    
-    cnt_empty  = sum(keyword_EMP in s for s in res_list)
-    
+
+    cnt_person = sum(keyword_PER in s for s in res_list)
+    cnt_empty = sum(keyword_EMP in s for s in res_list)
+
     if cnt_person > cnt_empty:
-        res_percent = cnt_person * 100/ len(res_list)
+        res_percent = cnt_person * 100 / len(res_list)
         pred_res = "person"
     else:
-        res_percent = cnt_empty * 100/ len(res_list)
+        res_percent = cnt_empty * 100 / len(res_list)
         pred_res = "empty"
-        
+
     date_time = datetime.fromtimestamp(ultra_ts)
-    datetime_str = date_time.strftime(datetime_format)    
-    
-    
-    print(datetime_str+" prediction result : "+pred_res+" with the percentage = ", res_percent)        
-    
+    datetime_str = date_time.strftime(datetime_format)
+
+    print(
+        datetime_str + " prediction result : " + pred_res + " with the percentage = ",
+        res_percent,
+    )
+
     # If the results are certain (100 percent), then collect data from ultrasonic sensor
-    
-    if res_percent == 100.0:     
-        data_export = data_ultra[ultra_ts_index:ultra_ts_index + sec_per_measurement]
-        filename = datetime_str+'.txt'
+
+    if res_percent == 100.0:
+        data_export = data_ultra[ultra_ts_index : ultra_ts_index + sec_per_measurement]
+        filename = datetime_str + ".txt"
         filename = filename.replace(":", ".")
         filename = filename.replace("/", "-")
-        
+
         export_data(filename, data_export)
-        print("export data to file") 
-        
-        
-        
+        print("export data to file")
+
+
 # Majority vote to decide each second prediction
 
 print("End of process")
-

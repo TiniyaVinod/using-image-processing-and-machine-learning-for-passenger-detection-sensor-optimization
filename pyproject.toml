@@ -1,0 +1,5 @@
+# Configure black
+
+[tool.black]
+line-length = 88
+extend-exclude = '(.{0,2}env/)'

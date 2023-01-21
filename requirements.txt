@@ -51,3 +51,8 @@ seaborn>=0.11.0
 
 # yolov5
 yolov5
+
+
+# formating and linting
+black>="22.12.0"
+pylint>="2.15.10"

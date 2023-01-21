@@ -9,6 +9,7 @@ import asyncio, multiprocessing, threading
 start = time.time()
 
 import socket, numpy as np
+
 server_address_port = ("192.168.178.25", 61231)
 buffer_size = 65536
 # Create a UDP socket at client side
@@ -23,7 +24,6 @@ def save_server_data(i):
     packet = socket_obj.recv(buffer_size)
     # np.save(f'../test_concurrency/{time.time()}_adc_{random.randint(0,1000)}.npy', packet)
     print(f"save server- {i} finished  ", time.time())
-
 
 
 # t1 = threading.Thread(target=save_server_data)
@@ -105,20 +105,13 @@ def save_server_data(i):
 #     await asyncio.wait([task1, task2, task3, task4, task5, task6])
 
 
-
-
-
-
-
-
 # if __name__ == '__main__':
 #     loop = asyncio.get_event_loop()
 #     loop.run_until_complete(main())
 #     loop.close()
 
 
-
 finish = time.time()
 socket_obj.close()
 
-print("Finished :", finish-start)
+print("Finished :", finish - start)

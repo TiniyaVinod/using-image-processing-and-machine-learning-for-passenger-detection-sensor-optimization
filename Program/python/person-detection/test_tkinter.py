@@ -3,7 +3,7 @@ import random
 
 # --- constants --- (UPPER_CASE_NAMES)
 
-SCREEN_WIDTH  = 800
+SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 200
 
 DISTANCE = 20
@@ -11,8 +11,8 @@ NUMBER = (SCREEN_WIDTH // DISTANCE) + 1
 
 # --- classes --- (CamelCaseNames)
 
-class Graph(object):
 
+class Graph(object):
     def __init__(self, canvas, data, *args, **kwargs):
         super().__init__()
         self.canvas = canvas
@@ -27,19 +27,19 @@ class Graph(object):
 
     def draw(self):
         # new distance if size changed
-        self.distance = int(self.canvas.winfo_width())/len(self.data)+1
+        self.distance = int(self.canvas.winfo_width()) / len(self.data) + 1
 
         # remove all lines
-        self.canvas.delete('all')
+        self.canvas.delete("all")
 
-        # draw new lines        
+        # draw new lines
         for x, (y1, y2) in enumerate(zip(self.data, self.data[1:])):
             x1 = x * self.distance
-            x2 = (x+1) * self.distance  # x1 + self.distance
+            x2 = (x + 1) * self.distance  # x1 + self.distance
             self.canvas.create_line([x1, y1, x2, y2])
 
-class GraphCanvas(tk.Canvas):
 
+class GraphCanvas(tk.Canvas):
     def __init__(self, master, data, *args, **kwargs):
         super().__init__(master, *args, **kwargs)
         self.data = data
@@ -53,25 +53,28 @@ class GraphCanvas(tk.Canvas):
 
     def draw(self):
         # new distance if size changed
-        self.distance = int(self.winfo_width())/len(self.data)+1
+        self.distance = int(self.winfo_width()) / len(self.data) + 1
 
         # remove all lines
-        self.delete('all')
+        self.delete("all")
 
-        # draw new lines        
+        # draw new lines
         for x, (y1, y2) in enumerate(zip(self.data, self.data[1:])):
             x1 = x * self.distance
-            x2 = (x+1) * self.distance  # x1 + self.distance
+            x2 = (x + 1) * self.distance  # x1 + self.distance
             self.create_line([x1, y1, x2, y2])
+
 
 # --- functions --- (lower_case_names)
 
+
 def move():
-    graph.append(random.randint(0,SCREEN_HEIGHT))
-    graph_canvas.append(random.randint(0,SCREEN_HEIGHT))
+    graph.append(random.randint(0, SCREEN_HEIGHT))
+    graph_canvas.append(random.randint(0, SCREEN_HEIGHT))
 
     # run again after 100ms (0.1s)
     root.after(100, move)
+
 
 # --- main --- (lower_case names)
 
@@ -82,15 +85,17 @@ print(data)
 
 root = tk.Tk()
 
-canvas = tk.Canvas(root, width=SCREEN_WIDTH, height=SCREEN_HEIGHT, bg='#ccffcc')
-canvas.pack(fill='both', expand=True)
+canvas = tk.Canvas(root, width=SCREEN_WIDTH, height=SCREEN_HEIGHT, bg="#ccffcc")
+canvas.pack(fill="both", expand=True)
 
 graph = Graph(canvas, data)
 
-graph_canvas = GraphCanvas(root, data, width=SCREEN_WIDTH, height=SCREEN_HEIGHT, bg='#ffcccc')
-graph_canvas.pack(fill='both', expand=True)
+graph_canvas = GraphCanvas(
+    root, data, width=SCREEN_WIDTH, height=SCREEN_HEIGHT, bg="#ffcccc"
+)
+graph_canvas.pack(fill="both", expand=True)
 
-# start animation    
+# start animation
 move()
 
 root.mainloop()
