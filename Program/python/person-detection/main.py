@@ -11,8 +11,10 @@ from app_gui import app_gui
 from model_class import model_class
 from common_functions import read_config
 from program_mode import *
-import json
+import json, os, time
 from datetime import datetime
+
+from multiprocessing import Value, Array, Event
 
 
 # --- main ---
@@ -61,11 +63,17 @@ model = model_class(config["model_classification"])
 
 
 # sharing value for multiprocess communication
-from multiprocessing import Value, Array
+
 
 shared_value = Value("i", 1)
 shared_time = Value("i", 0)
 shared_array = Array("i", size_or_initializer=16384)
+shared_prediction = Value("u", "o")
+
+event_is_updated = Event()
+event_is_not_stopped = Event()
+
+shared_toggle_update_loop = Value("i", 0)
 
 if not window_app_run:
     window_app_run = True
@@ -175,28 +183,36 @@ import psutil
 #         proc.kill()
 
 
-global parent_pid, child_pid
+loop_count = 0
 
 
-def parallel_func(shared_value):
+def parallel_func(shared_value, shared_prediction, event_is_updated):
     print("+++++++++++++++++ inside parallel func++++++++++++++++++")
     print("+++++++++++++++++ inside parallel func++++++++++++++++++")
-    global global_socket_obj, parent_pid, child_pid
-    import os
+    global global_socket_obj, parent_pid, child_pid, loop_count
+    # parent_pid = os.getppid()
+    # child_pid = os.getpid()
+    # try:
+    #     child_process = psutil.Process(child_pid)
+    #     parent_process = psutil.Process(parent_pid)
+    #     print(parent_process)
+    #     print(child_process)
+    # except:
+    #     print("parent process unavailable!")
+    #     child_process.terminate()
 
-    parent_pid = os.getppid()
-    child_pid = os.getpid()
-    print("process id ", os.getpid())
-    import time
+    # print("process id ", os.getpid())
 
     run_loop = shared_value.value
 
+    # child_process = psutil.Process(child_pid)
+    # parent_process = psutil.Process(parent_pid)
+    # print(child_process.parents())
     # for i in range(16384):
     #     shared_array[i] = data[i]
-    while run_loop:
-        # time.sleep(3)
 
-        # get socket
+    while run_loop:
+
         udp_client_socket = global_socket_obj
         # Send to server using created UDP socket
         buffer_size = 65536
@@ -212,8 +228,18 @@ def parallel_func(shared_value):
 
         import numpy, random
 
+        print("Waiting for the event to set.....")
+        if event_is_updated.wait():
+            loop_count += 1
+            print("Waiting Done!")
+            event_is_updated.clear()
+
+        file_name = (
+            f"{loop_count}_{shared_time.value}_{shared_prediction.value}_adc.npy"
+        )
+
         np.save(
-            f"experiments/binaries/{shared_time.value}_adc_{random.randint(0,100)}.npy",
+            f"experiments/binaries/test_event_wait/{file_name}",
             packet,
         )
 
@@ -254,7 +280,7 @@ def play():
     and change state of buttons_left
     """
     print("--------play clicked -------------")
-    global cap, run_camera, record_result, video_writer, shared_value
+    global cap, run_camera, record_result, video_writer, shared_value, event_is_updated
 
     get_socket()
 
@@ -286,7 +312,9 @@ def play():
 
     shared_value.value = 1
 
-    process = multiprocessing.Process(target=parallel_func, args=(shared_value,))
+    process = multiprocessing.Process(
+        target=parallel_func, args=(shared_value, shared_prediction, event_is_updated)
+    )
     process.start()
 
     # Clear Text
@@ -413,7 +441,7 @@ def update_frame():
     start_timer = timer()
 
     global global_frame, roi_img, roi_flag, record_result
-    global shared_time, shared_value, shared_array
+    global shared_time, shared_value, shared_array, shared_prediction, event_is_updated
 
     print(" Inside update frame ")
     # print(shared_array[:])
@@ -641,6 +669,9 @@ def update_frame():
             non_chair_count += 1
             image_name += f"{count}_others_{non_chair_count}"
             increase_chair_count = False
+
+    shared_prediction.value = output_label[0]
+    event_is_updated.set()
 
     # true_positive = person_count
     # false_positive = 0
