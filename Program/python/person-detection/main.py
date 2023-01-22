@@ -76,6 +76,22 @@ event_is_run_loop = Event()
 
 shared_toggle_update_loop = Value("i", 0)
 
+
+# initializing matplotlib and using the same figure again
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(1, 1)
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+
+ax.set(yticklabels=[])
+ax.set(xticklabels=[])
+
+fig.set_size_inches(3.2, 3.2)
+
+ax.plot(shared_array[:])
+
+
 if not window_app_run:
     window_app_run = True
     gui = app_gui(window_app, default_img, default_img2, canvas_w, canvas_h, config)
@@ -543,12 +559,29 @@ def update_frame():
     import matplotlib.pyplot as plt
     import io
 
-    matplotlib.use("agg")
-    plt.figure(figsize=(3.3, 3.3))
-    plt.plot(shared_array[:])
-    img_buf = io.BytesIO()
-    plt.savefig(img_buf, format="png")
-    im = Image.open(img_buf)
+    global ax, fig
+
+    # matplotlib.use("agg")
+    # plt.figure(figsize=(3.3, 3.3))
+    # plt.plot(shared_array[:])
+    # img_buf = io.BytesIO()
+    # plt.savefig(img_buf, format="png")
+    # im = Image.open(img_buf)
+    ax.clear()
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+
+    ax.set(yticklabels=[])
+    ax.set(xticklabels=[])
+
+    ax.plot(shared_array[:])
+
+    buf = io.BytesIO()
+    # fig.clf()
+    fig.savefig(buf)
+    # buf.seek(0)
+
+    im = Image.open(buf)
 
     # img = Image.fromarray(frame_show)
 
@@ -771,7 +804,7 @@ def update_frame():
     else:
         img2.save(f"experiments/020123/frames_others/{image_name}.jpg")
 
-    text = "some-text-value"
+    text = f"Timestamp: {shared_time.value} Prediction: {output_label}"
 
     # Save record result
     if gui.gui_down.get_record_status() == 1:
