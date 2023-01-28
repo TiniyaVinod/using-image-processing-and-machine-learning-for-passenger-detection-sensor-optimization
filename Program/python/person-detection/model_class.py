@@ -51,30 +51,16 @@ class model_class:
             predictions = result.pred[0]
         else:  #  if gpu is NOT available
             result = self.model(img)
-            print("Total Result")
-            print("--------------++++++++++++++++++-----------------")
-            # print(f"Result Pandas: {result.pandas().xyxy[0]}\n")
-            # print(f"Result Pandas confidence zero: {result.pandas().xyxy[0].confidence[0]}\n")
-            # print(f"Result Pandas name zero: {result.pandas().xyxy[0].name[0]}\n")
             output_result_text = []
             for i in range(len(result.pandas().xyxy[0].confidence)):
                 output_result_text.append(
                     f"Class: {(result.pandas().xyxy[0].name[i]).upper()}, Confidence : {math.floor(result.pandas().xyxy[0].confidence[i]*100)} %"
                 )
-            # result.print()
-            # print("Result Pred : ", result.pred, "\n")
-            print(output_result_text)
             if len(output_result_text) == 0:
                 output_result_text.append("NO DETECTION!")
-            print("-------------------------------")
             predictions = result.pred[0]
-            # print("predictions :", predictions)
 
             outputs_to_plot = []
-            # print("++++++++++++++++++++++++++++++++++++++++++++")
-            # print("++++++++++++++++++++++++++++++++++++++++++++")
-            # print(result.pandas().xyxy[0].name[i], result.pandas().xyxy[0].get("class"))
-            # print("++++++++++++++++++++++++++++++++++++++++++++")
 
             for i in range(len(result.pandas().xyxy[0].confidence)):
                 obj_dict = {}

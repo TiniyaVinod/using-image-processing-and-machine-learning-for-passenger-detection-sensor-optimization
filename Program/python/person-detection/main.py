@@ -15,6 +15,13 @@ import json, os, time
 from datetime import datetime
 
 from multiprocessing import Value, Array, Event
+import multiprocessing
+import socket
+from contextlib import contextmanager
+import subprocess
+import psutil
+import numpy, random
+import struct
 
 
 # --- main ---
@@ -27,6 +34,14 @@ isconnect_cam = False
 status_text = ""
 roi_points = []
 config_filename = "config.json"
+output_score = []
+
+update_loop_count = 0
+
+chair_count = 0
+non_chair_count = 0
+person_count = 0
+non_person_count = 0
 
 if not exists(config_filename):
     print("Cannot find configuration file")
@@ -69,13 +84,25 @@ shared_value = Value("i", 1)
 shared_time = Value("i", 0)
 shared_array = Array("i", size_or_initializer=16384)
 shared_prediction = Value("u", "o")
+shared_loop_count = Value("i", 0)
+shared_child_pid = Value("i", 0)
 
 event_is_updated = Event()
 event_is_not_stopped = Event()
 event_is_run_loop = Event()
+event_p1_for_sync = Event()
+event_p2_for_sync = Event()
+event_waiting_for_prediciton_result = Event()
+
+loop_count = 0
+
+buffer_size = 65536
+
+process_id = 0
 
 shared_toggle_update_loop = Value("i", 0)
 
+# region matplotlib for reusing figure
 
 # initializing matplotlib and using the same figure again
 import matplotlib.pyplot as plt
@@ -91,33 +118,18 @@ fig.set_size_inches(3.2, 3.2)
 
 ax.plot(shared_array[:])
 
+# endregion matlab
+
+# region clean1
 
 if not window_app_run:
     window_app_run = True
     gui = app_gui(window_app, default_img, default_img2, canvas_w, canvas_h, config)
 
 
-def stop_socket():
-    global global_socket_obj
-    global_socket_obj.close()
-
-
-def start_process():
-    import multiprocessing
-
-    process = multiprocessing.Process(
-        target=parallel_func, args=(shared_value, shared_prediction, event_is_updated)
-    )
-    process.start()
-
-
-# def terminate_process(pid):
-#     process.terminate()
-
-
 # Button Functions ----------------------------------------------------------
 def connect_cam():
-    global cap, video_writer, isconnect_cam
+    global cap, video_writer, isconnect_cam, update_loop_count, parallel_func_loop_count, output_score
 
     get_socket()
 
@@ -159,18 +171,19 @@ def connect_cam():
     button_disconnectcam["state"] = "normal"
 
     # start a parallel process
-    import multiprocessing
-
     shared_value.value = 1
-
-    event_is_run_loop.clear()
-
-    start_process()
+    event_p1_for_sync.clear()
+    event_p2_for_sync.clear()
+    update_loop_count = 0
+    parallel_func_loop_count = 0
+    output_score = []
+    start_process(parallel_func_loop_count)
 
 
 def disconnect_cam():
 
     global isconnect_cam
+    stop_socket()
 
     shared_value.value = 0
     if isconnect_cam:
@@ -188,145 +201,127 @@ def disconnect_cam():
     button_connectcam["state"] = "normal"
     button_disconnectcam["state"] = "disabled"
 
-    ## remove the child process
+    # remove the child process
     # Terminate the process when parent is done
     try:
-        child_process = psutil.Process(child_pid)
+        child_process = psutil.Process(shared_child_pid.value)
+        print("inside disconnect ")
+        print("child pid", shared_child_pid.value)
+        print(child_process)
         child_process.terminate()
+        print("Terminated child : ", shared_child_pid.value)
     except Exception as e:
         print("Exception occured : ", e)
 
 
-global global_socket_obj
+# endregion clean1
+
+# region socket
 
 
 def get_socket():
     global global_socket_obj
-
-    import socket
-
     server_address_port = ("192.168.178.25", 61231)
-
     # Create a UDP socket at client side
     global_socket_obj = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
-    # return udp_client_socket
+
+def stop_socket():
+    global global_socket_obj
+    global_socket_obj.close()
 
 
-from contextlib import contextmanager
-import subprocess
-
-import psutil
+# endregion socket
 
 
-# @contextmanager
-# def process(*args, **kwargs):
-#     proc = subprocess.Popen(*args, **kwargs)
-#     try:
-#         yield proc
-#     finally:
-#         for child in psutil.Process(proc.pid).children(recursive=True):
-#             child.kill()
-#         proc.kill()
+# region multiprocessing
 
 
-loop_count = 0
+def start_process(parallel_func_loop_count):
+    # process1 is considered as the running process or main process
+    # process2 is considered as the process for getting socket data
+    process2 = multiprocessing.Process(
+        target=acquire_data_from_rp,
+        args=(
+            parallel_func_loop_count,
+            shared_prediction,
+            event_p1_for_sync,
+            event_p2_for_sync,
+            event_waiting_for_prediciton_result,
+            shared_child_pid,
+        ),
+    )
+    process2.start()
 
 
-def parallel_func(shared_value, shared_prediction, event_is_updated):
-    print("+++++++++++++++++ inside parallel func++++++++++++++++++")
-    print(event_is_run_loop.is_set())
-    print("+++++++++++++++++ inside parallel func++++++++++++++++++")
-    global global_socket_obj, parent_pid, child_pid, loop_count
-    parent_pid = os.getppid()
-    child_pid = os.getpid()
+def send_cmd_to_redpitaya(cmd="-a 1"):
+    global global_socket_obj
+    server_address_port = ("192.168.178.25", 61231)
+    msg_from_client = cmd
+    bytes_to_send = str.encode(msg_from_client)
+    global_socket_obj.sendto(bytes_to_send, server_address_port)
 
-    # print("process id ", os.getpid())
 
-    run_loop = shared_value.value
+def acquire_data_from_rp(
+    parallel_func_loop_count,
+    shared_prediction,
+    event_p1_for_sync,
+    event_p2_for_sync,
+    event_waiting_for_prediciton_result,
+    shared_child_pid,
+):
 
-    # child_process = psutil.Process(child_pid)
-    # parent_process = psutil.Process(parent_pid)
-    # print(child_process.parents())
-    # for i in range(16384):
-    #     shared_array[i] = data[i]
+    # global variables
+    global global_socket_obj, buffer_size
 
-    is_run_loop_by_event = event_is_run_loop.wait(15)
+    shared_child_pid.value = os.getpid()
 
-    while is_run_loop_by_event:
+    # send cmd to redpitaya server
+    send_cmd_to_redpitaya()
 
-        print("-------inside while loopof parallel function-------------")
-        print(event_is_run_loop.is_set())
-        print("-------inside while loopof parallel function-------------")
+    # Variable to keep track of loop count
 
-        udp_client_socket = global_socket_obj
-        # Send to server using created UDP socket
-        buffer_size = 65536
-        server_address_port = ("192.168.178.25", 61231)
+    # Waiting for the event to set
+    run_while_loop = event_p1_for_sync.wait(15)
 
-        msg_from_client = "-a 1"
+    while run_while_loop:
+        print(
+            f"Inside acquire data++++{shared_child_pid.value}+++++++++++ : {parallel_func_loop_count}  : {shared_time.value}"
+        )
+        # update loop_count
+        parallel_func_loop_count += 1
+        packet = global_socket_obj.recv(buffer_size)
 
-        bytes_to_send = str.encode(msg_from_client)
-
-        udp_client_socket.sendto(bytes_to_send, server_address_port)
-
-        packet = udp_client_socket.recv(buffer_size)
-
-        import numpy, random
-
-        print("Waiting for the event to set.....")
-        if event_is_updated.wait(timeout=150):
-            loop_count += 1
-            print("Waiting Done!")
-            event_is_updated.clear()
+        print("Waiting for prediction to complete ")
+        if event_waiting_for_prediciton_result.wait(15):
+            event_waiting_for_prediciton_result.clear()
+            print("Waiting Done.!!!")
         else:
-            print("Parallel process exiting due to Timeout.")
             break
 
-        file_name = (
-            f"{loop_count}_{shared_time.value}_{shared_prediction.value}_adc.npy"
-        )
-
+        # region saving the received bytes and encoding
+        file_name = f"{parallel_func_loop_count}_{shared_time.value}_{shared_prediction.value}_adc.npy"
         np.save(
-            f"experiments/binaries/test_event_wait/{file_name}",
+            f"experiments/binaries/280123/{file_name}",
             packet,
         )
 
-        import struct
+        for index, data in enumerate(struct.iter_unpack("@h", packet[64:])):
+            shared_array[index] = data[0]
 
-        l = []
-        for index, dat in enumerate(struct.iter_unpack("@h", packet[64:])):
-            # l.append(dat)
-            # print(index, dat[0])
-            shared_array[index] = dat[0]
-        # print(shared_array[:])
+        # endregion
 
-        print("########################parallel###########################")
-        print("----------  ", run_loop, "    --------", event_is_run_loop.is_set())
-        print("---------shared-time---------  ", shared_time.value)
-
-        print("########################function###########################")
-        run_loop = shared_value.value
-
-        if event_is_run_loop.wait(30):
-            continue
+        # for syncing
+        event_p2_for_sync.set()
+        if event_p1_for_sync.wait(30):
+            event_p1_for_sync.clear()
+            run_while_loop = True
         else:
-            break
+            print("Exiting parallel function")
+            run_while_loop = False
 
 
-# def terminate_process_if_parent_dies():
-#     import psutil
-#     global parent_pid, child_pid
-
-#     try:
-#         parent = psutil.Process(pid=parent_pid)
-#         child = psutil.Process(pid=child_pid)
-#     except:
-#         pass
-#     finally:
-#         child.terminate()
-
-# os.killpg(os.getpid(), signal.SIGTERM)
+# endregion multiprocessing
 
 
 def play():
@@ -337,14 +332,12 @@ def play():
     print("--------play clicked -------------")
     global cap, run_camera, record_result, video_writer, shared_value, event_is_updated
 
-    get_socket()
-
     record_result = []
     rec_mode = gui.gui_down.get_record_status()
 
     # Set Event
 
-    event_is_run_loop.set()
+    event_waiting_for_prediciton_result.clear()
 
     # Check if it is record mode
     if rec_mode:
@@ -364,6 +357,9 @@ def play():
 
         gui.gui_down.disable_setting()
 
+        event_p1_for_sync.set()
+        event_p2_for_sync.set()
+        print("hered...........")
         update_frame()
 
     # Clear Text
@@ -379,17 +375,10 @@ def stop():
     """
     global run_camera, video_writer, shared_value, global_socket_obj
 
-    print("----stop called ---------")
-    print("type of shared_value ")
-    print(type(shared_value))
-    print("value before change   : ", shared_value.value)
     shared_value.value = 0
 
-    event_is_run_loop.clear()
-
-    stop_socket()
-
-    print("value after change   : ", shared_value.value)
+    event_p1_for_sync.clear()
+    event_p2_for_sync.clear()
 
     if isconnect_cam == False:
         return 0
@@ -479,52 +468,23 @@ def preprocess_frame(frame):
     return frame_flip
 
 
-output_score = []
-
-count = 0
-chair_count = 0
-non_chair_count = 0
-person_count = 0
-non_person_count = 0
-
-
 def update_frame():
-    start_timer = timer()
-
     global global_frame, roi_img, roi_flag, record_result
-    global shared_time, shared_value, shared_array, shared_prediction, event_is_updated
+    global shared_time, shared_value, shared_array, shared_prediction
+    global event_p1_for_sync, event_p2_for_sync
+    global chair_count, non_chair_count, person_count, non_person_count, update_loop_count, output_score
 
-    print(" Inside update frame ")
-    # print(shared_array[:])
-
+    # reading timestamp
     timestamp = (
         datetime.today() - datetime.today().replace(hour=0, minute=0, second=0)
     ).seconds
     shared_time.value = timestamp
 
+    start_timer = timer()
+
     # Read frame capture object
     ret, frame = cap.read()
-
-    # font = cv2.FONT_HERSHEY_SIMPLEX
-
-    # # org
-    # org = (50, 50)
-
-    # # fontScale
-    # fontScale = 1
-
-    # # Blue color in BGR
-    # color = (255, 0, 0)
-
-    # # Line thickness of 2 px
-    # thickness = 2
-
-    # # Using cv2.putText() method
-    # frame = cv2.putText(frame, 'Person', org, font,
-    #                fontScale, color, thickness, cv2.LINE_AA)
-
     curr_frame = cap.get(cv2.CAP_PROP_POS_FRAMES)
-
     datetime_format = "%m/%d/%Y, %H:%M:%S"  # .f
 
     # If can't read frame
@@ -550,9 +510,7 @@ def update_frame():
     else:
         frame_show = frame_flip
 
-    print(type(frame_show))
-    print(frame_show.shape)
-    print(frame_show.size)
+    # region plot graph in gui
 
     from PIL import Image
     import matplotlib
@@ -589,7 +547,11 @@ def update_frame():
 
     gui.gui_top.canvas_l_img.paste(im)
 
+    # endregion
+
     select_mode = gui.gui_down.select_mode
+
+    # region model prediction and object classification
 
     # Classification
     # Set parameter
@@ -606,17 +568,8 @@ def update_frame():
     sec = cap.get(cv2.CAP_PROP_POS_MSEC)
     second = "{:.2f}".format(sec * 0.001)
 
-    person_classcode = 0.0
-    pred_storage = list(predictions.storage())
-    # print("pred_storage")
-    # print(pred_storage)
-    # print(dir(predictions))
-    # print("-------------------------")
-    boxes = []
     img_with_keypoints = frame_flip.copy()
     for obj in predictions_all_class:
-        print("Predicion Label : ", obj)
-        print("********************++++")
         x1 = int(obj["x1"])
         y1 = int(obj["y1"])
         x2 = int(obj["x2"])
@@ -639,73 +592,16 @@ def update_frame():
             1,
         )
     img2 = Image.fromarray(img_with_keypoints)
-    # Check if there is any person in the frame
-    if False:
-        # Find index of person
-        x = pred_storage.index(person_classcode)
-
-        score = pred_storage[x - 1]
-        boxes = pred_storage[x - 5 : x - 1]  # x1, y1, x2, y2
-
-        img_with_keypoints = frame_flip.copy()
-
-        try:
-            x1 = int(boxes[0])
-            y1 = int(boxes[1])
-            x2 = int(boxes[2])
-            y2 = int(boxes[3])
-
-            # cv2.rectangle(img_with_keypoints, (x1, y1), (x2, y2), (0,255,0), (5))
-            # cv2.putText(img_with_keypoints, 'person score: '+str(score), (x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
-        except:
-            print("boxes does not exist")
-
-        img2 = Image.fromarray(img_with_keypoints)
-
-        pred_result = "Person"
-        text = form_predict_text(select_mode, second, datetime_format, pred_result)
-
-    elif False:
-        img2 = Image.fromarray(frame_flip)
-
-        pred_result = "Empty Scence"
-        text = form_predict_text(select_mode, second, datetime_format, pred_result)
 
     img_array = np.array(img2)
 
     font = cv2.FONT_HERSHEY_SIMPLEX
 
-    # org
-    org = (5, 25)
-    # org2 = (5, 50)
-    # org3 = (5, 75)
-    # org4 = (5, 100)
-    orgs = [(5, 25 * (i + 1)) for i in range(len(output_result_text))]
-    # fontScale
-    fontScale = 0.5
-
-    # Blue color in BGR
-    color = (255, 0, 0)
-
-    # Line thickness of 2 px
-    thickness = 1
-    # Saving the prediction result of the program
-    # for i in range(len(output_result_text)):
-    #     img_array = cv2.putText(img_array, output_result_text[i], orgs[i], font,
-    #             fontScale, color, thickness, cv2.LINE_AA)
-    # Using cv2.putText() method
-
-    # img_array = plot_boxes(predictions_all_class, img_array)
-
-    image_name = f"{timestamp}_"
-    global chair_count
-    global non_chair_count
-    global person_count
-    global non_person_count
-    global count
     increase_chair_count = False
     # increase total_count
-    count += 1
+    update_loop_count += 1
+    print(f"inside update loop : {update_loop_count} : {shared_time.value}")
+    image_name = f"{update_loop_count}_{timestamp}_"
     local_chair_only_count = 0
     for i in range(len(output_result_text)):
         if (
@@ -722,65 +618,24 @@ def update_frame():
     if increase_chair_count:
         output_label = "chair"
         chair_count += 1
-        image_name += f"{count}_chair_{chair_count}"
+        image_name += f"chair_{chair_count}"
         increase_chair_count = False
     else:
         output_result = " ".join(output_result_text[:3])
-        print(output_result, " JOINED RESULT")
         if "PERSON" in output_result:
             output_label = "person"
             person_count += 1
-            image_name += f"{count}_person_{person_count}"
+            image_name += f"person_{person_count}"
         else:
             output_label = "others"
             non_person_count += 1
-            # image_name = f"{count}_non_person_{non_person_count}"
+            # image_name = f"_non_person_{non_person_count}"
             non_chair_count += 1
-            image_name += f"{count}_others_{non_chair_count}"
+            image_name += f"others_{non_chair_count}"
             increase_chair_count = False
 
-    shared_prediction.value = output_label[0]
-    event_is_updated.set()
-
-    # true_positive = person_count
-    # false_positive = 0
-    # true_negative = 0
-    # false_negative = non_person_count
-
-    # precision = true_positive / (true_positive + false_positive)
-
-    # recall = true_positive / (true_positive + false_negative)
-
-    # f1_score = (2*precision*recall)/(precision + recall)
-
-    global output_score
-    # print(count, f1_score)
-    # score_data = {
-    #     "total_count": true_positive + false_negative + true_negative + false_positive,
-    #     "true_positive": true_positive,
-    #     "false_positive": false_positive,
-    #     "true_negative": true_negative,
-    #     "false_negative": false_negative,
-    #     "precision": precision,
-    #     "recall": recall,
-    #     "f1_score": f1_score
-    # }
-    # score_data = {
-    #     "total_count": count
-    # }
-    # predictions = []
-    # for text in output_result_text:
-    #     class_name = text.split(",")[0].split(":")[-1].strip()
-    #     confidence_score = text.split(",")[1].split(":")[-1].strip()
-    #     pred_dictionary = {
-    #         class_name: confidence_score
-    #     }
-    #     predictions.insert(-1, pred_dictionary)
-    # score_data["predictions"] = predictions
-    # output_score.insert(0, score_data)
-
     predictions = {
-        "total_count": count,
+        "total_count": update_loop_count,
         "timestamp": timestamp,
         "prediction": output_label,
     }
@@ -788,23 +643,22 @@ def update_frame():
     output_score.insert(0, predictions)
 
     with open(
-        "experiments/json_files/prediction_result_020123.json", "w", encoding="utf-8"
+        "experiments/json_files/prediction_result_280123.json", "w", encoding="utf-8"
     ) as f:
         json.dump(output_score, f, ensure_ascii=False, indent=4)
-
-    # img_array = cv2.putText(img_array, output_result_text[1], org2, font,
-    #             fontScale, color, thickness, cv2.LINE_AA)
 
     img2 = Image.fromarray(img_array)
 
     if "chair" in image_name:
-        img2.save(f"experiments/020123/frames_chair/{image_name}.jpg")
+        img2.save(f"experiments/images/frames_chair/{image_name}.jpg")
     elif "person" in image_name:
-        img2.save(f"experiments/020123/frames_person/{image_name}.jpg")
+        img2.save(f"experiments/images/frames_person/{image_name}.jpg")
     else:
-        img2.save(f"experiments/020123/frames_others/{image_name}.jpg")
+        img2.save(f"experiments/images/frames_others/{image_name}.jpg")
 
     text = f"Timestamp: {shared_time.value} Prediction: {output_label}"
+
+    # endregion image prediction and save
 
     # Save record result
     if gui.gui_down.get_record_status() == 1:
@@ -821,8 +675,16 @@ def update_frame():
     msg = "FPS : " + str_fps
     display_status(msg)
 
-    if run_camera:
-        window_app.after(10, update_frame)
+    # saving the prediction in shared memory
+    shared_prediction.value = output_label[0]
+    event_waiting_for_prediciton_result.set()
+
+    # for syncing and calling the function recursively
+    event_p1_for_sync.set()
+    if event_p2_for_sync.wait(15):
+        event_p2_for_sync.clear()
+        if run_camera:
+            window_app.after(10, update_frame)
 
 
 def form_predict_text(select_mode, second, datetime_format, pred_result):
