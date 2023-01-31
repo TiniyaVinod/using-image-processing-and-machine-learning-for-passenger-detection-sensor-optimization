@@ -8,7 +8,7 @@ msg_from_client = "-a 1"
 
 bytes_to_send = str.encode(msg_from_client)
 
-server_address_port = ("192.168.178.25", 61231)
+server_address_port = ("192.168.128.1", 61231)
 
 
 # Create a UDP socket at client side

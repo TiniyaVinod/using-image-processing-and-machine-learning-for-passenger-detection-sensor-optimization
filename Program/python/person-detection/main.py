@@ -221,7 +221,7 @@ def disconnect_cam():
 
 def get_socket():
     global global_socket_obj
-    server_address_port = ("192.168.178.25", 61231)
+    server_address_port = ("192.168.128.1", 61231)
     # Create a UDP socket at client side
     global_socket_obj = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
@@ -256,7 +256,7 @@ def start_process(parallel_func_loop_count):
 
 def send_cmd_to_redpitaya(cmd="-a 1"):
     global global_socket_obj
-    server_address_port = ("192.168.178.25", 61231)
+    server_address_port = ("192.168.128.1", 61231)
     msg_from_client = cmd
     bytes_to_send = str.encode(msg_from_client)
     global_socket_obj.sendto(bytes_to_send, server_address_port)
