@@ -22,7 +22,8 @@ import subprocess
 import psutil
 import numpy, random
 import struct
-
+import ctypes
+from get_data_from_sensor import acquire_data_from_rp
 
 # --- main ---
 
@@ -42,6 +43,13 @@ chair_count = 0
 non_chair_count = 0
 person_count = 0
 non_person_count = 0
+
+
+# global variables
+parallel_func_loop_count = 0
+loop_count = 0
+buffer_size = 65536
+process_id = 0
 
 if not exists(config_filename):
     print("Cannot find configuration file")
@@ -77,31 +85,6 @@ global_frame = white_img
 model = model_class(config["model_classification"])
 
 
-# sharing value for multiprocess communication
-
-
-shared_value = Value("i", 1)
-shared_time = Value("i", 0)
-shared_array = Array("i", size_or_initializer=16384)
-shared_prediction = Value("u", "o")
-shared_loop_count = Value("i", 0)
-shared_child_pid = Value("i", 0)
-
-event_is_updated = Event()
-event_is_not_stopped = Event()
-event_is_run_loop = Event()
-event_p1_for_sync = Event()
-event_p2_for_sync = Event()
-event_waiting_for_prediciton_result = Event()
-
-loop_count = 0
-
-buffer_size = 65536
-
-process_id = 0
-
-shared_toggle_update_loop = Value("i", 0)
-
 # region matplotlib for reusing figure
 
 # initializing matplotlib and using the same figure again
@@ -116,7 +99,9 @@ ax.set(xticklabels=[])
 
 fig.set_size_inches(3.2, 3.2)
 
-ax.plot(shared_array[:])
+initial_array = [0 for i in range(buffer_size)]
+
+ax.plot(initial_array)
 
 # endregion matlab
 
@@ -130,9 +115,6 @@ if not window_app_run:
 # Button Functions ----------------------------------------------------------
 def connect_cam():
     global cap, video_writer, isconnect_cam, update_loop_count, parallel_func_loop_count, output_score
-
-    get_socket()
-
     if isconnect_cam:
         return 0
 
@@ -175,15 +157,12 @@ def connect_cam():
     event_p1_for_sync.clear()
     event_p2_for_sync.clear()
     update_loop_count = 0
-    parallel_func_loop_count = 0
     output_score = []
-    start_process(parallel_func_loop_count)
 
 
 def disconnect_cam():
 
     global isconnect_cam
-    stop_socket()
 
     shared_value.value = 0
     if isconnect_cam:
@@ -215,113 +194,6 @@ def disconnect_cam():
 
 
 # endregion clean1
-
-# region socket
-
-
-def get_socket():
-    global global_socket_obj
-    server_address_port = ("192.168.128.1", 61231)
-    # Create a UDP socket at client side
-    global_socket_obj = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-
-
-def stop_socket():
-    global global_socket_obj
-    global_socket_obj.close()
-
-
-# endregion socket
-
-
-# region multiprocessing
-
-
-def start_process(parallel_func_loop_count):
-    # process1 is considered as the running process or main process
-    # process2 is considered as the process for getting socket data
-    process2 = multiprocessing.Process(
-        target=acquire_data_from_rp,
-        args=(
-            parallel_func_loop_count,
-            shared_prediction,
-            event_p1_for_sync,
-            event_p2_for_sync,
-            event_waiting_for_prediciton_result,
-            shared_child_pid,
-        ),
-    )
-    process2.start()
-
-
-def send_cmd_to_redpitaya(cmd="-a 1"):
-    global global_socket_obj
-    server_address_port = ("192.168.128.1", 61231)
-    msg_from_client = cmd
-    bytes_to_send = str.encode(msg_from_client)
-    global_socket_obj.sendto(bytes_to_send, server_address_port)
-
-
-def acquire_data_from_rp(
-    parallel_func_loop_count,
-    shared_prediction,
-    event_p1_for_sync,
-    event_p2_for_sync,
-    event_waiting_for_prediciton_result,
-    shared_child_pid,
-):
-
-    # global variables
-    global global_socket_obj, buffer_size
-
-    shared_child_pid.value = os.getpid()
-
-    # send cmd to redpitaya server
-    send_cmd_to_redpitaya()
-
-    # Variable to keep track of loop count
-
-    # Waiting for the event to set
-    run_while_loop = event_p1_for_sync.wait(15)
-
-    while run_while_loop:
-        print(
-            f"Inside acquire data++++{shared_child_pid.value}+++++++++++ : {parallel_func_loop_count}  : {shared_time.value}"
-        )
-        # update loop_count
-        parallel_func_loop_count += 1
-        packet = global_socket_obj.recv(buffer_size)
-
-        print("Waiting for prediction to complete ")
-        if event_waiting_for_prediciton_result.wait(15):
-            event_waiting_for_prediciton_result.clear()
-            print("Waiting Done.!!!")
-        else:
-            break
-
-        # region saving the received bytes and encoding
-        file_name = f"{parallel_func_loop_count}_{shared_time.value}_{shared_prediction.value}_adc.npy"
-        np.save(
-            f"experiments/binaries/280123/{file_name}",
-            packet,
-        )
-
-        for index, data in enumerate(struct.iter_unpack("@h", packet[64:])):
-            shared_array[index] = data[0]
-
-        # endregion
-
-        # for syncing
-        event_p2_for_sync.set()
-        if event_p1_for_sync.wait(30):
-            event_p1_for_sync.clear()
-            run_while_loop = True
-        else:
-            print("Exiting parallel function")
-            run_while_loop = False
-
-
-# endregion multiprocessing
 
 
 def play():
@@ -798,4 +670,48 @@ button_default_ROI.pack(side="left")
 status_text = tk.Label(window_app)
 status_text.grid(row=3, column=0)
 
-window_app.mainloop()
+
+if __name__ == "__main__":
+
+    try:
+        multiprocessing.set_start_method("spawn", force=True)
+        print("spawned")
+    except RuntimeError:
+        print("Runtime Error!")
+        pass
+
+    context = multiprocessing.get_context("spawn")
+
+    event_is_updated = context.Event()
+    event_is_not_stopped = context.Event()
+    event_is_run_loop = context.Event()
+    event_p1_for_sync = context.Event()
+    event_p2_for_sync = context.Event()
+    event_waiting_for_prediciton_result = context.Event()
+
+    shared_value = context.Value("i", 1)
+    shared_time = context.Value("i", 0)
+    shared_array = context.Array("i", size_or_initializer=16384)
+    shared_prediction = context.Value("u", "o")
+    shared_loop_count = context.Value("i", 0)
+    shared_child_pid = context.Value("i", 0)
+
+    process1 = multiprocessing.Process(
+        target=acquire_data_from_rp,
+        args=(
+            parallel_func_loop_count,
+            buffer_size,
+            shared_time,
+            shared_prediction,
+            shared_array,
+            shared_child_pid,
+            event_p1_for_sync,
+            event_p2_for_sync,
+            event_waiting_for_prediciton_result,
+        ),
+    )
+
+    process1.start()
+    window_app.mainloop()
+
+    process1.join()
