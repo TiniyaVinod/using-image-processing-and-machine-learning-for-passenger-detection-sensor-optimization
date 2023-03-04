@@ -44,7 +44,7 @@ def acquire_data_from_rp(
         # region saving the received bytes and encoding
         file_name = f"{parallel_func_loop_count}_{shared_time.value}_{shared_prediction.value}_adc.npy"
         np.save(
-            f"experiments/binaries/280123/{file_name}",
+            f"experiments/binaries/{file_name}",
             packet,
         )
 

@@ -4,9 +4,9 @@ venv/
 __pycache__
 frames/
 records/
-frames*/
+# frames*/
 
 # experiments data
-experiments/
+# experiments/
 
 .DS_Store

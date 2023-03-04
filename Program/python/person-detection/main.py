@@ -515,7 +515,7 @@ def update_frame():
     output_score.insert(0, predictions)
 
     with open(
-        "experiments/json_files/prediction_result_280123.json", "w", encoding="utf-8"
+        "experiments/json_files/prediction_result.json", "w", encoding="utf-8"
     ) as f:
         json.dump(output_score, f, ensure_ascii=False, indent=4)
 
