@@ -99,7 +99,7 @@ ax.set(xticklabels=[])
 
 fig.set_size_inches(3.2, 3.2)
 
-initial_array = [0 for i in range(buffer_size)]
+initial_array = [0 for i in range(85)]
 
 ax.plot(initial_array)
 
@@ -161,7 +161,6 @@ def connect_cam():
 
 
 def disconnect_cam():
-
     global isconnect_cam
 
     shared_value.value = 0
@@ -295,7 +294,6 @@ def remove_ROI():
 
 
 def default_roi(config):
-
     """
     Set roi points to default
     """
@@ -310,7 +308,6 @@ def default_roi(config):
 
 
 def draw_polygon_roi(frame):
-
     global roi_points
 
     # draw polygon if with the specified points
@@ -326,7 +323,6 @@ def draw_polygon_roi(frame):
 
 
 def preprocess_frame(frame):
-
     # Resize frame
     dim = (gui.canvas_w, gui.canvas_h)
     frame_resize = cv2.resize(frame, dim, interpolation=cv2.INTER_AREA)
@@ -493,7 +489,7 @@ def update_frame():
         image_name += f"chair_{chair_count}"
         increase_chair_count = False
     else:
-        output_result = " ".join(output_result_text[:3])
+        output_result = " ".join(output_result_text[:5])
         if "PERSON" in output_result:
             output_label = "person"
             person_count += 1
@@ -569,7 +565,6 @@ def form_predict_text(select_mode, second, datetime_format, pred_result):
 
 
 def create_roi():
-
     global roi_points
 
     roi_points = []
@@ -580,14 +575,12 @@ def create_roi():
 
 
 def click_event_ROI(event, x, y, flags, params):
-
     global roi_img
 
     roi_img = np.zeros([canvas_w, canvas_h, 3], dtype=np.uint8)
 
     # checking for left mouse clicks
     if event == cv2.EVENT_LBUTTONDOWN:
-
         # displaying the coordinates
         # on the image window
         font = cv2.FONT_HERSHEY_SIMPLEX
@@ -610,7 +603,6 @@ def display_status(msg):
 
 
 def export_result():
-
     export_filename = splitext(gui.gui_down.get_record_export_path())[0]
 
     export_folder = config["export"]["export_record_folder"]
@@ -672,7 +664,6 @@ status_text.grid(row=3, column=0)
 
 
 if __name__ == "__main__":
-
     try:
         multiprocessing.set_start_method("spawn", force=True)
         print("spawned")
@@ -691,7 +682,7 @@ if __name__ == "__main__":
 
     shared_value = context.Value("i", 1)
     shared_time = context.Value("i", 0)
-    shared_array = context.Array("i", size_or_initializer=16384)
+    shared_array = context.Array("i", size_or_initializer=85)
     shared_prediction = context.Value("u", "o")
     shared_loop_count = context.Value("i", 0)
     shared_child_pid = context.Value("i", 0)

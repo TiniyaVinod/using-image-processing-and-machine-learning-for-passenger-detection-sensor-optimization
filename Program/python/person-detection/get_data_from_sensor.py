@@ -15,7 +15,6 @@ def acquire_data_from_rp(
     event_p2_for_sync,
     event_waiting_for_prediciton_result,
 ):
-
     shared_child_pid.value = os.getpid()
 
     # send cmd to redpitaya server
@@ -42,7 +41,7 @@ def acquire_data_from_rp(
             break
 
         # region saving the received bytes and encoding
-        file_name = f"{parallel_func_loop_count}_{shared_time.value}_{shared_prediction.value}_adc.npy"
+        file_name = f"{parallel_func_loop_count}_{shared_time.value}_{shared_prediction.value}_fft.npy"
         np.save(
             f"experiments/binaries/{file_name}",
             packet,
@@ -63,7 +62,7 @@ def acquire_data_from_rp(
             run_while_loop = False
 
 
-def send_cmd_to_redpitaya(cmd="-a 1"):
+def send_cmd_to_redpitaya(cmd="-f 1"):
     socket_object = get_socket_object()
     server_address_port = ("192.168.128.1", 61231)
     msg_from_client = cmd

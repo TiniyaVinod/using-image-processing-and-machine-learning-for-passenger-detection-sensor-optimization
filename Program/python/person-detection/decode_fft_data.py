@@ -31,15 +31,18 @@ header_data = []
 for i in struct.iter_unpack("@f", packet[:header_length]):
     header_data.append(i[0])
 
-print(f"Header_Length : {header_length} Bytes.")
-print("Header_Data : ", header_data)
-
 
 ultrasonic_data = []
-for i in struct.iter_unpack("@h", packet[header_length:ultrasonic_data_length]):
+for i in struct.iter_unpack("@h", packet[header_length:]):
     ultrasonic_data.append(i[0])
 
 print(f"Ultrasonic Data Length : {ultrasonic_data_length} Bytes")
 print("Ultrasonic Data : ", ultrasonic_data)
+
+print("Total Length ", len(header_data) + len(ultrasonic_data))
+print(f"Header_Length : {header_length} Bytes.")
+print("Header_Data : ", header_data)
+print(f"Length of Header : {len(header_data)}")
+print(f"Length of Ultrasonic Data : {len(ultrasonic_data)}")
 
 udp_client_socket.close()

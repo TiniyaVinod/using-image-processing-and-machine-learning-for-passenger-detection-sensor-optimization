@@ -18,6 +18,8 @@ udp_client_socket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
 udp_client_socket.sendto(bytes_to_send, server_address_port)
 
+print("Message sent to the Client!")
+
 packet = udp_client_socket.recv(buffer_size)
 
 print(f"Total Received : {len(packet)} Bytes.")
@@ -36,10 +38,16 @@ print("Header_Data : ", header_data)
 
 
 ultrasonic_data = []
-for i in struct.iter_unpack("@h", packet[header_length:ultrasonic_data_length]):
+for i in struct.iter_unpack("@h", packet[header_length:]):
     ultrasonic_data.append(i[0])
 
 print(f"Ultrasonic Data Length : {ultrasonic_data_length} Bytes")
-print("Ultrasonic Data : ", ultrasonic_data)
+# print("Ultrasonic Data : ", ultrasonic_data)
 
+
+print("Total Length ", len(header_data) + len(ultrasonic_data))
+
+
+print(f"Length of Header : {len(header_data)}")
+print(f"Length of Ultrasonic Data : {len(ultrasonic_data)}")
 udp_client_socket.close()
