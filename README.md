@@ -1,6 +1,6 @@
-# Using-Image-Processing-for-Autonomous-Illumination-Sensor-Optimization
+# Automatic Labelling System using Machine Learning
 
-## Individual project work continued from the work of Mr. Paween.
+## Master thesis work continued from the work of Mr. Paween and Mr. Bisal
 
 ## Features
 
